@@ -1,0 +1,113 @@
+*{
+  margin: 0;
+  font-size: x-large;
+}
+.background{
+  background-image: url("/assets/images/vote.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+main {
+
+  background-image: linear-gradient(to top, rgba(126, 181, 117, 0.71), rgba(5, 39, 5, 0.5));
+  width: 100%;
+  min-height: 100vh;
+  padding: 2em 0;
+  .myContainer{
+    background-color: rgba(255, 255, 255, 0.45);
+    padding: 0.5em;
+  }
+}
+section{
+  background: linear-gradient(to right, rgba(5, 39, 5), dimgray);
+  border-radius: 2em;
+  color: white;
+  /*border-radius: 2em;*/
+  min-height: 75vh;
+  margin: 0 auto;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:  "welcome candidate" "welcome  elector";
+  gap: 1em;
+  p{
+    margin: 1em 0;
+  }
+  .welcome{
+    grid-area: welcome;
+    align-self: center;
+    gap: 1em;
+    .wlc-section{
+      display: flex;
+    }
+    img{
+      width: 250px;
+      height: 170px;
+
+    }
+    p{
+      margin-left: 0.5em;
+    }
+  }
+  .elector{
+    grid-area: elector;
+    align-self: center;
+  }
+  .candidate{
+    grid-area: candidate;
+    align-self: center;
+  }
+  button{
+    background-color: white;
+    border: none;
+    border-radius: 2em;
+    padding: 0.25em 0.5em;
+    font-size: large;
+    font-weight: bold;
+    color: #7eb575;
+  }
+  button:hover{
+    background-color: #26521f;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 3px -3px 3px 3px white, -3px 3px 3px 3px white;
+  }
+}
+@media (max-width: 800px) {
+  section{
+    grid-template-columns: 1fr;
+    grid-template-areas: "welcome" "candidate" "elector";
+    .welcome{
+      align-self: auto;
+      .wlc-section{
+        display: block;
+      }
+    }
+    .elector{
+      align-self: auto;
+    }
+    .candidate{
+      align-self: auto;
+      height: fit-content;
+    }
+  }
+}
+
+@media (max-width: 1500px) and (min-width: 800px) {
+  section {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "welcome welcome" "candidate elector";
+
+    .welcome {
+      align-self: auto;
+
+      .wlc-section {
+        display: block;
+      }
+    }
+
+  }
+}

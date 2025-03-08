@@ -1,0 +1,9 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['Nom Parti', 'Nom', 'Prénom(s)','Elector Id' ,]"
+  [rows]="allCandidates"
+  [dataColumns]="['name', 'lastname', 'firstname', 'id']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+/>

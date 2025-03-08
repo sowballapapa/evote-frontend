@@ -1,0 +1,11 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['N° CNI', 'Nom', 'Prénom(s)', 'Sexe', 'Date de Naissance', 'Lieu de naissance','Prénom(s) du père']"
+  [rows]="allElectors"
+  [dataColumns]="['cniNumber', 'lastname', 'firstname','sex', 'birthDate', 'birthPlace', 'dadFirstname']"
+  [pageSize]="pageSize"
+  [lastPage]="lastPage"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

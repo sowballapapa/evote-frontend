@@ -1,0 +1,13 @@
+
+<div class="myContainer">
+  <div class="myHeader">
+    <app-elector-header/>
+  </div>
+  <div class="myMain  border-2 border-success border-top  border-bottom shadow">
+    <router-outlet/>
+  </div>
+  <div class="myFooter">
+    <app-elector-footer *ngIf="isLoggedIn"/>
+  </div>
+
+</div>

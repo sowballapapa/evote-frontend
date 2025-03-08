@@ -1,0 +1,9 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID', 'Nom du parti', 'Slogan']"
+  [rows]="allDgeUsers"
+  [dataColumns]="['id', 'name', 'slogan']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+/>

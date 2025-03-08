@@ -1,0 +1,16 @@
+<div>
+  <b>Filter:</b>
+  <button>Bureau de Vote</button>
+  <button>Electeurs</button>
+</div>
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID', 'Nom d\'utilisateur', 'Email', 'Téléphone', 'Type']"
+  [rows]="allUsers"
+  [dataColumns]="['id', 'username', 'email', 'phone', 'user_type']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

@@ -1,0 +1,64 @@
+.admin-base {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: "aside header" "aside main" "aside footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+.admin-header {
+  grid-area: header;
+  position: sticky;
+  height: 60px;
+  top: 0;
+  padding: 1em;
+  border-bottom: 3px solid green;
+  background-color: #eceeeb;
+  margin: 0 1em;
+  border-radius: 0.25em;
+
+}
+.admin-sidebar {
+  grid-area: aside;
+  width: 300px;
+  position: sticky;
+  color: white;
+  font-size: 1.05em;
+  font-weight: bold;
+  background-color: #033403;
+  padding: 1em;
+  top: 0;
+  bottom: 0;
+  min-height: 100vh;
+  box-shadow: 1px 0 3px rgb(112, 112, 112);
+}
+
+.admin-main{
+  grid-area: main;
+  margin: 1.5em;
+  padding: 0.5em;
+  border: solid 1px green;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px green;
+  background-color: rgba(255, 255, 255, 0.64);
+}
+
+.admin-footer{
+  grid-area: footer;
+  padding: 2em;
+  background-color: #6c786c;
+  color: black;
+  height: 50px;
+  span{
+    padding: 0.5em;
+  }
+  div{
+    padding: 0 2em;
+  }
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+

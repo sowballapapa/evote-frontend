@@ -1,0 +1,7 @@
+.bg-degrade{
+  background: rgb(255,255,255);
+background: linear-gradient(36deg, rgb(242, 255, 243) 10%, rgb(247, 246, 246) 100%);
+border: 2px solid rgb(231, 231, 231);
+border-radius: 10px;
+
+}

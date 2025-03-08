@@ -1,0 +1,43 @@
+
+.noCandidate{
+  display: grid;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto;
+  div{
+    background-color: rgba(232, 206, 94, 0.59);
+    text-align: center;
+    padding: 2em;
+    border: #010d01 1px solid;
+    border-radius: 1em;
+    box-shadow: 3px 3px 5px #052705;
+    position: relative;
+  }
+  h1{
+    color: #e31b23;
+  }
+  button{
+    border: none;
+    background: transparent;
+    color: #076307;
+    cursor: pointer;
+    font-size: xx-large;
+    text-decoration: double underline;
+  }
+  button:hover, button:focus{
+    color: rgba(66, 138, 66, 0.89);
+  }
+}
+
+
+@media (max-width: 800px){
+  .noCandidate{
+    h1{
+      font-size: large;
+    }
+    button{
+      font-size: large;
+    }
+  }
+}

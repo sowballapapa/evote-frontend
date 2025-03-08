@@ -1,0 +1,9 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['Matricule', 'Nom', 'Prénom(s)', 'Email', 'Téléphone', 'Fonction','Elector Id' ,]"
+  [rows]="allDgeUsers"
+  [dataColumns]="['registrationNumber', 'lastname', 'firstname','email', 'phone', 'title', 'id']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+/>

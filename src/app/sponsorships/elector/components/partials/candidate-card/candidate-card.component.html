@@ -1,0 +1,17 @@
+
+<div class="border me-3 mb-4 " [ngClass]="checked?'border-success border-4 shadow-lg bg-success-subtle':'border-dark-subtle border-1 shadow-sm'">
+  <div class="form-check fs-3 bg-body-secondary">
+    <input [hidden]="disactiveHidden" class="form-check-input" type="checkbox" [checked]="checked" name="checked" [(ngModel)]="checked" id="choice">
+    <label [hidden]="disactiveHidden" class="form-check-label text-info-emphasis fw-bold fs-5" for="choice">Sélectionner</label>
+  </div>
+  <div class="candidate-card">
+  <img src="{{urlImg}}" alt="">
+  <section>
+    <p><b>Candidat: </b>{{candidate}}</p>
+    <p><b>Parti: </b>{{party}}</p>
+    <section class="float-end" [hidden]="!checked">
+      <button class="btn fs-3">Parrainer</button>
+    </section>
+  </section>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<app-login-header  *ngIf="!isLogin"/>
+  <router-outlet *ngIf="!isLogin"/>
+<app-footer *ngIf="!isLogin"/>
+
+<div class="admin-base" [hidden]="!isLogin">
+  <aside class="admin-sidebar">
+    <app-menu/>
+  </aside>
+  <header class="admin-header shadow">
+    <app-base-header/>
+  </header>
+  <main class="admin-main shadow">
+    <router-outlet/>
+  </main>
+  <footer class="admin-footer">
+    <div class="float-start ">
+      <span>
+        <a class="link-underline-success text-white" routerLink="/">Visitez la plateforme E-vote? </a>
+      </span>
+      <span>
+      <a class="link-underline-success text-white" routerLink="/evote-parrainages/electeur"> Voulez vous parrainer?</a>
+      </span>
+    </div>
+    <div class="text-center">
+      <img src="/assets/FlagOfSenegal.svg.png" class="img-fluid" width="30x" alt="">
+    </div>
+
+    <div class=" fs-5 fw-medium text-white">
+      {{ year}} &copy;
+      <u class="ps-2"> République du Sénégal</u>
+    </div>
+  </footer>
+</div>
+

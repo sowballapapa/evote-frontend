@@ -1,0 +1,95 @@
+
+
+.myContainer{
+  display: grid;
+  grid-template-columns:1fr 2fr;
+  grid-template-areas: 'infos cniImg' 'account account' ;
+  gap: 15px;
+}
+
+.cni_infos{
+  grid-area: infos;
+  table th tr{
+    text-align: right;
+  }
+  table td, th{
+    border: 1px solid black;
+    padding: 0.5em;
+  }
+}
+
+.cni_imgs{
+  grid-area: cniImg;
+  margin: auto auto;
+  text-align: center;
+  align-items: center;
+  img{
+    width: 100px;
+    height: 50px;
+  }
+}
+
+.account{
+  grid-area: account;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: rgb(240, 240, 240);
+  h4{
+    align-items: center;
+    justify-content: center;
+  }
+  #acc_body{
+    display: grid;
+    grid-template-columns:auto 1fr;
+    grid-template-areas: 'acc_sidebar acc_main' ;
+  }
+  aside{
+    grid-area: acc_sidebar;
+    background: linear-gradient(-90deg,rgb(195, 192, 192)0%, rgb(240, 240, 240) 100%);
+    border-right: darkgrey solid 2px;
+    padding: 1em;
+    ul{
+      font-size: small;
+      font-weight: bold;
+      color: darkcyan;
+    }
+    ul li{
+      margin-bottom: 0.5em;
+    }
+    ul li a{
+      color: darkcyan;
+    }
+    ul li a:hover{
+      text-decoration: underline;
+      color: darkblue;
+    }
+    .backLi{
+      list-style: none;
+      text-align: end;
+      cursor: pointer;
+    }
+  }
+  main{
+    grid-area: acc_main;
+    background-color: rgba(247, 248, 245, 0.69);
+    border: 1px solid darkgrey;
+    padding: 1em;
+  }
+}
+@media screen and (max-width: 800px){
+  .myContainer{
+    grid-template-columns:1fr;
+    grid-template-areas: 'infos' 'cniImg'  'account' ;
+  }
+
+  #acc_body{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'acc_sidebar' 'acc_main' ;
+    width: fit-content;
+  }
+  aside main{
+    width: 100%;
+  }
+
+}

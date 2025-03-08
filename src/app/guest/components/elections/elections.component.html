@@ -1,0 +1,36 @@
+<div class="container">
+  <h3> {{ title | titlecase }}</h3>
+  <hr>
+
+  <div>
+    <h4>Informations</h4>
+    <p>
+      {{description}}
+    </p>
+    <p *ngIf="text2">
+      util{{text2}}
+    </p>
+
+    <div class="fs-5">
+      <b>
+        <u>
+          Démarrage des élections:
+        </u>
+      </b>
+      <i class="text-bg-success">
+         {{startingDate | date:'full'}}
+      </i>
+    </div>
+    <div class="fs-5">
+      <b><u>Et se termineront:</u></b><i class="text-bg-danger"> {{endingDate | date:'full'}}</i>
+    </div>
+  </div>
+
+
+  <div>
+    <h4>Résultats</h4>
+
+  </div>
+
+
+</div>

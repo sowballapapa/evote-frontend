@@ -1,0 +1,8 @@
+.card-body{
+  div{
+    padding: 0.15em;
+  }
+  strong{
+    font-size: 1.15em;
+  }
+}

@@ -1,0 +1,35 @@
+.myContainer{
+  padding: 0.5em;
+}
+
+nav{
+  background-color: rgba(0, 100, 0, 0.6);
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+}
+
+nav ul{
+  display: flex;
+  list-style: none;
+  height: fit-content;
+
+  padding: 0 0.5em;
+}
+
+nav ul li{
+  margin-left: 1em;
+  height: fit-content;
+}
+
+nav ul  a{
+  text-decoration: none;
+  color: #010d01;
+  font-size: 1.25em;
+}
+nav ul a:hover{
+  text-decoration: none;
+  background-color: #010d01;
+  color: white;
+  border-radius: 15px;
+}

@@ -1,0 +1,10 @@
+<div *ngFor="let candidature of candidatures">
+
+  <app-candidate-card
+    [partyId]="candidature.partyOrColation_id"
+  [urlImg]="candidature.logo"
+  [candidate]="candidature.firstname+' ' +candidature.lastname"
+  [party]="candidature.name"
+  [checked]="candidature.disactiveHidden"
+  />
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {ActivatedRoute, RouterOutlet} from '@angular/router';
+import { GuestBaseComponent } from './guest/components/guest-base/guest-base.component';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'evote-front-end';
+
+  constructor(private route: ActivatedRoute) {}
+
 }

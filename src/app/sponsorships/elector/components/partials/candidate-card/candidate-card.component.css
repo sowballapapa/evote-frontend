@@ -1,0 +1,35 @@
+.border{
+  border-radius: 15px;
+}
+.form-check{
+  border-radius: 15px 15px 0 0;
+  padding-top: 10px;
+}
+.candidate-card {
+  top: 0;
+  width: 200px;
+  height: fit-content;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.25em 0.5em;
+  img{
+    width: 180px;
+    height: 250px;
+    border: 1px solid black;
+    margin-bottom: 0.25em;
+  }
+  .sp-btn{
+    display: inline-flex;
+  }
+  .btn{
+    background-color: #7eb575;
+    color: white;
+    border-radius: 0.25em;
+    border: white 2px solid;
+  }
+  .btn:hover{
+    background: linear-gradient(to right, wheat, whitesmoke);
+    border-color: #7eb575;
+    color: #7eb575;
+  }
+}
