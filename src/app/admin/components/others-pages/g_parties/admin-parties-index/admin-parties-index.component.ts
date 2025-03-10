@@ -5,13 +5,12 @@ import {DgeUserService} from '../../../../services/dge-user.service';
 import {PartyService} from '../../../../services/party.service';
 
 @Component({
-  selector: 'app-admin-parties-index',
-  standalone: true,
+    selector: 'app-admin-parties-index',
     imports: [
         PaginateTableComponent
     ],
-  templateUrl: './admin-parties-index.component.html',
-  styleUrl: './admin-parties-index.component.css'
+    templateUrl: './admin-parties-index.component.html',
+    styleUrl: './admin-parties-index.component.css'
 })
 export class AdminPartiesIndexComponent {
   @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;

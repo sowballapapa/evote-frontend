@@ -6,16 +6,15 @@ import {ElectorHeaderComponent} from '../partials/elector-header/elector-header.
 import {NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-sponsoring-elector-base',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    ElectorFooterComponent,
-    ElectorHeaderComponent,
-    NgIf
-  ],
-  templateUrl: './sponsoring-elector-base.component.html',
-  styleUrl: './sponsoring-elector-base.component.css'
+    selector: 'app-sponsoring-elector-base',
+    imports: [
+        RouterOutlet,
+        ElectorFooterComponent,
+        ElectorHeaderComponent,
+        NgIf
+    ],
+    templateUrl: './sponsoring-elector-base.component.html',
+    styleUrl: './sponsoring-elector-base.component.css'
 })
 export class SponsoringElectorBaseComponent {
   isLoggedIn = localStorage.getItem('user');

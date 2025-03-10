@@ -9,6 +9,7 @@ table {
   width: 100%;
 
   .captionTitle{
+
     font-size: 1.25em;
     font-weight: bold;
     text-align: start;
@@ -36,6 +37,10 @@ table {
   td{
     width: 100%;
     padding-right: 0.5em;
+    button{
+      border: none;
+      background: none;
+    }
   }
   }
 
@@ -73,4 +78,14 @@ table {
 
 td a{
   margin: 0 0.2em;
+}
+
+.btn-outline-primary{
+  background-color: whitesmoke;
+  color: darkcyan;
+  font-weight: bold;
+}
+
+.btn-outline-primary:hover{
+  background-color: lightcyan;
 }

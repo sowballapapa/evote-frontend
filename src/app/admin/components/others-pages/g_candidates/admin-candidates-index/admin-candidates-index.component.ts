@@ -5,13 +5,12 @@ import {DgeUserService} from '../../../../services/dge-user.service';
 import {CandidateService} from '../../../../services/candidate.service';
 
 @Component({
-  selector: 'app-admin-candidates-index',
-  standalone: true,
-  imports: [
-    PaginateTableComponent
-  ],
-  templateUrl: './admin-candidates-index.component.html',
-  styleUrl: './admin-candidates-index.component.css'
+    selector: 'app-admin-candidates-index',
+    imports: [
+        PaginateTableComponent
+    ],
+    templateUrl: './admin-candidates-index.component.html',
+    styleUrl: './admin-candidates-index.component.css'
 })
 export class AdminCandidatesIndexComponent {
   @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;

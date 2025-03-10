@@ -11,24 +11,74 @@
         </a>
       </li>
       <li>
-        <a routerLink="/admin/gestion-systemes" class="nav-link text-white">
+        <a (click)="showTabsSys()" class="nav-link text-white">
           Gestion du Système
         </a>
+        <ul [hidden]="tabsSys">
+          <li>
+            <a routerLink="/admin/gestion-systemes/dge-infos" class="nav-link text-white">
+              Table DGE
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-systemes/parrainages-infos" class="nav-link text-white">
+              Table Parrainages
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-systemes/elections-infos" class="nav-link text-white">
+              Table Elections
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a routerLink="/admin/gestion-comptes" class="nav-link text-white">
+
+        <a (click)="showTabsCompte()" class="nav-link text-white">
           Gestion des Comptes
         </a>
+        <ul [hidden]="tabsCompte">
+          <li>
+            <a routerLink="/admin/gestion-comptes/admins" class="nav-link text-white">
+              Comptes Admins
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-comptes/privileges" class="nav-link text-white">
+              Priviléges Comptes Admins
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-comptes/candidats" class="nav-link text-white">
+              Comptes  Candidats
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-comptes/electeurs" class="nav-link text-white">
+              Comptes Electeurs
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-comptes/bureaux-de-vote" class="nav-link text-white">
+              Comptes Bureaux de vote
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a routerLink="/admin/gestion-admin" class="nav-link text-white">
-          Gestion des Membres de la DGE
-        </a>
-      </li>
-      <li>
-        <a routerLink="#" class="nav-link text-white">
-          Gestion des Priviléges
-        </a>
+        <a (click)="showTabsMDge()" class="nav-link text-white">Les Membres de la DGE</a>
+        <ul [hidden]="tabsMDGE">
+          <li>
+            <a routerLink="/admin/gestion-membres-dge" class="nav-link text-white">
+              Gestion des Membres de la DGE
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/gestion-fonctions-dge" class="nav-link text-white">
+              Gestion des Fonctions des Membres de la DGE
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
         <a routerLink="/admin/gestion-candidats" class="nav-link text-white">
@@ -46,17 +96,28 @@
         </a>
       </li>
       <li>
-        <a routerLink="/admin/gestion-bureaux-de-votes" class="nav-link text-white">
-          Gestion des Bureaux de Votes et des Localités
-        </a>
+        <a (click)="showTabsPollLoc()" class="nav-link text-white">Gestion des Bureaux de Votes et des Localités</a>
+        <ul [hidden]="tabspollLoc">
+          <li>
+            <a routerLink="/admin/gestion-bureaux-de-votes" class="nav-link text-white">
+              Bureaux de Votes
+            </a>
+          </li>
+          <li>
+<!--            <a routerLink="/admin/gestion-localites" class="nav-link text-white">-->
+            <a class="nav-link text-white">
+              Localités
+            </a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a routerLink="#" class="nav-link text-white">
+        <a routerLink="/admin/gestion-parrainages" class="nav-link text-white">
           Gestion des Parrainages
         </a>
       </li>
       <li>
-        <a routerLink="#" class="nav-link text-white">
+        <a routerLink="/admin/gestion-elections" class="nav-link text-white">
           Gestion des Elections
         </a>
       </li>

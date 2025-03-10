@@ -18,9 +18,9 @@ export const adminAuthChildGuard: CanActivateChildFn = (route, state) => {
 
   const router = inject(Router)
   const user = localStorage.getItem('user')
-  const noLoggin= route.data[0].noLoggin;
+  // const noLoggin= route.data[0].noLoggin;
 
-  if(user || noLoggin === true){
+  if(user /*|| noLoggin === true*/){
 
     return true
   }else{

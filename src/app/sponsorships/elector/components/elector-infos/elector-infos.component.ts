@@ -7,18 +7,15 @@ import {PasswordResetComponent} from '../infos/password-reset/password-reset.com
 import {NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-elector-infos',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    DatasComponent,
-    DatasUpdateComponent,
-    PasswordResetComponent,
-    NgIf
-  ],
-  templateUrl: './elector-infos.component.html',
-  styleUrl: './elector-infos.component.css'
+    selector: 'app-elector-infos',
+    imports: [
+        DatasComponent,
+        DatasUpdateComponent,
+        PasswordResetComponent,
+        NgIf
+    ],
+    templateUrl: './elector-infos.component.html',
+    styleUrl: './elector-infos.component.css'
 })
 export class ElectorInfosComponent {
   elector!:any

@@ -24,10 +24,7 @@ import { AdminElectorsIndexComponent } from './admin/components/others-pages/g_e
 import { AdminElectorsViewComponent } from './admin/components/others-pages/g_electors/admin-electors-view/admin-electors-view.component';
 import { AdminElectorsCreateComponent } from './admin/components/others-pages/g_electors/admin-electors-create/admin-electors-create.component';
 import { AdminElectorsEditComponent } from './admin/components/others-pages/g_electors/admin-electors-edit/admin-electors-edit.component';
-import { AdminUsersIndexComponent } from './admin/components/others-pages/g_users/admin-users-index/admin-users-index.component';
-import { AdminUsersViewComponent } from './admin/components/others-pages/g_users/admin-users-view/admin-users-view.component';
-import { AdminUsersCreateComponent } from './admin/components/others-pages/g_users/admin-users-create/admin-users-create.component';
-import { AdminUsersEditComponent } from './admin/components/others-pages/g_users/admin-users-edit/admin-users-edit.component';
+
 import { AdminDgeUsersIndexComponent } from './admin/components/others-pages/g_dge-users/admin-dge-users-index/admin-dge-users-index.component';
 import { AdminDgeUsersViewComponent } from './admin/components/others-pages/g_dge-users/admin-dge-users-view/admin-dge-users-view.component';
 import { AdminDgeUsersCreateComponent } from './admin/components/others-pages/g_dge-users/admin-dge-users-create/admin-dge-users-create.component';
@@ -58,7 +55,133 @@ import {ElectorHomeComponent} from './sponsorships/elector/components/elector-ho
 import {ElectorInfosComponent} from './sponsorships/elector/components/elector-infos/elector-infos.component';
 import {
   ElectorCandidateInfosComponent
-} from './sponsorships/elector/components/elector-candidate-infos/elector-candidate-infos.component';
+} from './sponsorships/elector/components/elector-candidate-infos/elector-candidate-infos.component';;
+import {
+  AdminUsersBaseComponent
+} from './admin/components/others-pages/g_users/admin-users-base/admin-users-base.component';
+import {
+  AdminElectorsBaseComponent
+} from './admin/components/others-pages/g_electors/admin-electors-base/admin-electors-base.component';
+import {
+  AdminDgeUsersBaseComponent
+} from './admin/components/others-pages/g_dge-users/admin-dge-users-base/admin-dge-users-base.component';
+import {
+  AdminPartiesBaseComponent
+} from './admin/components/others-pages/g_parties/admin-parties-base/admin-parties-base.component';
+import {
+  AdminCandidatesBaseComponent
+} from './admin/components/others-pages/g_candidates/admin-candidates-base/admin-candidates-base.component';
+import {
+  AdminPollingsBaseComponent
+} from './admin/components/others-pages/g_pollings/admin-pollings-base/admin-pollings-base.component';
+import {
+  AdminRolesBaseComponent
+} from './admin/components/others-pages/g_roles/admin-roles-base/admin-roles-base.component';
+import {
+  AdminRolesIndexComponent
+} from './admin/components/others-pages/g_roles/admin-roles-index/admin-roles-index.component';
+import {
+  AdminRolesViewComponent
+} from './admin/components/others-pages/g_roles/admin-roles-view/admin-roles-view.component';
+import {
+  AdminRolesCreateComponent
+} from './admin/components/others-pages/g_roles/admin-roles-create/admin-roles-create.component';
+import {
+  AdminRolesEditComponent
+} from './admin/components/others-pages/g_roles/admin-roles-edit/admin-roles-edit.component';
+import {
+  AdminAdminBaseComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-admin-base/admin-admin-base.component';
+import {
+  AdminAdminIndexComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-admin-index/admin-admin-index.component';
+import {
+  AdminAdminViewComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-admin-view/admin-admin-view.component';
+import {
+  AdminAdminCreateComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-admin-create/admin-admin-create.component';
+import {
+  AdminAdminEditComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-admin-edit/admin-admin-edit.component';
+import {
+  AdminAccCandidatesBaseComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-base/admin-acc-candidates-base.component';
+import {
+  AdminAccCandidatesViewComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-view/admin-acc-candidates-view.component';
+import {
+  AdminAccCandidatesCreateComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-create/admin-acc-candidates-create.component';
+import {
+  AdminAccCandidatesEditComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-edit/admin-acc-candidates-edit.component';
+import {
+  AdminAccElectorsBaseComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-base/admin-acc-electors-base.component';
+import {
+  AdminAccElectorsIndexComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-index/admin-acc-electors-index.component';
+import {
+  AdminAccElectorsCreateComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-create/admin-acc-electors-create.component';
+import {
+  AdminAccElectorsEditComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-edit/admin-acc-electors-edit.component';
+import {
+  AdminAccPollingsBaseComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-base/admin-acc-pollings-base.component';
+import {
+  AdminAccPollingsIndexComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-index/admin-acc-pollings-index.component';
+import {
+  AdminAccPollingsCreateComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-create/admin-acc-pollings-create.component';
+import {
+  AdminAccPollingsEditComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-edit/admin-acc-pollings-edit.component';
+import {
+  AdminAccPrivilegesBaseComponent
+} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-base/admin-acc-privileges-base.component';
+import {
+  AdminAccPrivilegesIndexComponent
+} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-index/admin-acc-privileges-index.component';
+import {
+  AdminAccPrivilegesViewComponent
+} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-view/admin-acc-privileges-view.component';
+import {
+  AdminAccPrivilegesCreateComponent
+} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-create/admin-acc-privileges-create.component';
+import {
+  AdminAccPrivilegesEditComponent
+} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-edit/admin-acc-privileges-edit.component';
+import {
+  AdminGElectionsBaseComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-base/admin-g-elections-base.component';
+import {
+  AdminGElectionsHomeComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-home/admin-g-elections-home.component';
+import {
+  AdminGElectionsConfigComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-config/admin-g-elections-config.component';
+import {
+  AdminGSponsorshipsBaseComponent
+} from './admin/components/others-pages/g_elections/admin-g-sponsorships-base/admin-g-sponsorships-base.component';
+import {
+  AdminGSponsorshipsHomeComponent
+} from './admin/components/others-pages/g_elections/admin-g-sponsorships-home/admin-g-sponsorships-home.component';
+import {
+  AdminGSponsorshipsConfigComponent
+} from './admin/components/others-pages/g_elections/admin-g-sponsorships-config/admin-g-sponsorships-config.component';
+import {
+  AdminElectionsDetailsBaseComponent
+} from './admin/components/others-pages/tab_systems/elections/admin-elections-details-base/admin-elections-details-base.component';
+import {
+  AdminSponsorshipsDetsBaseComponent
+} from './admin/components/others-pages/tab_systems/sponsorships/admin-sponsorships-dets-base/admin-sponsorships-dets-base.component';
+import {
+  AdminDgeDetailsBaseComponent
+} from './admin/components/others-pages/tab_systems/dge/admin-dge-details-base/admin-dge-details-base.component';
 
 export const routes: Routes = [
   //routes Guest
@@ -79,79 +202,111 @@ export const routes: Routes = [
     path:'admin',
     component:AdminBaseComponent,
     children:[
-      {path:'login', component: AdminLoginComponent, title: 'E-vote | Connexion Administrateur', data:[{noLoggin:true}], canActivate:[adminLoginGuard]},
+      {path:'login', component: AdminLoginComponent, title: 'E-vote | Connexion Administrateur',  canActivate:[adminLoginGuard]},
       {
       path:'',
       canActivateChild:[adminAuthChildGuard],
-      data:[{noLoggin:false}],
       children:[
         // {path:'', redirectTo: 'login', pathMatch:'full'},
         {path:'', component: DashboardComponent, title: 'E-vote | Dashboard Administrateur'},
-        {path:'gestion-electeurs', component:AdminElectorsIndexComponent, children:[
+        {path:'gestion-electeurs', component:AdminElectorsBaseComponent, children:[
           {path:'', component:AdminElectorsIndexComponent, },
-          {path:'electeur:id', component:AdminElectorsViewComponent},
-          {path:'nouvel-electeur', component:AdminElectorsCreateComponent},
-          {path:'modifier/electeur:id', component:AdminElectorsEditComponent}
+          {path:'id/:id', component:AdminElectorsViewComponent},
+          {path:'nouveau', component:AdminElectorsCreateComponent},
+          {path:'modifier/:id', component:AdminElectorsEditComponent}
         ]},
-        {path:'gestion-comptes', component:AdminUsersIndexComponent,children:[
-          {path:'', component:AdminUsersIndexComponent, },
-          {path:'compte:id', component:AdminUsersViewComponent},
-          {path:'nouveau-compte', component:AdminUsersCreateComponent},
-          {path:'modifier/compte:id', component:AdminUsersEditComponent}
+        {path:'gestion-comptes', component:AdminUsersBaseComponent,children:[
+            {path: 'admins', component: AdminAdminBaseComponent, children: [
+                {path:'', component:AdminAdminIndexComponent},
+                {path:'id/:id', component:AdminAdminViewComponent},
+                {path:'nouveau', component:AdminAdminCreateComponent},
+                {path:'modifier/:id', component:AdminAdminEditComponent},
+              ]},
+            {path: 'privileges', component: AdminAccPrivilegesBaseComponent, children: [
+                {path:'', component:AdminAccPrivilegesIndexComponent},
+                {path:'id/:id', component:AdminAccPrivilegesViewComponent},
+                {path:'nouveau', component:AdminAccPrivilegesCreateComponent},
+                {path:'modifier/:id', component:AdminAccPrivilegesEditComponent},
+              ]},
+            {path: 'candidats', component: AdminAccCandidatesBaseComponent, children: [
+                {path: '', component: AdminAccCandidatesViewComponent},
+                {path: 'id/:id', component: AdminAccCandidatesViewComponent},
+                {path: 'nouveau', component:AdminAccCandidatesCreateComponent},
+                {path: 'modifier/:id', component: AdminAccCandidatesEditComponent}
+              ]},
+            {path: 'electeurs', component: AdminAccElectorsBaseComponent, children: [
+                {path: '', component: AdminAccElectorsIndexComponent},
+                {path: 'id/:id', component: AdminAccCandidatesViewComponent},
+                {path: 'nouveau', component: AdminAccElectorsCreateComponent},
+                {path: 'modifier/:id', component: AdminAccElectorsEditComponent}
+              ]},
+            {path: 'bureaux-de-vote', component: AdminAccPollingsBaseComponent, children: [
+                {path: '', component: AdminAccPollingsIndexComponent},
+                {path: 'id/:id', component: AdminAccPollingsIndexComponent},
+                {path: 'nouveau', component: AdminAccPollingsCreateComponent},
+                {path: 'modifier/:id', component: AdminAccPollingsEditComponent}
+              ]},
         ]},
-        {path:'gestion-admin', component:AdminDgeUsersIndexComponent, children:[
-          {path:'', component:AdminDgeUsersIndexComponent, },
-          {path:'membre-dge:id', component:AdminDgeUsersViewComponent},
-          {path:'nouveau-membre-dge', component:AdminDgeUsersCreateComponent},
-          {path:'modifier/membre-dge:id', component:AdminDgeUsersEditComponent}
-
-        ]},
-        {path:'gestion-partis-coalitions', component:AdminPartiesIndexComponent, children:[
+        {path:'gestion-membres-dge', component:AdminDgeUsersBaseComponent, children:[
+            {path:'', component:AdminDgeUsersIndexComponent, },
+            {path:'id/:id', component:AdminDgeUsersViewComponent},
+            {path:'nouveau', component:AdminDgeUsersCreateComponent},
+            {path:'modifier/:id', component:AdminDgeUsersEditComponent}
+          ]},
+        {path:'gestion-fonctions-dge', component:AdminRolesBaseComponent, children:[
+            {path:'', component:AdminRolesIndexComponent, },
+            {path:'id/:id', component:AdminRolesViewComponent},
+            {path:'nouveau', component:AdminRolesCreateComponent},
+            {path:'modifier/:id', component:AdminRolesEditComponent}
+          ]},
+        {path:'gestion-partis-coalitions', component:AdminPartiesBaseComponent, children:[
           {path:'', component: AdminPartiesIndexComponent},
-          {path:'parti-coalition:id', component: AdminPartiesViewComponent},
+          {path:'id/:id', component: AdminPartiesViewComponent},
           {path:'nouveau', component: AdminPartiesCreateComponent},
-          {path:'modifier/parti-coalition:id', component:AdminPartiesEditComponent}
+          {path:'modifier/:id', component:AdminPartiesEditComponent}
         ]},
-        {path:'gestion-candidats', component: AdminCandidatesIndexComponent, children:[
+        {path:'gestion-candidats', component: AdminCandidatesBaseComponent, children:[
           {path:'', component:AdminCandidatesIndexComponent, },
-          {path:'candidat:id', component:AdminCandidatesViewComponent},
-          {path:'nouveau-candidat', component:AdminCandidatesCreateComponent},
-          {path:'modifier/candidat:id', component:AdminCandidatesEditComponent}
+          {path:'id/:id', component:AdminCandidatesViewComponent},
+          {path:'nouveau', component:AdminCandidatesCreateComponent},
+          {path:'modifier/:id', component:AdminCandidatesEditComponent}
 
         ]},
         {path:'gestion-systemes', component:AdminSystemeHomeComponent, children:[
-          {path:'dge-infos', component:AdminDgeDetailsIndexComponent,children:[
+          {path:'dge-infos', component:AdminDgeDetailsBaseComponent,children:[
             {path:'', component:AdminDgeDetailsIndexComponent},
-            {path:'modifier', component:AdminDgeUsersEditComponent}
+            {path:'modifier', component:AdminDgeUsersEditComponent},
           ]},
-          {path:'elections-infos', component: AdminElectionsDetailsIndexComponent, children:[
+          {path:'elections-infos', component: AdminElectionsDetailsBaseComponent, children:[
             {path:'', component:AdminElectionsDetailsIndexComponent},
             {path:'modifier', component: AdminElectionsDetailsEditComponent}
           ]},
-          {path:'parrainages-infos', component: AdminSponsorshipsDetailsIndexComponent, children:[
+          {path:'parrainages-infos', component: AdminSponsorshipsDetsBaseComponent, children:[
             {path:'', component: AdminSponsorshipsDetailsIndexComponent},
             {path:'modifier', component: AdminSponsorshipsDetailsEditComponent}
           ]}
         ]},
-        {path:'gestion-bureaux-de-votes', component:AdminPollingsIndexComponent, children:[
+        {path:'gestion-bureaux-de-votes', component:AdminPollingsBaseComponent, children:[
           {path:'', component:AdminPollingsIndexComponent},
           {path:'nouveau', component:AdminPollingsCreateComponent},
-          {path:'bureau:id', component:AdminPollingsViewComponent},
-          {path:'modifier/bureau:id', component:AdminPollingsEditComponent}
+          {path:'id/:id', component:AdminPollingsViewComponent},
+          {path:'modifier/:id', component:AdminPollingsEditComponent}
         ]},
-        /*
-        {path:'gestion-parrainages'},
-        {path:'gestion-elections'},
-        {path:'gestion-priviliges'},
-
-        */
+        {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [
+            {path: '', component: AdminGElectionsHomeComponent},
+            {path: 'configuration', component: AdminGElectionsConfigComponent}
+          ]},
+        {path:'gestion-parrainages', component: AdminGSponsorshipsBaseComponent, children: [
+            {path: '', component: AdminGSponsorshipsHomeComponent},
+            {path: 'configuration', component: AdminGSponsorshipsConfigComponent}
+          ]},
       ]
     }
       ]
   },
   //route sponsorships
   {
-    path: 'evote-parrainages',
+    path: 'parrainages-interface',
     component: SponsorshipsBaseComponent,
     children:[
       {path: '', component: LandingPageComponent},
@@ -185,7 +340,7 @@ export const routes: Routes = [
 
   //route elections
   {
-    path:'evote-elections',
+    path:'elections-interface',
     component:ElectionsBaseComponent,
     children:[
       {path:'login', component: PollingStationLoginComponent, title: 'E-vote | Bureaux de Votes| Connexion '},

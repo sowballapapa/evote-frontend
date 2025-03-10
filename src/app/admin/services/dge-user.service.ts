@@ -13,19 +13,19 @@ export class DgeUserService {
     return this.http.get(environment.apiUrl+environment.adminSegment+'dge-users?page='+page)
   }
 
-  getDgeUser(id:number) {
-    return this.http.get(environment.apiUrl+environment.adminSegment+'dge-user/' + id)
+  getDgeUser(id:any) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'dge-users/'+id)
   }
 
   createDgeUser(data:any){
-    return this.http.post(environment.apiUrl+environment.adminSegment+'dge-user',data)
+    return this.http.post(environment.apiUrl+environment.adminSegment+'dge-users',data)
   }
 
   editDgeUser(id:number, data:any) {
-    return this.http.put(environment.apiUrl+environment.adminSegment+'dge-user/' + id, data)
+    return this.http.put(environment.apiUrl+environment.adminSegment+'dge-users/' + id, data)
   }
 
   deleteDgeUser(id:number) {
-    return this.http.delete(environment.apiUrl+environment.adminSegment+'dge-user/' + id)
+    return this.http.delete(environment.apiUrl+environment.adminSegment+'dge-users/' + id)
   }
 }

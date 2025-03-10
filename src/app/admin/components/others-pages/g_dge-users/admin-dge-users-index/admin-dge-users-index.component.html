@@ -1,9 +1,11 @@
 <app-paginate-table
   [isLoading]="isLoading"
   [tableTitle] = "fetchTitle"
-  [columns]="['Matricule', 'Nom', 'Prénom(s)', 'Email', 'Téléphone', 'Fonction','Elector Id' ,]"
+  [columns]="['#','Matricule', 'Nom', 'Prénom(s)', 'Email', 'Téléphone', 'Fonction']"
   [rows]="allDgeUsers"
-  [dataColumns]="['registrationNumber', 'lastname', 'firstname','email', 'phone', 'title', 'id']"
+  [dataColumns]="['id', 'registrationNumber', 'lastname', 'firstname','email', 'phone', 'title' ]"
   [lastPage]="lastPage"
   [pageSize]="pageSize"
+  [pageItemsCount]="itemsPerPage"
+  [total]="total"
 />

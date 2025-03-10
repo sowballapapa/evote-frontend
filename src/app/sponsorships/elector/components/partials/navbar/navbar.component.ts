@@ -4,14 +4,13 @@ import {AuthElectorService} from '../../../services/auth-elector.service';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [
-    FormsModule,
-    RouterLink
-  ],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+    selector: 'app-navbar',
+    imports: [
+        FormsModule,
+        RouterLink
+    ],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 

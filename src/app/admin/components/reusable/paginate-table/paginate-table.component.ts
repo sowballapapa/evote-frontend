@@ -1,18 +1,23 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, TrackByFunction} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {BehaviorSubject} from 'rxjs';
+import {RouterLink, RouterLinkWithHref, RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-paginate-table',
+    selector: 'app-paginate-table',
   standalone: true,
   imports: [
     NgForOf,
     NgIf,
     NgClass,
-    NgStyle
+    RouterLink,
+    RouterLinkWithHref,
+    RouterModule,
+    FormsModule
   ],
-  templateUrl: './paginate-table.component.html',
-  styleUrl: './paginate-table.component.css'
+    templateUrl: './paginate-table.component.html',
+    styleUrl: './paginate-table.component.css'
 })
 export class PaginateTableComponent {
   @Input() isLoading = false;
@@ -29,10 +34,14 @@ export class PaginateTableComponent {
     return i + 1;
   })
 
+
   paginate = new BehaviorSubject({
     page: 1,
   });
 
+  rowTrackBy = (index:any,row:any)=>{
+    return row.id
+  }
 
   ngAfterViewInit() {
     const newState = this.paginate.value
@@ -58,4 +67,7 @@ export class PaginateTableComponent {
     this.paginate.next(newState);
   }
 
+  deleteField(id:number) {
+
+  }
 }

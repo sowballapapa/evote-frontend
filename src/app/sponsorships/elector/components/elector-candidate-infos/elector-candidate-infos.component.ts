@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import {ElectorService} from '../../services/elector.service';
 
 @Component({
-  selector: 'app-elector-candidate-infos',
-  standalone: true,
-  imports: [],
-  templateUrl: './elector-candidate-infos.component.html',
-  styleUrl: './elector-candidate-infos.component.css'
+    selector: 'app-elector-candidate-infos',
+    imports: [],
+    templateUrl: './elector-candidate-infos.component.html',
+    styleUrl: './elector-candidate-infos.component.css'
 })
 export class ElectorCandidateInfosComponent {
   candidate:any
@@ -21,6 +20,7 @@ export class ElectorCandidateInfosComponent {
         this.noCandidateMessage=res.message;
       }
       if(res.status == 1){
+        console.log(res)
         this.candidate=res.data.candidate;
         this.party=res.data.party;
         this.supportMessage=res.data.supportMessage;

@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import {UserService} from '../../../../../core/services/user.service';
 
 @Component({
-  selector: 'app-datas',
-  standalone: true,
-  imports: [],
-  templateUrl: './datas.component.html',
-  styleUrl: './datas.component.css'
+    selector: 'app-datas',
+    imports: [],
+    templateUrl: './datas.component.html',
+    styleUrl: './datas.component.css'
 })
 export class DatasComponent {
   user!:any

@@ -1,10 +1,6 @@
 .border{
   border-radius: 15px;
 }
-.form-check{
-  border-radius: 15px 15px 0 0;
-  padding-top: 10px;
-}
 .candidate-card {
   top: 0;
   width: 200px;
@@ -18,6 +14,7 @@
     border: 1px solid black;
     margin-bottom: 0.25em;
   }
+
   .sp-btn{
     display: inline-flex;
   }
@@ -25,11 +22,22 @@
     background-color: #7eb575;
     color: white;
     border-radius: 0.25em;
-    border: white 2px solid;
+    border: #198754 5px solid;
   }
   .btn:hover{
     background: linear-gradient(to right, wheat, whitesmoke);
     border-color: #7eb575;
     color: #7eb575;
   }
+}
+
+.selectHeader{
+  background-color: rgba(91, 196, 91, 0.59);
+  border-radius: 15px 15px 0 0;
+  padding-top: 10px;
+}
+
+
+.myShadow{
+  box-shadow: 2px 2px 4px 10px rgb(3, 52, 3,0.6), 3px 3px 5px 5px rgba(236, 177, 84, 0.5);
 }

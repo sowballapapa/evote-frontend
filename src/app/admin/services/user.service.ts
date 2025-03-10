@@ -13,4 +13,9 @@ export class UserService {
   getAllUsers(page:number){
     return this.http.get(environment.apiUrl+environment.adminSegment+'users?page='+page)
   }
+
+
+  getUser(user:any){
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/'+user)
+  }
 }

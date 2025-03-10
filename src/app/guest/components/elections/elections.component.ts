@@ -3,15 +3,14 @@ import { GuestDetailsService } from '../../services/guest-details.service';
 import { DatePipe, NgIf, TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-elections',
-  standalone: true,
-  imports: [
-    TitleCasePipe,
-    DatePipe,
-    NgIf
-  ],
-  templateUrl: './elections.component.html',
-  styleUrl: './elections.component.css'
+    selector: 'app-elections',
+    imports: [
+        TitleCasePipe,
+        DatePipe,
+        NgIf
+    ],
+    templateUrl: './elections.component.html',
+    styleUrl: './elections.component.css'
 })
 export class ElectionsComponent {
 

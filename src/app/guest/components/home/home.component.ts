@@ -4,13 +4,12 @@ import { NgFor, NgForOf } from '@angular/common';
 import { Party } from '../../interfaces/party';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    NgForOf]
-    ,
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [
+        NgForOf
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {
 

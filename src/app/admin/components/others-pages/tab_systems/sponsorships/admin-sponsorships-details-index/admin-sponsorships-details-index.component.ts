@@ -1,12 +1,25 @@
 import { Component } from '@angular/core';
+import {RouterLink} from "@angular/router";
+import {SponsorshipsService} from '../../../../../services/sponsorships.service';
 
 @Component({
-  selector: 'app-admin-sponsorships-details-index',
-  standalone: true,
-  imports: [],
-  templateUrl: './admin-sponsorships-details-index.component.html',
-  styleUrl: './admin-sponsorships-details-index.component.css'
+    selector: 'app-admin-sponsorships-details-index',
+    imports: [
+        RouterLink
+    ],
+    templateUrl: './admin-sponsorships-details-index.component.html',
+    styleUrl: './admin-sponsorships-details-index.component.css'
 })
 export class AdminSponsorshipsDetailsIndexComponent {
 
+  sponsorshipsInfos:any
+
+  constructor(private sponsorshipsService: SponsorshipsService) {}
+
+  ngOnInit() {
+    this.sponsorshipsInfos = this.sponsorshipsService.getSponsorshipsInfos().subscribe((res:any)=>{
+      console.log(res);
+      this.sponsorshipsInfos = res.data;
+    })
+  }
 }

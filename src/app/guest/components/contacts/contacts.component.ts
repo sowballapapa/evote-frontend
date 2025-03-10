@@ -5,11 +5,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @Component({
-  selector: 'app-contacts',
-  standalone: true,
-  imports: [FontAwesomeModule],
-  templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.css'
+    selector: 'app-contacts',
+    imports: [FontAwesomeModule],
+    templateUrl: './contacts.component.html',
+    styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
 

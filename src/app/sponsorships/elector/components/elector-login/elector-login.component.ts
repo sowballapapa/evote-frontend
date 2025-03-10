@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import {AuthElectorService} from '../../services/auth-elector.service';
 import {Router, RouterLink} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-elector-login',
-  standalone: true,
+    selector: 'app-elector-login',
   imports: [
     ReactiveFormsModule,
     FormsModule,
     NgIf,
-    RouterLink
+    RouterLink,
+    NgClass
   ],
-  templateUrl: './elector-login.component.html',
-  styleUrl: './elector-login.component.css'
+    templateUrl: './elector-login.component.html',
+    styleUrl: './elector-login.component.css'
 })
 export class ElectorLoginComponent {
 
@@ -23,6 +23,9 @@ export class ElectorLoginComponent {
   errors!: any[]
   loginName!: string
   password!: string
+  passwordType: string = 'password';
+  eyeType:boolean = false;
+
 
   onSubmit(){
     var loginData= {
@@ -46,5 +49,20 @@ export class ElectorLoginComponent {
 
   }
 
+
+  passwordView() {
+    if(this.passwordType == 'password'){
+      this.passwordType = 'text';
+      this.eyeType = true
+    }else if(this.passwordType == 'text'){
+      this.passwordType = 'password';
+      this.eyeType = false
+    }
+  }
+
+  ngOnInit() {
+    this.eyeType = false;
+    this.passwordType = 'password';
+  }
 
 }

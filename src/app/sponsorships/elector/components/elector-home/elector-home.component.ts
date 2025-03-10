@@ -4,15 +4,13 @@ import {NgForOf, NgIf} from '@angular/common';
 import {CandidateCardComponent} from '../partials/candidate-card/candidate-card.component';
 
 @Component({
-  selector: 'app-elector-home',
-  standalone: true,
-  imports: [
-    NgForOf,
-    CandidateCardComponent,
-    NgIf
-  ],
-  templateUrl: './elector-home.component.html',
-  styleUrl: './elector-home.component.css'
+    selector: 'app-elector-home',
+    imports: [
+        NgForOf,
+        CandidateCardComponent,
+    ],
+    templateUrl: './elector-home.component.html',
+    styleUrl: './elector-home.component.css'
 })
 export class ElectorHomeComponent {
   candidatures!:any

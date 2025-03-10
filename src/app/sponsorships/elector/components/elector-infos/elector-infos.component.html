@@ -5,8 +5,8 @@
       Ma Carte Nationale d'Identité
     </h4>
     <hr>
-    <table>
-      <th>
+    <table class="table table-striped ">
+      <th class="float-end">
         <tr>N° CNI</tr>
         <tr>Nom</tr>
         <tr>Prénoms</tr>
@@ -29,7 +29,12 @@
         <tr>{{elector.firstname}}</tr>
         <tr>{{elector.birthDate}}</tr>
         <tr>{{elector.birthPlace}}</tr>
-        <tr>{{elector.sex}}</tr>
+        <tr>@if (elector.sex === 0) {
+          {{ 'Féminin' }}
+        } @else {
+          {{'Masculin' }}
+        }
+        </tr>
         <tr>{{elector.address}}</tr>
         <tr>{{elector.electorNumber}}</tr>
         <tr>{{elector.polling_station_id}}</tr>

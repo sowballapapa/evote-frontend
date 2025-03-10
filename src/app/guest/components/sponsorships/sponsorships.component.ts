@@ -3,15 +3,14 @@ import { GuestDetailsService } from '../../services/guest-details.service';
 import { DatePipe, NgIf, TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-sponsorships',
-  standalone: true,
-  imports: [
-    NgIf,
-    DatePipe,
-    TitleCasePipe
-  ],
-  templateUrl: './sponsorships.component.html',
-  styleUrl: './sponsorships.component.css'
+    selector: 'app-sponsorships',
+    imports: [
+        NgIf,
+        DatePipe,
+        TitleCasePipe
+    ],
+    templateUrl: './sponsorships.component.html',
+    styleUrl: './sponsorships.component.css'
 })
 export class SponsorshipsComponent {
 

@@ -6,13 +6,13 @@ export const electorAuthChildGuard: CanActivateChildFn = (route, state) => {
 
   const router = inject(Router)
   const user = localStorage.getItem('user')
-  const noLoggin= route.data[0].noLoggin;
+  // const noLoggin= route.data[0].noLoggin;
 
-  if(user || noLoggin === true){
+  if(user /*|| noLoggin === true*/){
 
     return true
   }else{
-    router.navigateByUrl('/evote-parrainages/electeur/connection')
+    router.navigateByUrl('/parrainages-interface/electeur/connection')
     return false
   }
 
@@ -30,7 +30,7 @@ export const electorLoginGuard: CanActivateFn = (route, state) => {
 
     return true
   }else{
-    router.navigateByUrl('/evote-parrainages/electeur')
+    router.navigateByUrl('/parrainages-interface/electeur')
     return false
   }
 };

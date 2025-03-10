@@ -5,13 +5,12 @@ import {Subject, takeUntil} from 'rxjs';
 import {formatDate} from '@angular/common';
 
 @Component({
-  selector: 'app-admin-electors-index',
-  standalone: true,
-  imports: [
-    PaginateTableComponent
-  ],
-  templateUrl: './admin-electors-index.component.html',
-  styleUrl: './admin-electors-index.component.css'
+    selector: 'app-admin-electors-index',
+    imports: [
+        PaginateTableComponent
+    ],
+    templateUrl: './admin-electors-index.component.html',
+    styleUrl: './admin-electors-index.component.css'
 })
 export class AdminElectorsIndexComponent {
   @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;

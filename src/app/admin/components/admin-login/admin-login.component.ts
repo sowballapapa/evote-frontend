@@ -2,29 +2,33 @@ import { Component } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {FormGroup, FormsModule} from '@angular/forms';
 import {AuthService} from '../../services/auth-service.service';
-import {NgIf} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
-  selector: 'app-admin-login',
-  standalone: true,
+    selector: 'app-admin-login',
   imports: [
     RouterLink,
     FormsModule,
-    NgIf
+    NgIf,
+    NgClass
   ],
-  templateUrl: './admin-login.component.html',
-  styleUrl: './admin-login.component.css'
+    templateUrl: './admin-login.component.html',
+    styleUrl: './admin-login.component.css'
 })
 export class AdminLoginComponent {
 
   errors!: any[]
   loginName!: string
   password!: string
+  passwordType: string = 'password';
+  eyeType:boolean = false;
 
 
   constructor(private loginservice: AuthService, private  router:Router) {}
 
   ngOnInit(){
+    this.passwordType = 'password';
+    this.eyeType = false;
 
   }
 
@@ -50,4 +54,13 @@ export class AdminLoginComponent {
 
   }
 
+  passwordView() {
+      if(this.passwordType == 'password'){
+        this.passwordType = 'text';
+        this.eyeType = true
+      }else if(this.passwordType == 'text'){
+        this.passwordType = 'password';
+        this.eyeType = false
+      }
+  }
 }

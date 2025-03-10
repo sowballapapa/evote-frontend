@@ -6,14 +6,13 @@ import {AuthService} from '../../../services/auth-service.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-base-header',
-  standalone: true,
+    selector: 'app-base-header',
     imports: [
         FormsModule,
         ReactiveFormsModule
     ],
-  templateUrl: './base-header.component.html',
-  styleUrl: './base-header.component.css'
+    templateUrl: './base-header.component.html',
+    styleUrl: './base-header.component.css'
 })
 export class BaseHeaderComponent {
 

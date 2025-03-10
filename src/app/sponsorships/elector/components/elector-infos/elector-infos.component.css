@@ -2,15 +2,17 @@
 
 .myContainer{
   display: grid;
-  grid-template-columns:1fr 2fr;
+  grid-template-columns:1fr 1fr;
   grid-template-areas: 'infos cniImg' 'account account' ;
   gap: 15px;
 }
 
 .cni_infos{
   grid-area: infos;
+
   table th tr{
     text-align: right;
+    width: fit-content;
   }
   table td, th{
     border: 1px solid black;

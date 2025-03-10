@@ -8,19 +8,18 @@ import { BaseHeaderComponent } from '../partials/base-header/base-header.compone
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-admin-base',
-  standalone: true,
-  imports: [
-    MenuComponent,
-    RouterOutlet,
-    FooterComponent,
-    LoginHeaderComponent,
-    BaseHeaderComponent,
-    NgIf,
-    RouterLink
-  ],
-  templateUrl: './admin-base.component.html',
-  styleUrl: './admin-base.component.css'
+    selector: 'app-admin-base',
+    imports: [
+        MenuComponent,
+        RouterOutlet,
+        FooterComponent,
+        LoginHeaderComponent,
+        BaseHeaderComponent,
+        NgIf,
+        RouterLink
+    ],
+    templateUrl: './admin-base.component.html',
+    styleUrl: './admin-base.component.css'
 })
 export class AdminBaseComponent {
   year = new Date().getFullYear();

@@ -4,11 +4,10 @@ import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-
 import {Subject, takeUntil} from 'rxjs';
 
 @Component({
-  selector: 'app-admin-users-index',
-  standalone: true,
-  imports: [ PaginateTableComponent],
-  templateUrl: './admin-users-index.component.html',
-  styleUrl: './admin-users-index.component.css'
+    selector: 'app-admin-users-index',
+    imports: [PaginateTableComponent],
+    templateUrl: './admin-users-index.component.html',
+    styleUrl: './admin-users-index.component.css'
 })
 export class AdminUsersIndexComponent {
   @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;
