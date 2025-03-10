@@ -1,0 +1,29 @@
+<div class="myContainer">
+  <div class="my-card">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" (click)="goBack()">&#8617;</button>
+      <span>{{titleElement}}</span>
+    </div>
+    <div class="my-card-body">
+      <table class="table">
+            <tr *ngFor="let field of fields">
+              <th>{{ field.title }}:</th>
+              <td>
+                @if (field.value === null) {
+                  <span class="text-danger fw-bold">
+                    Non défini(e)
+                  </span>
+                }
+                {{ field.value }}
+              </td>
+            </tr>
+      </table>
+
+    </div>
+    <div class="my-card-footer">
+      <button class="btn btn-outline-warning" (click)="onEdit(id)">Modifier</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(id)">Supprimer</button>
+    </div>
+  </div>
+
+</div>

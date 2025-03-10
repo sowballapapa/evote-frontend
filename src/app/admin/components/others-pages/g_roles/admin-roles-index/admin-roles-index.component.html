@@ -1,0 +1,11 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['#', 'Titre', 'Créé le', 'Dernière modification']"
+  [rows]="roles"
+  [dataColumns]="['id', 'title', 'created_at', 'updated_at']"
+  [pageSize]="pageSize"
+  [lastPage]="lastPage"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>
