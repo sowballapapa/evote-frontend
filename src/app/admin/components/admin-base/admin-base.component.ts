@@ -24,7 +24,7 @@ import { NgIf } from '@angular/common';
 export class AdminBaseComponent {
   year = new Date().getFullYear();
 
-  isLogin = localStorage.getItem("user")
+  isLogin = localStorage.getItem("admin")
   constructor(private authService: AuthService) {}
     ngOnInit(){
 

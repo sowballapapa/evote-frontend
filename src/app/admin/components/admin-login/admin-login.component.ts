@@ -47,6 +47,8 @@ export class AdminLoginComponent {
             console.log(res)
             localStorage.setItem("user", res.data.user.id)
             localStorage.setItem("token", res.data.token)
+          localStorage.setItem("admin", res.data.dgeUser.id)
+          localStorage.setItem("elector", res.data.elector.id)
               window.location.reload();
 
         }

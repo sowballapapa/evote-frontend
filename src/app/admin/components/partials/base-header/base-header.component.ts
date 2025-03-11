@@ -24,6 +24,8 @@ export class BaseHeaderComponent {
         if (res.status === 1){
           localStorage.removeItem('token');
           localStorage.removeItem('user');
+          localStorage.removeItem('admin');
+          localStorage.removeItem('elector');
           window.location.reload();
         }
       }
