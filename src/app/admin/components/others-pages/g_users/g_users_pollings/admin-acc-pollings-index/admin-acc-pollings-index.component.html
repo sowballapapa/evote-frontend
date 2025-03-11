@@ -1,1 +1,12 @@
-<p>admin-acc-pollings-index works!</p>
+
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID','Commune', 'Lieux de votes', 'Nom d\'utilisateur', 'Email', 'Téléphone']"
+  [rows]="allUsers"
+  [dataColumns]="['id', 'districtName', 'vplaceName','username', 'email', 'phone']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

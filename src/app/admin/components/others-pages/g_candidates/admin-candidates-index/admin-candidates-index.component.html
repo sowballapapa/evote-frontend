@@ -1,9 +1,11 @@
 <app-paginate-table
   [isLoading]="isLoading"
   [tableTitle] = "fetchTitle"
-  [columns]="['#' ,'Nom Parti', 'Nom', 'Prénom(s)','Elector Id' ,]"
+  [columns]="['#' ,'Nom', 'Prénom(s)','Nom Parti', ]"
   [rows]="allCandidates"
-  [dataColumns]="['elector_id' ,'name', 'lastname', 'firstname', 'id']"
+  [dataColumns]="['elector_id', 'lastname', 'firstname' , 'name',]"
   [lastPage]="lastPage"
   [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
 />

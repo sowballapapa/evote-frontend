@@ -34,8 +34,8 @@ table {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     text-align: right;
-  td{
-    width: 100%;
+  th, td{
+
     padding-right: 0.5em;
     button{
       border: none;
@@ -84,8 +84,11 @@ td a{
   background-color: whitesmoke;
   color: darkcyan;
   font-weight: bold;
+  border-color: darkcyan;
 }
 
 .btn-outline-primary:hover{
-  background-color: lightcyan;
+  background-color: #d3f8cd;
+  box-shadow: 4px 4px 6px #010d01;
+  font-weight: bolder;
 }

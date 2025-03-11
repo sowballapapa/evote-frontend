@@ -1,8 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
-import {ElectorService} from '../../../../services/elector.service';
-import {formatDate} from '@angular/common';
 import {RoleService} from '../../../../services/role.service';
 
 @Component({
@@ -25,7 +23,7 @@ export class AdminRolesIndexComponent {
   pageSize = [1]
   roles: any
   total!: number
-  itemsPerPage: number | undefined;
+  itemsPerPage!: number
 
   constructor(private roleService:RoleService) {
     this._unsubscribeAll = new Subject();

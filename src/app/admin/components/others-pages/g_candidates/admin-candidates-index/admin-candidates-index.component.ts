@@ -24,6 +24,8 @@ export class AdminCandidatesIndexComponent {
   lastPage = 1
   currentPage = 1
   pageSize = [1]
+  total!: number;
+  itemsPerPage!: number;
 
 
   fetch(page:number){
@@ -35,6 +37,8 @@ export class AdminCandidatesIndexComponent {
         this.isLoading = false;
         this.allCandidates = res.data.data;
         this.lastPage = res.data.last_page;
+        this.itemsPerPage = res.data.per_page;
+        this.total = res.data.total
         this.currentPage = res.data.current_page;
         this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {
           return i + 1;

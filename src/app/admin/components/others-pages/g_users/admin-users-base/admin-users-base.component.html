@@ -1,1 +1,19 @@
-<router-outlet/>
+<div class="myContainer">
+  <div>
+    <h4>
+      Gestion des Comptes
+    </h4>
+  </div>
+  <nav>
+    <ul>
+      <li><a routerLink="/admin/gestion-comptes/admins">Admin Dge</a></li>
+      <li><a routerLink="/admin/gestion-comptes/privileges">Admin-Privileges</a></li>
+      <li><a routerLink="/admin/gestion-comptes/electeurs">Electeurs</a></li>
+      <li><a routerLink="/admin/gestion-comptes/candidats">Candidats</a></li>
+      <li><a routerLink="/admin/gestion-comptes/bureaux-de-vote">Bureaux de vote</a></li>
+    </ul>
+  </nav>
+  <section class="mt-1">
+    <router-outlet/>
+  </section>
+</div>

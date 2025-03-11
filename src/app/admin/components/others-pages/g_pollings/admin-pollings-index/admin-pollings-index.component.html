@@ -1,1 +1,11 @@
-<p>admin-pollings-index works!</p>
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['#' ,'Nom Parti', 'Nom', 'Prénom(s)','Elector Id' ,]"
+  [rows]=""
+  [dataColumns]="['elector_id' ,'name', 'lastname', 'firstname', 'id']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

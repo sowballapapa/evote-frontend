@@ -182,6 +182,27 @@ import {
 import {
   AdminDgeDetailsBaseComponent
 } from './admin/components/others-pages/tab_systems/dge/admin-dge-details-base/admin-dge-details-base.component';
+import {
+  AdminVotingPlacesBaseComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-base/admin-voting-places-base.component';
+import {
+  AdminVotingPlacesIndexComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-index/admin-voting-places-index.component';
+import {
+  AdminVotingPlacesCreateComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-create/admin-voting-places-create.component';
+import {
+  AdminVotingPlacesEditComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-edit/admin-voting-places-edit.component';
+import {
+  AdminVotingPlacesViewComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-view/admin-voting-places-view.component';
+import {
+  AdminDgeDetailsEditComponent
+} from './admin/components/others-pages/tab_systems/dge/admin-dge-details-edit/admin-dge-details-edit.component';
+import {
+  AdminAccCandidatesIndexComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-index/admin-acc-candidates-index.component';
 
 export const routes: Routes = [
   //routes Guest
@@ -229,7 +250,7 @@ export const routes: Routes = [
                 {path:'modifier/:id', component:AdminAccPrivilegesEditComponent},
               ]},
             {path: 'candidats', component: AdminAccCandidatesBaseComponent, children: [
-                {path: '', component: AdminAccCandidatesViewComponent},
+                {path: '', component: AdminAccCandidatesIndexComponent},
                 {path: 'id/:id', component: AdminAccCandidatesViewComponent},
                 {path: 'nouveau', component:AdminAccCandidatesCreateComponent},
                 {path: 'modifier/:id', component: AdminAccCandidatesEditComponent}
@@ -275,7 +296,7 @@ export const routes: Routes = [
         {path:'gestion-systemes', component:AdminSystemeHomeComponent, children:[
           {path:'dge-infos', component:AdminDgeDetailsBaseComponent,children:[
             {path:'', component:AdminDgeDetailsIndexComponent},
-            {path:'modifier', component:AdminDgeUsersEditComponent},
+            {path:'modifier', component:AdminDgeDetailsEditComponent},
           ]},
           {path:'elections-infos', component: AdminElectionsDetailsBaseComponent, children:[
             {path:'', component:AdminElectionsDetailsIndexComponent},
@@ -287,11 +308,17 @@ export const routes: Routes = [
           ]}
         ]},
         {path:'gestion-bureaux-de-votes', component:AdminPollingsBaseComponent, children:[
-          {path:'', component:AdminPollingsIndexComponent},
-          {path:'nouveau', component:AdminPollingsCreateComponent},
-          {path:'id/:id', component:AdminPollingsViewComponent},
-          {path:'modifier/:id', component:AdminPollingsEditComponent}
-        ]},
+            {path:'', component:AdminPollingsIndexComponent},
+            {path:'nouveau', component:AdminPollingsCreateComponent},
+            {path:'id/:id', component:AdminPollingsViewComponent},
+            {path:'modifier/:id', component:AdminPollingsEditComponent}
+          ]},
+        {path:'gestion-lieux-de-votes', component:AdminVotingPlacesBaseComponent, children:[
+            {path:'', component:AdminVotingPlacesIndexComponent},
+            {path:'nouveau', component:AdminVotingPlacesCreateComponent},
+            {path:'id/:id', component:AdminVotingPlacesViewComponent},
+            {path:'modifier/:id', component:AdminVotingPlacesEditComponent}
+          ]},
         {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [
             {path: '', component: AdminGElectionsHomeComponent},
             {path: 'configuration', component: AdminGElectionsConfigComponent}
@@ -321,12 +348,11 @@ export const routes: Routes = [
         path: 'electeur',
         component: SponsoringElectorBaseComponent,
         children:[
-          {path: 'connection', component: ElectorLoginComponent,  data:[{noLoggin:true}], canActivate: [electorLoginGuard]},
-          {path: 'inscription', component: ElectorRegisterComponent, data:[{noLoggin:true}], canActivate: [electorLoginGuard]},
+          {path: 'connection', component: ElectorLoginComponent, canActivate: [electorLoginGuard]},
+          {path: 'inscription', component: ElectorRegisterComponent, canActivate: [electorLoginGuard]},
           {
             path: '',
             canActivateChild: [electorAuthChildGuard],
-            data:[{noLoggin:false}],
             children:[
               {path:'', component: ElectorHomeComponent, title:'Parrainages | Accueil des électeurs'},
               {path: 'mes_infos', component: ElectorInfosComponent, title: 'Mes Infos'},

@@ -23,7 +23,7 @@ export class AdminElectorsIndexComponent {
   pageSize = [1]
   allElectors: any
   total!: number
-  itemsPerPage: number | undefined;
+  itemsPerPage!: number;
 
   constructor(private electorService:ElectorService) {
     this._unsubscribeAll = new Subject();

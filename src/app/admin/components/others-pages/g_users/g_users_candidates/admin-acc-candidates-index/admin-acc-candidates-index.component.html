@@ -1,1 +1,12 @@
-<p>admin-acc-candidates-index works!</p>
+
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID', 'Nom', 'Prénom(s)', 'Nom d\'utilisateur', 'Email', 'Téléphone', 'Parti']"
+  [rows]="allUsers"
+  [dataColumns]="['elector_id', 'lastname','firstname','username', 'email', 'phone', 'name']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

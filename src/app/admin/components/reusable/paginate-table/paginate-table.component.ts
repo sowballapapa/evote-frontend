@@ -22,8 +22,8 @@ import {FormsModule} from '@angular/forms';
 export class PaginateTableComponent {
   @Input() isLoading = false;
   @Input() error?: string;
-  @Input() total?: number;
-  @Input() pageItemsCount?: number;
+  @Input() total!: number;
+  @Input() pageItemsCount!: number;
   @Input() tableTitle?: string;
   @Input() columns?: string []
   @Input() dataColumns?: string []
@@ -67,7 +67,7 @@ export class PaginateTableComponent {
     this.paginate.next(newState);
   }
 
-  deleteField(id:number) {
+  @Input() deleteField(id:number) {
 
   }
 }

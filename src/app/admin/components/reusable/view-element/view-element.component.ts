@@ -1,12 +1,11 @@
 import {Component, inject, Input} from '@angular/core';
-import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-view-element',
   standalone: true,
   imports: [
-    RouterLink,
     NgForOf
   ],
   templateUrl: './view-element.component.html',

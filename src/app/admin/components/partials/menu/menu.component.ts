@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
+import { RouterLink} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {AuthService} from '../../../services/auth-service.service';
-import {NgClass} from '@angular/common';
 
 @Component({
     selector: 'app-menu',
-  imports: [RouterLink, FormsModule, NgClass],
+  imports: [RouterLink, FormsModule],
     templateUrl: './menu.component.html',
     styleUrl: './menu.component.css'
 })

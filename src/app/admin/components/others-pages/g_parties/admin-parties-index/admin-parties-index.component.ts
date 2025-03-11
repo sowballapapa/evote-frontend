@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from "../../../reusable/paginate-table/paginate-table.component";
 import {Subject, takeUntil} from 'rxjs';
-import {DgeUserService} from '../../../../services/dge-user.service';
 import {PartyService} from '../../../../services/party.service';
 
 @Component({
@@ -19,11 +18,13 @@ export class AdminPartiesIndexComponent {
     this._unsubscribeAll = new Subject();
   }
   allDgeUsers:any
-  fetchTitle = "Liste des Partis et Coalitions"
+  fetchTitle = "Liste des Lieux de votes"
   isLoading = false;
   lastPage = 1
   currentPage = 1
   pageSize = [1]
+  total!: number;
+  itemsPerPage!: number;
 
 
   fetch(page:number){
@@ -35,6 +36,8 @@ export class AdminPartiesIndexComponent {
         this.isLoading = false;
         this.allDgeUsers = res.data.data;
         this.lastPage = res.data.last_page;
+        this.itemsPerPage = res.data.per_page;
+        this.total = res.data.total
         this.currentPage = res.data.current_page;
         this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {
           return i + 1;

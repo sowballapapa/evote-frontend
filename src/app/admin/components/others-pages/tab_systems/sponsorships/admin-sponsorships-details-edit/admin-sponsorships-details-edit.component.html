@@ -1,1 +1,22 @@
-<p>admin-sponsorships-details-edit works!</p>
+<div class="shadow card m-2 p-2">
+  <div class="card-header">
+    <h5>Modification des informations des Parrainages</h5>
+    <a routerLink="/admin/gestion-systemes/parrainages-infos" class="btn btn-outline-dark text-dark border-3">
+      &lAarr; Retour
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="row form-group">
+      <label for="" class="form-label"></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="row">
+      <div class="NgxEditor__Wrapper">
+        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar" [colorPresets]="colorPresets"> </ngx-editor-menu>
+        <ngx-editor [editor]="editor"  [placeholder]="'Type here...'"></ngx-editor>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>

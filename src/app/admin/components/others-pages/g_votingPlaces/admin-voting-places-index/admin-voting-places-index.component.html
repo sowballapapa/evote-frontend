@@ -1,0 +1,11 @@
+<app-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['#' ,'Nom', 'Commune', 'Nombre de bureaux']"
+  [rows]="allVP"
+  [dataColumns]="['id' ,'name', 'district', 'totalPllSt',]"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>

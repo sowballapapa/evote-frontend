@@ -1,0 +1,25 @@
+.card-body{
+  div{
+    padding: 0.15em;
+  }
+  strong{
+    font-size: 1.15em;
+  }
+}
+.card-header{
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  .btn-outline-dark {
+    margin-right: 0;
+    margin-left: auto;
+    max-width: 150px;
+  }
+  .btn-outline-dark:hover {
+    background: linear-gradient(-90deg, whitesmoke, rgba(126, 181, 117, 0.54));
+    box-shadow: 1px 2px 6px #033403;
+    font-weight: bold;
+    font-size: 1.15em;
+  }
+
+}
+
