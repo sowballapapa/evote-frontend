@@ -203,6 +203,16 @@ import {
 import {
   AdminAccCandidatesIndexComponent
 } from './admin/components/others-pages/g_users/g_users_candidates/admin-acc-candidates-index/admin-acc-candidates-index.component';
+import {LoginCandidateComponent} from './sponsorships/candidate/components/login-candidate/login-candidate.component';
+import {CandidateHomeComponent} from './sponsorships/candidate/components/candidate-home/candidate-home.component';
+import {CandidateInfosComponent} from './sponsorships/candidate/components/candidate-infos/candidate-infos.component';
+import {
+  CandidateSponsorComponent
+} from './sponsorships/candidate/components/candidate-sponsor/candidate-sponsor.component';
+import {
+  CandidateElectorsComponent
+} from './sponsorships/candidate/components/candidate-electors/candidate-electors.component';
+import {candidateAuthChildGuard, candidateLoginGuard} from './sponsorships/candidate/guards/candidate-auth.guard';
 
 export const routes: Routes = [
   //routes Guest
@@ -228,7 +238,6 @@ export const routes: Routes = [
       path:'',
       canActivateChild:[adminAuthChildGuard],
       children:[
-        // {path:'', redirectTo: 'login', pathMatch:'full'},
         {path:'', component: DashboardComponent, title: 'E-vote | Dashboard Administrateur'},
         {path:'gestion-electeurs', component:AdminElectorsBaseComponent, children:[
           {path:'', component:AdminElectorsIndexComponent, },
@@ -341,7 +350,16 @@ export const routes: Routes = [
         path:'candidat',
         component: BaseCandidateComponent,
         children: [
-          // {}
+          {path: 'connection', component: LoginCandidateComponent, canActivate: [candidateLoginGuard]},
+          {
+            path: '',
+            canActivateChild: [candidateAuthChildGuard],
+            children:[
+              {path:'', component: CandidateHomeComponent, title:'Parrainages | Accueil des candidats'},
+              {path: 'mes_infos', component: CandidateInfosComponent, title: 'Mes Infos'},
+              {path: 'mes_parrains', component: CandidateElectorsComponent, title: 'Mes Parrains'},
+            ]
+          }
         ]
       },
       {
