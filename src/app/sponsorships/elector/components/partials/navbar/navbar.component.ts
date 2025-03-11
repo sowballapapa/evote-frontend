@@ -20,6 +20,13 @@ export class NavbarComponent {
     this.auth.logout();
     localStorage.removeItem('token')
     localStorage.removeItem('user');
+    localStorage.removeItem('elector')
+    if (localStorage.getItem('admin')) {
+      localStorage.removeItem('admin')
+    }
+    if (localStorage.getItem('candidate')) {
+      localStorage.removeItem('candidate')
+    }
     window.location.reload();
   }
 }

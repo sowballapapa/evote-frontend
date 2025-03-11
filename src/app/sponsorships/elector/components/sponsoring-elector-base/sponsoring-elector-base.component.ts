@@ -17,7 +17,7 @@ import {NgIf} from '@angular/common';
     styleUrl: './sponsoring-elector-base.component.css'
 })
 export class SponsoringElectorBaseComponent {
-  isLoggedIn = localStorage.getItem('user');
+  isLoggedIn = localStorage.getItem('elector');
   constructor(private auth: AuthElectorService) {}
 
 

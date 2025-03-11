@@ -41,6 +41,7 @@ export class ElectorLoginComponent {
         }else{
           console.log(res)
           localStorage.setItem("user", res.data.user.id)
+          localStorage.setItem("elector", res.data.elector.id)
           localStorage.setItem("token", res.data.token)
           window.location.reload();
 

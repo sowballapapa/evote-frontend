@@ -12,6 +12,6 @@ import {NgIf} from '@angular/common';
     styleUrl: './elector-header.component.css'
 })
 export class ElectorHeaderComponent {
-  isLoggin = localStorage.getItem('user');
+  isLoggin = localStorage.getItem('elector');
 
 }
