@@ -1,1 +1,27 @@
-<p>login-candidate works!</p>
+
+<div class="container">
+  <div class="alert alert-danger" *ngIf="errors">{{errors}}</div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-5">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="loginName" [(ngModel)]="loginName">
+      <label for="floatingInput">Email, Téléphone ou username</label>
+      <!--        <span *ngIf="errors.loginName" class="text-danger">{{errors.loginName}}</span>-->
+    </div>
+    <div class="input-group mb-5">
+      <div class="form-floating ">
+        <input type="{{passwordType}}" class="form-control" id="floatingPassword" placeholder="Mot de passe" name="password" [(ngModel)]="password" required>
+        <label for="floatingPassword">Mot de passe</label>
+        <!--        <span *ngIf="errors.password" class="text-danger">{{errors.password}}</span>-->
+      </div>
+      <span class="input-group-text">
+                    <i class="bi " [ngClass]="eyeType?'bi-eye':'bi-eye-slash'" (click)="passwordView()" id="togglePassword"></i>
+        </span>
+    </div>
+    <div class="form-floating">
+      <button type="submit" class="btn btn-warning text-white fs-4 float-start">Se Connecter</button>
+      <div class="float-end">
+        <a routerLink="#">Mot de passe oublié?</a>
+      </div>
+    </div>
+  </form>
+</div>
