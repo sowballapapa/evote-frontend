@@ -1,1 +1,88 @@
-<p>candidate-electors works!</p>
+@if (isLoading) {
+
+  <div class="text-warning text-center vertical-align" >
+    <div class="spinner-grow" role="status"></div>
+    <span class="status ps-3">Chargement...</span>
+  </div>
+}@else{
+  <div class="myContainer flex-wrap ">
+    <table class="table  table-responsive ">
+      <caption class="captionTitle">
+        <span class="ms-2">Liste de nos parrains</span>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item " >
+              <a class="page-link" [ngClass]="pageIndex<=1?'disabled':''"  (click)="prevPage()">&laquo;</a>
+            </li>
+            @for (page of pageSize; track $index){
+              @if (page<=5 || page>=lastPage-5 ) {
+                <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+              } @else {
+                @if (page>=pageIndex-3 && page<=pageIndex+3){
+                  <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+                }
+              }
+            }
+            <li class="page-item">
+              <a class="page-link" [ngClass]="pageIndex===lastPage?'disabled':''" (click)="nextPage()">&raquo;</a>
+            </li>
+          </ul>
+        </nav>
+
+      </caption>
+      <caption class="captionInfos">
+        <span class="b1"><u>Page</u>:  <strong> {{pageIndex}}/{{lastPage}}</strong></span>
+        <span class="b2"><u>Nombre De parrains</u>:
+        <strong>
+          @if (itemsPerPage >= total) {
+            {{total}}
+          } @else {
+            {{itemsPerPage}}/{{total}}
+          }
+        </strong>
+      </span>
+      </caption>
+      <thead>
+      <tr>
+        <th>Commune</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let collector of allCollectors">
+        <td>{{collector.name}}</td>
+        <td>{{collector.lastname}}</td>
+        <td>{{collector.firstname}}</td>
+        <td>{{collector.email}}</td>
+        <td>{{collector.phone}}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item " >
+            <a class="page-link" [ngClass]="pageIndex<=1?'disabled':''"  (click)="prevPage()">&laquo;</a>
+          </li>
+          @for (page of pageSize; track $index){
+            @if (page<=5 || page>=lastPage-5 ) {
+              <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+            } @else {
+              @if (page>=pageIndex-3 && page<=pageIndex+3){
+                <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+              }
+            }
+          }
+          <li class="page-item">
+            <a class="page-link" [ngClass]="pageIndex===lastPage?'disabled':''" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+
+      </tfoot>
+    </table>
+  </div>
+}

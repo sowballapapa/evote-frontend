@@ -1,0 +1,67 @@
+@if (isLoading) {
+
+  <div class="text-warning text-center vertical-align" >
+    <div class="spinner-grow" role="status"></div>
+    <span class="status ps-3">Chargement...</span>
+  </div>
+}@else{
+  <div class="myContainer flex-wrap ">
+    <div class="alert alert-danger" *ngIf="error">{{error}}</div>
+    <table class="table  table-responsive ">
+      <caption class="captionTitle">
+        <span class="ms-2">{{tableTitle}}</span>
+
+      </caption>
+      <caption class="captionInfos">
+        <span class="b1"><u>Page</u>:  <strong> {{pageIndex}}/{{lastPage}}</strong></span>
+        <span class="b2"><u>Nombre D'enregistrements</u>:
+        <strong>
+          @if (pageItemsCount >= total) {
+            {{total}}
+          } @else {
+            {{pageItemsCount}}/{{total}}
+          }
+        </strong>
+      </span>
+      </caption>
+      <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{column}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of rows;trackBy: rowTrackBy">
+        <td title="{{row[dataColumn]}}" *ngFor="let dataColumn of dataColumns">
+          @if (row[dataColumn]===null) {
+            <span class="text-danger fw-bold">Non défini(e)</span>
+          }
+          {{row[dataColumn]}}
+        </td>
+
+      </tr>
+      </tbody>
+      <tfoot>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item " >
+            <a class="page-link" [ngClass]="pageIndex<=1?'disabled':''"  (click)="prevPage()">&laquo;</a>
+          </li>
+          @for (page of pageSize; track $index){
+            @if (page<=5 || page>=lastPage-5 ) {
+              <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+            } @else {
+              @if (page>=pageIndex-3 && page<=pageIndex+3){
+                <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+              }
+            }
+          }
+          <li class="page-item">
+            <a class="page-link" [ngClass]="pageIndex===lastPage?'disabled':''" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+
+      </tfoot>
+    </table>
+  </div>
+}

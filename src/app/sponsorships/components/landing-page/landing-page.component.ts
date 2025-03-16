@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
     selector: 'app-landing-page',
-    imports: [],
+  imports: [
+    RouterLink
+  ],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
 })
@@ -17,7 +19,7 @@ export class LandingPageComponent {
     this.router.navigateByUrl('/parrainages-interface/electeur/connection');
   }
   registerElector(){
-    this.router.navigateByUrl('/parrainages-interface/electeur/inscription');
+    this.router.navigateByUrl('');
   }
   connexionCandidate(){
     this.router.navigateByUrl('/parrainages-interface/candidat/connection');

@@ -213,6 +213,50 @@ import {
   CandidateElectorsComponent
 } from './sponsorships/candidate/components/candidate-electors/candidate-electors.component';
 import {candidateAuthChildGuard, candidateLoginGuard} from './sponsorships/candidate/guards/candidate-auth.guard';
+import {CollectorBaseComponent} from './sponsorships/collector/components/collector-base/collector-base.component';
+import {CollectorLoginComponent} from './sponsorships/collector/components/collector-login/collector-login.component';
+import {CollectorHomeComponent} from './sponsorships/collector/components/collector-home/collector-home.component';
+import {CollectorInfosComponent} from './sponsorships/collector/components/collector-infos/collector-infos.component';
+import {
+  CollectorElectorsComponent
+} from './sponsorships/collector/components/collector-electors/collector-electors.component';
+import {
+  CollectorCandidateComponent
+} from './sponsorships/collector/components/collector-candidate/collector-candidate.component';
+import {collectorAuthChildGuard, collectorLoginGuard} from './sponsorships/collector/guards/collector-auth.guard';
+import {
+  AdminAccCollectorsBaseComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-acc-collectors-base/admin-acc-collectors-base.component';
+import {
+  AdminAccCollectorsIndexComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-acc-collectors-index/admin-acc-collectors-index.component';
+import {
+  AdminAccCollectorsViewComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-acc-collectors-view/admin-acc-collectors-view.component';
+import {
+  AdminAccCollectorsCreateComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-acc-collectors-create/admin-acc-collectors-create.component';
+import {
+  AdminAccCollectorsEditComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-acc-collectors-edit/admin-acc-collectors-edit.component';
+import {
+  AdminCollectorsBaseComponent
+} from './admin/components/others-pages/g_collectors/admin-collectors-base/admin-collectors-base.component';
+import {
+  AdminCollectorsIndexComponent
+} from './admin/components/others-pages/g_collectors/admin-collectors-index/admin-collectors-index.component';
+import {
+  AdminCollectorsViewComponent
+} from './admin/components/others-pages/g_collectors/admin-collectors-view/admin-collectors-view.component';
+import {
+  AdminCollectorsCreateComponent
+} from './admin/components/others-pages/g_collectors/admin-collectors-create/admin-collectors-create.component';
+import {
+  AdminCollectorsEditComponent
+} from './admin/components/others-pages/g_collectors/admin-collectors-edit/admin-collectors-edit.component';
+import {
+  CandidateCollectorsComponent
+} from './sponsorships/candidate/components/candidate-collectors/candidate-collectors.component';
 
 export const routes: Routes = [
   //routes Guest
@@ -264,6 +308,12 @@ export const routes: Routes = [
                 {path: 'nouveau', component:AdminAccCandidatesCreateComponent},
                 {path: 'modifier/:id', component: AdminAccCandidatesEditComponent}
               ]},
+            {path: 'collecteurs', component: AdminAccCollectorsBaseComponent, children: [
+                {path: '', component: AdminAccCollectorsIndexComponent},
+                {path: 'id/:id', component: AdminAccCollectorsViewComponent},
+                {path: 'nouveau', component:AdminAccCollectorsCreateComponent},
+                {path: 'modifier/:id', component: AdminAccCollectorsEditComponent}
+              ]},
             {path: 'electeurs', component: AdminAccElectorsBaseComponent, children: [
                 {path: '', component: AdminAccElectorsIndexComponent},
                 {path: 'id/:id', component: AdminAccCandidatesViewComponent},
@@ -302,6 +352,12 @@ export const routes: Routes = [
           {path:'modifier/:id', component:AdminCandidatesEditComponent}
 
         ]},
+        {path: 'gestion-collecteurs', component: AdminCollectorsBaseComponent, children: [
+            {path: '', component: AdminCollectorsIndexComponent},
+            {path: 'id/:id', component: AdminCollectorsViewComponent},
+            {path: 'nouveau', component:AdminCollectorsCreateComponent},
+            {path: 'modifier/:id', component: AdminCollectorsEditComponent}
+          ]},
         {path:'gestion-systemes', component:AdminSystemeHomeComponent, children:[
           {path:'dge-infos', component:AdminDgeDetailsBaseComponent,children:[
             {path:'', component:AdminDgeDetailsIndexComponent},
@@ -358,6 +414,23 @@ export const routes: Routes = [
               {path:'', component: CandidateHomeComponent, title:'Parrainages | Accueil des candidats'},
               {path: 'mes_infos', component: CandidateInfosComponent, title: 'Mes Infos'},
               {path: 'mes_parrains', component: CandidateElectorsComponent, title: 'Mes Parrains'},
+              {path: 'mes_collecteurs', component: CandidateCollectorsComponent, title: 'Mes Collecteurs'},
+            ]
+          }
+        ]
+      },{
+        path:'collecteur',
+        component: CollectorBaseComponent,
+        children: [
+          {path: 'connection', component: CollectorLoginComponent, canActivate: [collectorLoginGuard]},
+          {
+            path: '',
+            canActivateChild: [collectorAuthChildGuard],
+            children:[
+              {path:'', component: CollectorHomeComponent, title:'Parrainages | Accueil des candidats'},
+              {path: 'mes_infos', component: CollectorInfosComponent, title: 'Mes Infos'},
+              {path: 'mes_parrains', component: CollectorElectorsComponent, title: 'Mes Parrains'},
+              {path: 'mon_candidat', component: CollectorCandidateComponent, title: 'Mon Candidat'},
             ]
           }
         ]

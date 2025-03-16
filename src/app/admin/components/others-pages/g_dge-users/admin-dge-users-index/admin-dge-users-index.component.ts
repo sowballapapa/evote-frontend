@@ -34,6 +34,7 @@ export class AdminDgeUsersIndexComponent {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((res:any) =>{
         this.isLoading = false;
+        this.allDgeUsers = []
         res.data.data.forEach((item:any)=>{
           let tempId = item.id;
           item.id = item.elector_id;
@@ -51,7 +52,6 @@ export class AdminDgeUsersIndexComponent {
     })
   }
   ngOnInit() {
-    // this.fetch(this.page)
     this.isLoading = true;
     this.currentPage = 1
   }

@@ -59,7 +59,8 @@ section{
     grid-area: candidate;
     align-self: center;
   }
-  button{
+  .myBtn{
+    display: inline-block;
     background-color: white;
     border: none;
     border-radius: 2em;
@@ -67,8 +68,9 @@ section{
     font-size: large;
     font-weight: bold;
     color: #7eb575;
+    text-decoration: none;
   }
-  button:hover{
+  .myBtn:hover{
     background-color: #26521f;
     color: white;
     cursor: pointer;

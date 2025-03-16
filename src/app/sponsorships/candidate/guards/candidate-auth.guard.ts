@@ -30,6 +30,7 @@ export const candidateLoginGuard: CanActivateFn = (route, state) => {
 
   if(!candidate){
 
+
     return true
   }else{
     router.navigateByUrl('/parrainages-interface/candidat')

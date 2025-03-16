@@ -1,1 +1,38 @@
-<p>candidate-infos works!</p>
+<div>
+  <div class="card m-3">
+    <div class="card-header">
+      <img src="{{party.logo}}" alt="Logo_du_party">
+      <h4>Candidate Infos</h4>
+    </div>
+    <div class="card-body">
+      <div>
+        <strong>Prénom et Nom: </strong><span>{{candidate.firstname}} {{candidate.lastname}}</span>
+      </div>
+      <div>
+        <strong>Biographie:</strong> <p>{{candidate.biography}}</p>
+      </div>
+      <div>
+        <strong>Mot de campagne:</strong> <p>{{candidate.campaignWord}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card m-3">
+    <div class="card-header">
+      <h4>Parti Infos</h4>
+    </div>
+    <div class="card-body">
+      <div>
+        <strong>Nom du parti: </strong><span>{{party.name}}</span>
+      </div>
+      <div>
+        <strong>Slogan: </strong><span>{{party.slogan}}</span>
+      </div>
+      <div>
+        <strong>A propos: </strong><p>{{party.description}}</p>
+      </div>
+      <div>
+        <strong>Programme de campagne: </strong><p>{{party.campaignProgram}}</p>
+      </div>
+    </div>
+  </div>
+</div>

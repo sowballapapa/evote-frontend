@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserService} from './services/user.service';
+import {PaginateTableComponent} from './components/paginate-table/paginate-table.component';
 
 
 
@@ -10,7 +11,8 @@ import {UserService} from './services/user.service';
     CommonModule
   ],
   exports: [
-    UserService
+    UserService,
+    PaginateTableComponent
   ]
 })
 export class CoreModule { }
