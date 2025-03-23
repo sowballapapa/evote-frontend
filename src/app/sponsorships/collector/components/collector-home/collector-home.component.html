@@ -7,14 +7,101 @@
       </button>
     </form>
   </div>
+  <div class="alert bg-body-tertiary text-danger mt-3 border-2 border-danger" *ngIf="errors && !showResult">
+    <h1>
+      <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#dc3545"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+      {{errors}}
+    </h1>
+  </div>
   <div class="container">
-    <div class="help">
+    <div class="help" *ngIf="!showResult">
       <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#008B8BFF"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
       <p>
         Entrez le Numéro de la Carte Nationale d'Identité de votre parrain, puis faites la recherche.
         Une fois les informations de votre parrain retourné, souscrivez la fiche de collecte signé.
       </p>
     </div>
+    <div class="search-result shadow" *ngIf="showResult">
+      <div class="cni_infos">
+        <h4 class="text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M160-80q-33 0-56.5-23.5T80-160v-440q0-33 23.5-56.5T160-680h200v-120q0-33 23.5-56.5T440-880h80q33 0 56.5 23.5T600-800v120h200q33 0 56.5 23.5T880-600v440q0 33-23.5 56.5T800-80H160Zm0-80h640v-440H600q0 33-23.5 56.5T520-520h-80q-33 0-56.5-23.5T360-600H160v440Zm80-80h240v-18q0-17-9.5-31.5T444-312q-20-9-40.5-13.5T360-330q-23 0-43.5 4.5T276-312q-17 8-26.5 22.5T240-258v18Zm320-60h160v-60H560v60Zm-200-60q25 0 42.5-17.5T420-420q0-25-17.5-42.5T360-480q-25 0-42.5 17.5T300-420q0 25 17.5 42.5T360-360Zm200-60h160v-60H560v60ZM440-600h80v-200h-80v200Zm40 220Z"/></svg>
+          L'élécteur recherché
+        </h4>
+        <hr>
+        <table class="table table-striped ">
+          <th class="float-start">
+            <tr>N° CNI</tr>
+            <tr>Nom</tr>
+            <tr>Prénoms</tr>
+            <tr>Date de Naissance</tr>
+            <tr>Lieu de Naissance</tr>
+            <tr>Sexe</tr>
+            <tr>Adresse</tr>
+            <tr>N° Electeur</tr>
+            <tr>Bureau de Vote</tr>
+            <tr>Lieu de Vote</tr>
+            <tr>Date de délivrance</tr>
+            <tr>Date d'expiration</tr>
+            <tr>Prénom du père</tr>
+            <tr>Nom de la mère</tr>
+            <tr>Prénom de la mère</tr>
+          </th>
+          <td>
+            <tr>{{elector.cniNumber}}</tr>
+            <tr>{{elector.lastname}}</tr>
+            <tr>{{elector.firstname}}</tr>
+            <tr>{{elector.birthDate}}</tr>
+            <tr>{{elector.birthPlace}}</tr>
+            <tr>@if (elector.sex === 0) {
+              {{ 'Féminin' }}
+            } @else {
+              {{'Masculin' }}
+            }
+            </tr>
+            <tr>{{elector.address}}</tr>
+            <tr>{{elector.electorNumber}}</tr>
+            <tr>{{elector.polling_station_id}}</tr>
+            <tr>{{elector.polling_station_id}}</tr>
+            <tr>{{elector.delivranceDate}}</tr>
+            <tr>{{elector.expirationDate}}</tr>
+            <tr>{{elector.dadFirstname}}</tr>
+            <tr>{{elector.mumFirstname}}</tr>
+            <tr>{{elector.mumLastname}}</tr>
+          </td>
+        </table>
+      </div>
+      <div class="cni_imgs float-end">
+        <div>
+          <img src="{{elector.cniFront}}" alt="Recto CNI"><br>
+          <cite>Recto CNI</cite>
+        </div>
+        <div>
+          <img src="{{elector.cniBack}}" alt="Verso CNI"><br>
+          <cite>Recto CNI</cite>
+        </div>
+      </div>
+      <div class="sponsoring-form">
+        <h4 class="text-center">Formulaire de parrainage</h4>
+        <hr>
+        <form [formGroup]="myForm" (ngSubmit)="onCollect()" class="vstack shadow">
+          <div class="form-group">
+            <label for="collect_form" class="form-label">
+              Fiche de Collecte
+            </label>
+            <input type="hidden" id="elector_id" formControlName="elector_id"  [value]="elector.id">
+            <input type="file" class="form-control" formControlName="collect_form" id="collect_form"  (change)="onCollectFormChange($event)">
+            <div class="alert alert-danger" *ngIf="f['collect_form'].touched && f['collect_form'].invalid">
+              <div *ngIf="f['collect_form'].errors && f['collect_form'].errors?.['required']">
+                Fiche de collecte scannée requise!
+              </div>
+            </div>
+            <div class="text-center m-auto w-50">
+              <button type="submit" class="w-100 btn btn-outline-danger" >Valider</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-<p>collector-home works!</p>
+

@@ -30,7 +30,7 @@ section{
   padding: 2em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:  "welcome candidate" "welcome  elector";
+  grid-template-areas:  "welcome elector" "welcome collector" "welcome candidate";
   gap: 1em;
   p{
     margin: 1em 0;
@@ -78,10 +78,10 @@ section{
     box-shadow: 3px -3px 3px 3px white, -3px 3px 3px 3px white;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   section{
     grid-template-columns: 1fr;
-    grid-template-areas: "welcome" "candidate" "elector";
+    grid-template-areas: "welcome" "elector" "collecteur" "candidate";
     .welcome{
       align-self: auto;
       .wlc-section{
@@ -95,21 +95,5 @@ section{
       align-self: auto;
       height: fit-content;
     }
-  }
-}
-
-@media (max-width: 1500px) and (min-width: 800px) {
-  section {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "welcome welcome" "candidate elector";
-
-    .welcome {
-      align-self: auto;
-
-      .wlc-section {
-        display: block;
-      }
-    }
-
   }
 }

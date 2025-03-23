@@ -429,7 +429,7 @@ export const routes: Routes = [
             children:[
               {path:'', component: CollectorHomeComponent, title:'Parrainages | Accueil des candidats'},
               {path: 'mes_infos', component: CollectorInfosComponent, title: 'Mes Infos'},
-              {path: 'mes_parrains', component: CollectorElectorsComponent, title: 'Mes Parrains'},
+              {path: 'nos_parrains', component: CollectorElectorsComponent, title: 'Nos Parrains'},
               {path: 'mon_candidat', component: CollectorCandidateComponent, title: 'Mon Candidat'},
             ]
           }

@@ -1,0 +1,12 @@
+<header class="navbar bg-body-secondary bg-gradient  bg-opacity-75 container-fluid p-2 mb-0  border-bottom border-3 border-danger">
+  <img src="/assets/LogoDge.jpg" class="float-start img-fluid" width="7%" height="auto">
+  <span class="text-success text-wrap fs-2 fw-bolder text-center ">
+      <h1>Plateforme E-Vote</h1>
+      <h4 *ngIf="!isLoggin" class="color-header">Connexion des collecteurs pour les parrainages</h4>
+      <h4 *ngIf="isLoggin" class="color-header">Parrainages aux élections présidentielles</h4>
+    </span>
+  <img src="/assets/FlagMapOfSenegal.svg" class="float-end img-fluid" width="7%" height="auto">
+</header>
+<div class="mt-0 w-100" *ngIf="isLoggin">
+  <app-navbar />
+</div>

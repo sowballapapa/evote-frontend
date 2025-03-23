@@ -27,6 +27,9 @@ export class NavbarComponent {
     if (localStorage.getItem('candidate')) {
       localStorage.removeItem('candidate')
     }
+    if (localStorage.getItem('collector')) {
+      localStorage.removeItem('collector')
+    }
     window.location.reload();
   }
 }

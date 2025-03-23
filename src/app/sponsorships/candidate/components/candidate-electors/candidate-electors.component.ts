@@ -16,7 +16,7 @@ export class CandidateElectorsComponent {
   private _unsubscribeAll: Subject<any>;
 
   allCollectors:any
-  fetchTitle = "Liste de nos Collectors par commune"
+  fetchTitle = "Liste de nos parrains"
   isLoading = false;
   lastPage = 1
   currentPage = 1
