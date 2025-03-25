@@ -1,0 +1,37 @@
+.myContainer{
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  background: linear-gradient(to left, rgba(236, 238, 235, 0.53) 0%, rgba(66, 138, 66, 0.33) 100%);
+}
+.container-fluid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sponsoring-form{
+  justify-content: center;
+  margin: auto auto;
+  background-color: rgba(211, 248, 205, 0.72);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 4em;
+  min-height: 100%;
+  min-width: 100%;
+  .form-control{
+    height: 10em;
+  }
+
+}
+
+.candidature{
+    .candidatImg{
+      width: 70px;
+      height: 70px;
+    }
+
+  .ballot{
+    width: 200px;
+    height: 350px;
+  }
+}

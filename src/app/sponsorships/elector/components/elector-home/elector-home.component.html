@@ -2,7 +2,7 @@
 
   <app-candidate-card
   [partyId]="candidature.party_or_coalition_id"
-  [urlImg]="candidature.ballot"
+  [urlImg]="storageUrl+candidature.ballot"
   [candidate]="candidature.firstname+' ' +candidature.lastname"
   [party]="candidature.name"
   />

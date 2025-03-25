@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CandidateService} from '../../services/candidate.service';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-candidate-infos',
@@ -12,6 +13,7 @@ export class CandidateInfosComponent {
 
   candidate!:any
   party!:any
+  storageUrl = environment.storageUrl;
   constructor(private service: CandidateService) {
   }
 

@@ -19,7 +19,9 @@ export class CandidateHomeComponent {
   constructor(private service: CandidateService) { }
 
   ngOnInit() {
-    this.service.getCandidateStats().subscribe((res:any)=>{
+    let id = localStorage.getItem('candidate');
+    this.service.getCandidateStats(id).subscribe((res:any)=>{
+      console.log(res)
       if(res.status == 0){
         this.message = "Pas encore de résultats"
       }

@@ -2,10 +2,10 @@
   <span>{{message}}</span>
 </div>
 <div class="container-fluid" *ngIf="!message">
-  <div>
-    <h5>Nombre Total de Parrains Obtenus</h5>
-    <div>
-    </div>
+  <div class="p-2 bg-success-subtle m-2 ">
+    <h6><u>Taux de particiaption</u>: <b class="text-info ">{{stats.participation*100}}%</b></h6>
+    <h5><u>Nombre Total de Parrains Obtenus</u>: <b class="text-danger ">{{stats.overall}} parrains</b></h5>
+    <h4><u>Pourcentage de parrains obtenus par rapport à l'électorat</u>: <b class="text-primary">{{stats.globalRate * 100}}%</b> </h4>
   </div>
   <div>
     <h5>Nombre de Parrains Restants pour valider le ticket pour les élections par Commune</h5>

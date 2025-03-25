@@ -15,7 +15,7 @@ import {CandidateService} from '../../services/candidate.service';
 export class CandidateElectorsComponent {
   private _unsubscribeAll: Subject<any>;
 
-  allCollectors:any
+  allElectors:any
   fetchTitle = "Liste de nos parrains"
   isLoading = false;
   lastPage = 1
@@ -42,7 +42,7 @@ export class CandidateElectorsComponent {
       .subscribe((res:any) =>{
         console.log(res.data);
         this.isLoading = false;
-        this.allCollectors = res.data.data;
+        this.allElectors = res.data.data;
         this.lastPage = res.data.last_page;
         this.itemsPerPage = res.data.to - res.data.from +1;
         this.total = res.data.total

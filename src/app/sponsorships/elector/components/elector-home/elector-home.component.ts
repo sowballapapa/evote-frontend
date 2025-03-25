@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ElectorService} from '../../services/elector.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {CandidateCardComponent} from '../partials/candidate-card/candidate-card.component';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-elector-home',
@@ -14,9 +15,8 @@ import {CandidateCardComponent} from '../partials/candidate-card/candidate-card.
 })
 export class ElectorHomeComponent {
   candidatures!:any
-  constructor(private electorService: ElectorService) {
-
-  }
+  storageUrl = environment.storageUrl
+  constructor(private electorService: ElectorService) {}
 
   fecthCandidatures(){
     this.electorService.getAllCandidatures().subscribe((res: any) => {

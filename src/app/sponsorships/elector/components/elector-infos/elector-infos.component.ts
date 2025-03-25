@@ -5,6 +5,7 @@ import {DatasComponent} from '../infos/datas/datas.component';
 import {DatasUpdateComponent} from '../infos/datas-update/datas-update.component';
 import {PasswordResetComponent} from '../infos/password-reset/password-reset.component';
 import {NgIf} from '@angular/common';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-elector-infos',
@@ -22,6 +23,7 @@ export class ElectorInfosComponent {
   editDatas = false
   editPass = false
   viewDatas = true
+  storageUrl = environment.storageUrl
   constructor(private electorService: ElectorService) {
   }
 

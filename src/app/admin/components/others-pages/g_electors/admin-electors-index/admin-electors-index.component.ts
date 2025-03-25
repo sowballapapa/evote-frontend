@@ -51,7 +51,7 @@ export class AdminElectorsIndexComponent {
 
       })
         this.total = res.data.total
-        this.itemsPerPage = res.data.per_page
+        this.itemsPerPage = res.data.to - res.data.from +1
       this.lastPage = res.data.last_page;
       this.currentPage = res.data.current_page;
       this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {

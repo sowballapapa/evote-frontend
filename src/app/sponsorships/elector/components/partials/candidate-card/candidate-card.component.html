@@ -10,10 +10,12 @@
   <div class="candidate-card">
   <img src="{{urlImg}}" alt="">
   <section>
-    <p><b>Candidat: </b>{{candidate}}</p>
-    <p><b>Parti: </b>{{party}}</p>
+    <a class="nav-link" [routerLink]="'/parrainages-interface/electeur/candidature/'+partyId">
+      <p><b>Candidat: </b>{{candidate}}</p>
+      <p><b>Parti: </b>{{party}}</p>
+    </a>
     <section class="float-end" [hidden]="!checked">
-      <button class="btn fs-3" (click)="sponsored()">Parrainer</button>
+      <button class="btn fs-3" (click)="sponsored(partyId)">Parrainer</button>
     </section>
   </section>
   </div>

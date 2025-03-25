@@ -1,0 +1,21 @@
+<div class="myContainer">
+  <h3>Parrainage</h3>
+  <hr>
+  <div class="container-fluid">
+    <div class="candidature">
+      <img class="candidatImg" [src]="storageUrl+candidate.image"> {{candidate.firstname}} {{candidate.lastname}}
+      <h5><u>Parti</u>: {{party.name}}</h5>
+      <h6><u>Slogan</u>: {{party.slogan}}</h6>
+      <img class="ballot" src="{{storageUrl+party.ballot}}" alt="bulletin_party">
+    </div>
+    <div class="sponsoring-form">
+      <form (ngSubmit)="sponsoring(party.id)" class="text-center">
+        <label class="form-label fs-4">Message de support: <i class="text-danger">Facultatif</i></label>
+        <textarea class="form-control mb-3" [(ngModel)]="supportMessage" name="supportMessage" placeholder="Entrer ici votre message de support..."></textarea>
+        <button type="submit" class="btn btn-outline-success fs-4">Parrainer</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

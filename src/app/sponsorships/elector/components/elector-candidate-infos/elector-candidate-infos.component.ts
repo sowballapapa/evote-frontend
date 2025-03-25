@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ElectorService} from '../../services/elector.service';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-elector-candidate-infos',
@@ -12,6 +13,7 @@ export class ElectorCandidateInfosComponent {
   party:any
   supportMessage:any
   noCandidateMessage:any = null
+  storageUrl = environment.storageUrl
   constructor(private electorService: ElectorService) { }
 
   ngOnInit() {

@@ -20,8 +20,8 @@ export class CandidateService {
     return this.http.get(`${environment.apiUrl}/candidate/candidate-infos`);
   }
 
-  getCandidateStats(){
-    return this.http.get(`${environment.apiUrl}/candidate/get-candidate-stat`);
+  getCandidateStats(id:any){
+    return this.http.get(`${environment.apiUrl}/candidate/get-candidate-stat/${id}`);
   }
 
 }

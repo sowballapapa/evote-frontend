@@ -21,6 +21,10 @@ export class ElectorService {
     return this.http.get(`${environment.apiUrl}/elector/all-candidatures`)
   }
 
+  getCandidature(candidate:any){
+    return this.http.get(`${environment.apiUrl}/elector/candidature/${candidate}`)
+  }
+
   sponsored(sponsoring:any){
     return this.http.post(`${environment.apiUrl}/elector/sponsored`, sponsoring)
   }

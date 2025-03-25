@@ -257,6 +257,8 @@ import {
 import {
   CandidateCollectorsComponent
 } from './sponsorships/candidate/components/candidate-collectors/candidate-collectors.component';
+import {CandidatureComponent} from './sponsorships/elector/components/candidature/candidature.component';
+import {ParrainerComponent} from './sponsorships/elector/components/parrainer/parrainer.component';
 
 export const routes: Routes = [
   //routes Guest
@@ -448,6 +450,8 @@ export const routes: Routes = [
               {path:'', component: ElectorHomeComponent, title:'Parrainages | Accueil des électeurs'},
               {path: 'mes_infos', component: ElectorInfosComponent, title: 'Mes Infos'},
               {path: 'mon_candidat', component: ElectorCandidateInfosComponent, title: 'Mon Candidat'},
+              {path: 'candidature/:id', component: CandidatureComponent, title: 'Candidature'},
+              {path: 'parrainer/:id', component: ParrainerComponent, title: 'Parrainer'},
             ]
           }
         ]

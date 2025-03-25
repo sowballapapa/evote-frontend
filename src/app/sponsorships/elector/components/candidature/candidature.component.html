@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card-group">
+    <div class="card">
+      <div class="card-header">
+        <h4><u>Candidat</u>: {{candidate.firstname}} {{candidate.lastname}}</h4>
+      </div>
+      <div class="card-body">
+        <img width="70px" height="70px" src="{{storageUrl+candidate.image}}" alt="Image Candidat">
+          <table>
+            <th>
+              <tr>Biography: </tr>
+              <tr>Mot de la campagne: </tr>
+            </th>
+            <td>
+              <tr>{{candidate.biography}}</tr>
+              <tr>{{candidate.campaignWord}}</tr>
+            </td>
+          </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4><u>Parti</u>: {{party.name}}</h4>
+      </div>
+      <div class="card-body">
+        <img width="100px" height="100px" src="{{storageUrl+party.logo}}" alt="Logo_parti">
+        <b><u>Slogan</u>: </b>{{party.slogan}}
+        <img width="200px" height="350px" src="{{storageUrl+party.ballot}}" alt="Bulletin_parti">
+        <div>
+          <p><b><u>A propos</u>: </b>{{party.description}}</p>
+          <b><u>Programme de campagne</u>: </b> <a href="{{storageUrl+party.campaignProgram}}">Télécharger le fichier ici!</a>
+<!--          <embed src="{{party.campaignProgram}}" type="application/pdf"/>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-2"><a class="btn btn-outline-success" [routerLink]="'/parrainages-interface/electeur/parrainer/'+candidate.elector_id">Parrainer ce candidat</a></div>
+</div>

@@ -50,15 +50,43 @@
         <th>Prénom</th>
         <th>Email</th>
         <th>Téléphone</th>
+        <th>Message de support</th>
+        <th>Fiche de collecte</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let collector of allCollectors">
-        <td>{{collector.name}}</td>
-        <td>{{collector.lastname}}</td>
-        <td>{{collector.firstname}}</td>
-        <td>{{collector.email}}</td>
-        <td>{{collector.phone}}</td>
+      <tr *ngFor="let elector of allElectors">
+        <td>{{elector.name}}</td>
+        <td>{{elector.lastname}}</td>
+        <td>{{elector.firstname}}</td>
+        <td>
+          @if (elector.email){
+            elector.email
+          } @else {
+            <i class="text-danger">Non répertorié!</i>
+          }
+        </td>
+        <td>
+          @if (elector.phone){
+            elector.phone
+          } @else {
+            <i class="text-danger">Non répertorié!</i>
+          }
+        </td>
+        <td>
+          @if (elector.supportMessage){
+            <b class="text-success" title="{{elector.supportMessage}}">Oui</b>
+          } @else {
+            <i class="text-danger">Non</i>
+          }
+        </td>
+        <td>
+          @if (elector.collect_form){
+            <a class="text-success" href="{{elector.collect_form}}">Voir!</a>
+          } @else {
+            <i class="text-danger">Non</i>
+          }
+        </td>
       </tr>
       </tbody>
       <tfoot>

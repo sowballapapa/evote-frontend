@@ -3,6 +3,7 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {CollectorService} from '../../services/collector.service';
 import {NgIf} from '@angular/common';
 import {Router} from '@angular/router';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-collector-home',
@@ -58,6 +59,7 @@ export class CollectorHomeComponent {
     elector_id: new FormControl(this.elector_id, [Validators.required]),
     collect_form: new FormControl( '', [Validators.required]),
   })
+  storageurl= environment.storageUrl;
   get f(){
     return this.myForm.controls;
   }

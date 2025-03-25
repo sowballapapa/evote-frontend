@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
 import {BehaviorSubject, Subject, takeUntil} from 'rxjs';
 import {CandidateService} from '../../services/candidate.service';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-candidate-collectors',
@@ -31,6 +32,7 @@ export class CandidateCollectorsComponent {
   paginate = new BehaviorSubject({
     page: 1,
   });
+  storageUrl = environment.storageUrl;
 
   constructor(private candidateService: CandidateService) {
     this._unsubscribeAll = new Subject();

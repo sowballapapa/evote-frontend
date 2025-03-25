@@ -1,10 +1,10 @@
 <div>
   <div class="card m-3">
     <div class="card-header">
-      <img src="{{party.logo}}" alt="Logo_du_party">
       <h4>Candidate Infos</h4>
     </div>
     <div class="card-body">
+      <img width="100px" src="{{storageUrl+candidate.image}}" alt="">
       <div>
         <strong>Prénom et Nom: </strong><span>{{candidate.firstname}} {{candidate.lastname}}</span>
       </div>
@@ -20,18 +20,25 @@
     <div class="card-header">
       <h4>Parti Infos</h4>
     </div>
-    <div class="card-body">
+    <div class="card-body d-flex">
       <div>
-        <strong>Nom du parti: </strong><span>{{party.name}}</span>
+
+        <img width="100px" src="{{storageUrl+party.logo}}" alt="Logo_du_party">
+        <div>
+          <strong>Nom du parti: </strong><span>{{party.name}}</span>
+        </div>
+        <div>
+          <strong>Slogan: </strong><span>{{party.slogan}}</span>
+        </div>
+        <div>
+          <strong>A propos: </strong><p>{{party.description}}</p>
+        </div>
+        <div>
+          <strong>Programme de campagne: </strong><a class="link-body-emphasis" href="{{party.campaignProgram}}">Télécharger le fichier</a>
+        </div>
       </div>
       <div>
-        <strong>Slogan: </strong><span>{{party.slogan}}</span>
-      </div>
-      <div>
-        <strong>A propos: </strong><p>{{party.description}}</p>
-      </div>
-      <div>
-        <strong>Programme de campagne: </strong><p>{{party.campaignProgram}}</p>
+        <img class="float-end" width="200px"  src="{{storageUrl+party.ballot}}" alt="Bulletin_du_party">
       </div>
     </div>
   </div>
