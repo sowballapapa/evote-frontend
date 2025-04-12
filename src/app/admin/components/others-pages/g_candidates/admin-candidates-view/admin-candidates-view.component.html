@@ -1,1 +1,30 @@
-<p>admin-candidates-view works!</p>
+<div class="myContainer">
+  <div class="my-card">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" (click)="goBack()">&#8617;</button>
+      <span>{{titleElement}}</span>
+    </div>
+    <div class="my-card-body">
+      <div>
+        <strong>#</strong><span>{{candidate.id}}</span>
+      </div>
+      <div>
+        <strong>Image</strong>
+
+        <img src="{{environment.storageUrl+candidate.image}}" width="100px" alt="">
+      </div>
+      <div>
+        <strong>Biographie</strong> <p>{{candidate.biography}}</p>
+      </div>
+      <div>
+        <strong>Mot de la campagne</strong> <p>{{candidate.campaignWord}}</p>
+      </div>
+
+    </div>
+    <div class="my-card-footer">
+      <button class="btn btn-outline-warning" (click)="onEdit(candidate.id)">Modifier</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(candidate.id)">Supprimer</button>
+    </div>
+  </div>
+
+</div>

@@ -58,7 +58,13 @@
         <td>{{elector.cniNumber}}</td>
         <td>{{elector.lastname}}</td>
         <td>{{elector.firstname}}</td>
-        <td>{{elector.collect_form}}</td>
+        <td>
+          @if (elector.collect_form) {
+            <a target="_blank" href="{{environment.storageUrl+elector.collect_form}}" class="link-warning">Cliquez pour Voir la fiche</a>
+          } @else {
+            <b class="text-danger">Pas de fiche.</b>
+          }
+        </td>
       </tr>
       </tbody>
       <tfoot>

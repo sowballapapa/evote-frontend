@@ -1,1 +1,54 @@
-<p>admin-parties-view works!</p>
+<div class="myContainer">
+  <div class="my-card">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" (click)="goBack()">&#8617;</button>
+      <span>{{title}}</span>
+    </div>
+    <div class="my-card-body">
+      <table class="table">
+        <tr>
+          <th>
+            @if (party.party_or_coalition_id == null) {
+              Dans aucune coalition.
+            } @else {
+              Coalition {{party.party_or_coalition_id}}
+            }
+          </th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <td>{{party.id}}</td>
+        </tr>
+        <tr>
+          <th>Nom</th>
+          <td>{{party.name}}</td>
+        </tr>
+        <tr>
+          <th>Slogan</th>
+          <td>{{party.slogan}}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{party.description}}</td>
+        </tr>
+        <tr>
+          <th>Logo</th>
+          <td><img width="100px" src="{{environment.storageUrl+party.logo}}" alt=""></td>
+        </tr>
+        <tr>
+          <th>Bulletin</th>
+          <td><img width="200px" src="{{environment.storageUrl+party.ballot}}" alt=""></td>
+        </tr>
+        <th>Programme de campagne</th>
+        <td>
+          <iframe width="250px" height="400px" [src]="url" frameborder="0"></iframe></td>
+      </table>
+
+    </div>
+    <div class="my-card-footer">
+      <button class="btn btn-outline-warning" (click)="onEdit(party.id)">Modifier</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(party.id)">Supprimer</button>
+    </div>
+  </div>
+
+</div>

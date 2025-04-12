@@ -11,6 +11,9 @@
       <strong>Intitulé: </strong> <span>{{electionsInfos.title}}</span>
     </div>
     <div>
+      <strong>Bannière: </strong> <img class="w-50" src="{{storageUrl+electionsInfos.banner_elect}}">
+    </div>
+    <div>
       <strong>Date de démarrage: </strong> <span>{{electionsInfos.startingDate}}</span>
     </div>
     <div>
@@ -21,10 +24,10 @@
     </div>
     <div>
       <strong>Texte: </strong>
-      @if (electionsInfos.alternativeText == null) {
+      @if (electionsInfos.alernativeText == null || electionsInfos.alernativeText == 'undefined') {
         <span class="fw-bold text-danger">Aucun Texte</span>
       } @else {
-        <p>{{electionsInfos.alternativeText}}</p>
+        <p>{{electionsInfos.alernativeText}}</p>
       }
     </div>
   </div>

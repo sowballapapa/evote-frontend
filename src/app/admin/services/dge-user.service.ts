@@ -21,7 +21,7 @@ export class DgeUserService {
     return this.http.post(environment.apiUrl+environment.adminSegment+'dge-users',data)
   }
 
-  editDgeUser(id:number, data:any) {
+  editDgeUser(id:any, data:any) {
     return this.http.put(environment.apiUrl+environment.adminSegment+'dge-users/' + id, data)
   }
 

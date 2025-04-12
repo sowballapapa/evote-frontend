@@ -1,1 +1,105 @@
-<p>admin-candidates-create works!</p>
+<div class="container-fluid m-2">
+  <div class="my-card">
+    <div class="my-card-header flex-wrap">
+      <h4 class="float-start">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+        Ajouter un nouveau Candidat
+      </h4>
+      <a routerLink="/admin/gestion-candidats" class="btn btn-outline-success bg-light-subtle text-success">
+        &lAarr; Retour
+      </a>
+    </div>
+    <div class="my-card-body">
+      <div class="bg-secondary-subtle p-3">
+          <div class="mb-2">
+            <form [formGroup]="searchForm" (ngSubmit)="searchElector()">
+              <label class="form-label" for="search">Rechercher le candidat (avec sa carte d'identité nationale)</label>
+              <span class="text-danger fw-bold p-1" *ngIf="errors">{{errors}}</span>
+              <div class="d-flex">
+                <input type="text" formControlName="cniNumber" [ngClass]="errors?'is-invalid':''" id="search" class="form-control" placeholder="Entrer le N° CNI du candidat">
+                <button class="btn btn-light" type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#48752C"><path d="M440-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T520-640q0-33-23.5-56.5T440-720q-33 0-56.5 23.5T360-640q0 33 23.5 56.5T440-560ZM884-20 756-148q-21 12-45 20t-51 8q-75 0-127.5-52.5T480-300q0-75 52.5-127.5T660-480q75 0 127.5 52.5T840-300q0 27-8 51t-20 45L940-76l-56 56ZM660-200q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-540 40v-111q0-34 17-63t47-44q51-26 115-44t142-18q-12 18-20.5 38.5T407-359q-60 5-107 20.5T221-306q-10 5-15.5 14.5T200-271v31h207q5 22 13.5 42t20.5 38H120Zm320-480Zm-33 400Z"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="my-card">
+            <div class="my-card-header">
+              <h5>Données du candidat</h5>
+            </div>
+            <div class="my-card-body bg-light">
+
+              <h4 class="justify-content-center align-items-center m-auto text-center" *ngIf="!candidateData">
+                En attente de la recherche.
+              </h4>
+              <table *ngIf="candidateData" class="table table-striped">
+                <th class="text-end">
+                  <tr>N° CNI</tr>
+                  <tr>N° Electeur</tr>
+                  <tr>Nom</tr>
+                  <tr>Prénom</tr>
+                  <tr>Sexe</tr>
+                  <tr>Date de Naissance</tr>
+                  <tr>Lieu de Naissance</tr>
+                  <tr>Adresse</tr>
+                </th>
+                <td>
+                  <tr>{{candidateData.cniNumber}}</tr>
+                  <tr>{{candidateData.electorNumber}}</tr>
+                  <tr>{{candidateData.lastname}}</tr>
+                  <tr>{{candidateData.firstname}}</tr>
+                  <tr>
+                    @if (candidateData.sex==0){
+                      Féminin
+                    } @else {
+                      Masculin
+                    }
+                  </tr>
+                  <tr>{{candidateData.birthDate}}</tr>
+                  <tr>{{candidateData.birthPlace}}</tr>
+                  <tr>{{candidateData.address}}</tr>
+
+                </td>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="my-card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="electorId">
+        <div class="row">
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Image</label>
+            <div class="text-danger fw-bold" *ngIf="form.controls.image.invalid">L'image est requise et doit être de type png ou jpg.</div>
+            <input type="file" formControlName="image"  class="form-control" (change)="imageChange($event)" [ngClass]="form.controls.image.invalid?'is-invalid':'is-valid'">
+          </div>
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Parti ou Coalition</label>
+            <div class="text-danger fw-bold" *ngIf="form.controls.party_or_coalition_id.invalid">Le parti ou la coalition est requis(e).</div>
+            <select class="form-select" formControlName="party_or_coalition_id" [ngClass]="form.controls.party_or_coalition_id.invalid?'is-invalid':'is-valid'">
+              <option value="null" disabled>Choisir un parti ou une coalition</option>
+              <option class="form-select" *ngFor="let party of parties" value="{{party.id}}">{{party.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group p-3">
+          <label class="form-label">Biographie</label>
+          <div class="text-danger fw-bold" *ngIf="form.controls.biography.invalid">La biographie est requise.</div>
+          <textarea type="text" formControlName="biography" class="form-control" [ngClass]="form.controls.biography.invalid?'is-invalid':'is-valid'"></textarea>
+        </div>
+        <div class="form-group p-3">
+          <label class="form-label">Mot de la campagne</label>
+          <div class="text-danger fw-bold" *ngIf="form.controls.campaignWord.invalid">Le mot de la campagne est requis.</div>
+          <textarea type="text" formControlName="campaignWord" class="form-control" [ngClass]="form.controls.campaignWord.invalid?'is-invalid':'is-valid'"></textarea>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn-save" [disabled]="form.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6C786CFF"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+            Enregistrer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

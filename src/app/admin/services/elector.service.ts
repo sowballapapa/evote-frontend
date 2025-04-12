@@ -13,5 +13,19 @@ export class ElectorService {
     return this.http.get(environment.apiUrl+environment.adminSegment+'electors?page='+page)
   }
 
+  getElector(id:number) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'electors/'+id);
+  }
 
+  createElector(elector:any) {
+    return this.http.post(environment.apiUrl+environment.adminSegment+'electors', elector)
+  }
+
+  editElector(id:number, elector:any) {
+    return this.http.put(environment.apiUrl+environment.adminSegment+'electors/'+id, elector);
+  }
+
+  destroy(id: any) {
+    return this.http.delete(environment.apiUrl+environment.adminSegment+'electors/'+id);
+  }
 }

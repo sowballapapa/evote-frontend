@@ -1,0 +1,10 @@
+textarea{
+  height: 20em;
+}
+
+
+.form-control:focus{
+  outline: #7eb575 solid !important;
+  border-color: #7eb575;
+  /*box-shadow: #7eb575 1px 1px 1px !important;*/
+}

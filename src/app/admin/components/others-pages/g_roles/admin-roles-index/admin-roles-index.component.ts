@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
 import {RoleService} from '../../../../services/role.service';
+import {environment} from '../../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-admin-roles-index',
@@ -16,7 +17,7 @@ export class AdminRolesIndexComponent {
   @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;
   private _unsubscribeAll: Subject<any>
   isLoading: boolean = false;
-  fetchTitle = "Liste des électeurs Enregistrés sur la plateforme"
+  fetchTitle = "Liste des fonctions des Utilisateurs de la DGE"
   page = 1
   lastPage = 1
   currentPage = 1
@@ -38,7 +39,7 @@ export class AdminRolesIndexComponent {
         this.isLoading =false;
         this.roles = res.data.data;
         this.total = res.data.total
-        this.itemsPerPage = res.data.per_page
+        this.itemsPerPage = res.data.to - res.data.from + 1;
         this.lastPage = res.data.last_page;
         this.currentPage = res.data.current_page;
         this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {
@@ -65,4 +66,6 @@ export class AdminRolesIndexComponent {
     this._unsubscribeAll.next(undefined)
     this._unsubscribeAll.complete()
   }
+
+  protected readonly environment = environment;
 }

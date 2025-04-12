@@ -12,4 +12,8 @@ export class ElectionsService {
   getElectionsInfos(){
     return this.http.get(environment.apiUrl+environment.adminSegment+'elections-details')
   }
+
+  edit(data: any) {
+    return this.http.post(environment.apiUrl+environment.adminSegment+'elections-details/1', data);
+  }
 }

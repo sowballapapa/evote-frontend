@@ -1,22 +1,46 @@
-<div class=" m-3">
-  <div class="row ">
-    <div class="col-2 card">
-      <div class="card-header">
-        <h5>Nombre d'électeurs inscrits sur la liste électorale</h5>
+<div class="p-0 m-0">
+  <div class="stats1-container" *ngIf="stats1">
+    <div class="gap-2 flex-wrap d-flex">
+      <div class="card bg-success text-white">
+        <h2>{{stats1.electorOverall}}</h2>
+        <span>Electeurs dans la base de données</span>
       </div>
-      <div class="card-body"></div>
+      <div class="card bg-info text-white">
+        <h2>{{stats1.femaleElectorOverall}}</h2>
+        <span>Electeurs féminins</span>
+      </div>
+      <div class="card bg-primary text-white">
+        <h2>{{stats1.maleElectorOverall}}</h2>
+        <span>Electeurs masculins</span>
+      </div>
+      <div class="card bg-warning text-white">
+        <h2>{{stats1.electorWithAcc}}</h2>
+        <span>Electeurs inscrits sur E-vote</span>
+      </div>
+      <div class="card bg-danger text-white">
+        <h2>{{stats1.candidatesOverall}}</h2>
+        <span>Candidats pour les parrainages</span>
+      </div>
+      <div class="card bg-secondary text-white">
+        <h2>{{stats1.collectorsOverall}}</h2>
+        <span>Collecteurs enregistrés</span>
+      </div>
+      <div class="card bg-dark text-white">
+        <h2>{{stats1.dgeUserOverall}}</h2>
+        <span>Utilisateurs de la DGE</span>
+      </div>
+      <div class="card bg-warning-subtle-edited text-white">
+        <h2>{{stats1.sponsorshipsOverall}}</h2>
+        <span>Parrainages enregistrés</span>
+      </div>
+      <div class="card bg-danger-subtle-edited text-white">
+        <h2>{{stats1.votesOverall}}</h2>
+        <span>Voix aux élections</span>
+      </div>
     </div>
-    <div class="col-3 card">Nombre de Candidats</div>
-    <div class="col-3 card">Nombre d'électeurs inscrits sur E-vote</div>
-    <div class="col-3 card">Nombre de connexion à la plateforme</div>
   </div>
-  <div class="row">
-    <div class="col-3 card">Nombre de parrainages</div>
-    <div class="col-3 card">Nombre de bureaux de votes</div>
-    <div class="col-3 card">Taux de participation</div>
-    <div class="col-3 card">Nombre Administrateurs</div>
-  </div>
-  <div>
 
+  <div>
+    <h3>Stats</h3>
   </div>
 </div>

@@ -15,7 +15,6 @@ import { NgIf } from '@angular/common';
         FooterComponent,
         LoginHeaderComponent,
         BaseHeaderComponent,
-        NgIf,
         RouterLink
     ],
     templateUrl: './admin-base.component.html',

@@ -1,8 +1,12 @@
-import {Component, Input, TrackByFunction} from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
+import {Component, inject, Input} from '@angular/core';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {BehaviorSubject} from 'rxjs';
 import {RouterLink, RouterLinkWithHref, RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {ModalService} from '../../../../core/services/modal.service';
+import {ConfirmModalComponent} from '../../../../core/components/modals/confirm-modal/confirm-modal.component';
+import {AlertModalComponent} from '../../../../core/components/modals/alert-modal/alert-modal.component';
 
 @Component({
     selector: 'app-paginate-table',
@@ -14,7 +18,7 @@ import {FormsModule} from '@angular/forms';
     RouterLink,
     RouterLinkWithHref,
     RouterModule,
-    FormsModule
+    FormsModule,
   ],
     templateUrl: './paginate-table.component.html',
     styleUrl: './paginate-table.component.css'
@@ -42,6 +46,8 @@ export class PaginateTableComponent {
   rowTrackBy = (index:any,row:any)=>{
     return row.id
   }
+  http = inject(HttpClient)
+  @Input() url!: string;
 
   ngAfterViewInit() {
     const newState = this.paginate.value
@@ -67,7 +73,45 @@ export class PaginateTableComponent {
     this.paginate.next(newState);
   }
 
+  modalService = inject(ModalService)
   @Input() deleteField(id:number) {
+    this.modalService.open(
+      'Supprimer cet élément ?',
+      'Cette action est irréversible.'
+    );
+
+    this.modalService.confirmResult$.subscribe((confirmed) => {
+      if (confirmed) {
+        this.http.delete(this.url+id, {}).subscribe({
+              next: () => {
+                this.modalService.show('success', 'Suppression réussie!');
+                setTimeout(()=>{
+
+                  window.location.reload()
+                }, 2000)
+              },
+              error: (err) => {
+                // alert(err)
+                this.modalService.show('danger', 'Une erreur est survenue.', false);
+              }
+            })
+      } else {
+        console.log('Annulé');
+      }
+    });
+
+    // if (confirm('Voulez vous vraiment supprimer?')){
+    //   this.http.delete(this.url+id, {}).subscribe({
+    //     next: () => {
+    //       alert('Suppression réussi')
+    //       window.location.reload()
+    //     },
+    //     error: (err) => {
+    //       alert(err)
+    //     }
+    //   })
+    // }
+
 
   }
 }

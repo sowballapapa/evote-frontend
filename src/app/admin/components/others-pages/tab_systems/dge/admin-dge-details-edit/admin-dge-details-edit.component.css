@@ -21,5 +21,29 @@
     font-size: 1.15em;
   }
 
+
 }
 
+.form-label {
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+.form-control:focus{
+  outline: #7eb575 solid !important;
+  border-color: #7eb575 !important;
+  box-shadow: none !important;
+}
+.form-control-errors, .form-control-errors:focus{
+  box-shadow: none !important;
+  border-color: #e31b23 !important;
+  outline: #e31b23 solid !important;
+}
+
+textarea {
+  height: 20em;
+}
+
+.btn-outline-warning:hover {
+  color: white;
+}

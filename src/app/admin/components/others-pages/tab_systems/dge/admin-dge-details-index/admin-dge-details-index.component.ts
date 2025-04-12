@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DgeInfosService} from '../../../../../services/dge-infos.service';
 import {RouterLink} from '@angular/router';
+import {environment} from '../../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-dge-details-index',
@@ -12,7 +13,8 @@ import {RouterLink} from '@angular/router';
 })
 export class AdminDgeDetailsIndexComponent {
   constructor(private dge: DgeInfosService) {}
-dgeInfos!:any
+  dgeInfos!:any
+  storageUrl = environment.storageUrl;
 
   ngOnInit() {
     this.dgeInfos = this.dge.view().subscribe((res:any) => {

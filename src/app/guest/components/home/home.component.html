@@ -1,8 +1,10 @@
+<div class="container">
 
-<div class="container overflow-hidden text-center">
+<div class="container-fluid overflow-hidden text-center">
   <div class="row col-12">
-    <h1>Bienvenue sur la plateforme E-Vote!</h1>
+    <h1>{{dgInfos.name}}</h1>
     <hr>
+    <p>{{dgInfos.Text1}}</p>
   </div>
   <div class="row gy-5 card-group">
     <div class="col-6 p-3 card">
@@ -23,19 +25,36 @@
     </div>
   </div>
 </div>
-
-<hr>
-<div class="container">
+  <hr>
+  <div class="container-fluid">
+    <h3>Les parrainages</h3>
+    <div>
+      Pas encore de réultats!
+    </div>
+  </div>
+  <hr>
+  <div class="container-fluid">
+    <h3>Les élections</h3>
+    <div>
+      Pas encore de réultats!
+    </div>
+  </div>
+  <hr>
+<div class="container-fluid">
   <h3 class="text-decoration-underline">Les candidatures aux parrainages</h3>
-  <div class="col-md-12 row p-3 card-group bg-degrade">
+  <div class="col-md-12 row p-3 card-group bg-degrade mb-3">
     <div class="me-1 mb-3 row col-md-4 " *ngFor="let candidature of parties">
       <div class="p-3 card bg-flag">
-              <tr><img src="{{candidature.logo}}" width="200px" alt="Logo-Parti"></tr>
+              <tr><img width="70px" src="{{storageUrl+candidature.logo}}"  alt="Logo-Parti"></tr>
               <tr><b><u>Nom du Parti</u>: {{candidature.name}}</b></tr>
               <tr><b><u>Slogan</u>:</b> {{candidature.slogan}}</tr>
-              <tr><b><u>Le candidat</u>: </b> <img src="{{candidature.image}}" alt="Image_candidat"> <strong class="float-end">{{candidature.firstname}} {{candidature.lastname}} </strong> </tr>
-              <tr></tr>
+              <div class="float-end">
+                <tr><img width="70px" src="{{storageUrl+candidature.image}}" alt="Image_candidat"> </tr>
+                <tr><b><u>Le candidat</u>: </b> <strong >{{candidature.firstname}} {{candidature.lastname}} </strong> </tr>
+              </div>
       </div>
     </div>
   </div>
+</div>
+
 </div>

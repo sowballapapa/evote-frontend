@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {SponsorshipsService} from '../../../../../services/sponsorships.service';
+import {environment} from '../../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-sponsorships-details-index',
@@ -13,6 +14,7 @@ import {SponsorshipsService} from '../../../../../services/sponsorships.service'
 export class AdminSponsorshipsDetailsIndexComponent {
 
   sponsorshipsInfos:any
+  storageUrl = environment.storageUrl;
 
   constructor(private sponsorshipsService: SponsorshipsService) {}
 

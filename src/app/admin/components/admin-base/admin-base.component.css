@@ -1,14 +1,13 @@
 .admin-base {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-areas: "aside header" "aside main" "aside footer";
   grid-template-rows: auto 1fr auto;
 }
 
 .admin-header {
   grid-area: header;
-  position: sticky;
   height: 60px;
   top: 0;
   padding: 1em;
@@ -61,4 +60,5 @@
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 

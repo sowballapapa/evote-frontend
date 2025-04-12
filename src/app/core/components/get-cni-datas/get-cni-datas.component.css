@@ -1,0 +1,11 @@
+
+th tr{
+  text-align: right;
+}
+td tr{
+  text-align: left;
+}
+
+cite{
+  text-decoration: underline;
+}

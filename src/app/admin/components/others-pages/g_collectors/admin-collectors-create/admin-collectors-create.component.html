@@ -1,1 +1,91 @@
-<p>admin-collectors-create works!</p>
+<div class="container-fluid m-2">
+  <div class="my-card">
+    <div class="my-card-header flex-wrap">
+      <h4 class="float-start">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+        Ajouter un nouveau Collecteur
+      </h4>
+      <a routerLink="/admin/gestion-collecteurs" class="btn btn-outline-success bg-light-subtle text-success">
+        &lAarr; Retour
+      </a>
+    </div>
+    <div class="my-card-body">
+      <div class="bg-secondary-subtle p-3">
+        <div class="my-card">
+          <div class="my-card-header">
+            <h5>Données du candidat</h5>
+          </div>
+          <div class="my-card-body bg-light">
+
+            <h4 class="justify-content-center align-items-center m-auto text-center" *ngIf="!collectorData">
+              En attente de la recherche.
+            </h4>
+            <table *ngIf="collectorData" class="table table-striped">
+              <th class="text-end">
+                <tr>N° CNI</tr>
+                <tr>N° Electeur</tr>
+                <tr>Nom</tr>
+                <tr>Prénom</tr>
+                <tr>Sexe</tr>
+                <tr>Date de Naissance</tr>
+                <tr>Lieu de Naissance</tr>
+                <tr>Adresse</tr>
+              </th>
+              <td>
+                <tr>{{collectorData.cniNumber}}</tr>
+                <tr>{{collectorData.electorNumber}}</tr>
+                <tr>{{collectorData.lastname}}</tr>
+                <tr>{{collectorData.firstname}}</tr>
+                <tr>
+                  @if (collectorData.sex==0){
+                    Féminin
+                  } @else {
+                    Masculin
+                  }
+                </tr>
+                <tr>{{collectorData.birthDate}}</tr>
+                <tr>{{collectorData.birthPlace}}</tr>
+                <tr>{{collectorData.address}}</tr>
+
+              </td>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="electorId">
+        <div class="row">
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Commune</label>
+            <div class="text-danger fw-bold" *ngIf="form.controls.district_id.invalid">La commune est requise.</div>
+            <select class="form-select"  formControlName="district_id" [ngClass]="form.controls.district_id.invalid?'is-invalid':'is-valid'">
+              <option value="null" disabled>Choisir une commune</option>
+              <option class="form-select" *ngFor="let district of districts" value="{{district.id}}">{{district.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Candidat</label>
+            <div class="text-danger fw-bold" *ngIf="form.controls.candidate_id.invalid">Le candidat est requis.</div>
+            <select class="form-select" formControlName="candidate_id" [ngClass]="form.controls.candidate_id.invalid?'is-invalid':'is-valid'">
+              <option value="null" disabled>Choisir un candidat</option>
+              <option class="form-select" *ngFor="let candidate of candidates" value="{{candidate.elector_id}}">{{candidate.name+': '+candidate.firstname+' '+ candidate.lastname}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group p-3">
+          <label class="form-label">A propos</label>
+          <div class="text-danger fw-bold" *ngIf="form.controls.collector_about.invalid">L'a-propos est requis.</div>
+          <textarea type="text" formControlName="collector_about" class="form-control" [ngClass]="form.controls.collector_about.invalid?'is-invalid':'is-valid'"></textarea>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn-save" [disabled]="form.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#6C786CFF"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+            Enregistrer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

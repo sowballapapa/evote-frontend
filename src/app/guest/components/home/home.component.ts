@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GuestDetailsService } from '../../services/guest-details.service';
 import { NgFor, NgForOf } from '@angular/common';
 import { Party } from '../../interfaces/party';
+import {environment} from '../../../../environments/environment.development';
 
 @Component({
     selector: 'app-home',
@@ -14,6 +15,8 @@ import { Party } from '../../interfaces/party';
 export class HomeComponent {
 
     public parties!: any
+  public dgInfos:any
+  storageUrl = environment.storageUrl;
 
     constructor(private guestServie: GuestDetailsService){}
 
@@ -21,9 +24,12 @@ export class HomeComponent {
       this.guestServie.getCandidatures().subscribe(
         (res:any)=>{
           this.parties = res.data
-          console.log(res)
         }
       )
-
+      this.guestServie.getDgeSysDetails().subscribe(
+        (res:any)=>{
+          this.dgInfos = res.data
+        }
+      )
     }
 }

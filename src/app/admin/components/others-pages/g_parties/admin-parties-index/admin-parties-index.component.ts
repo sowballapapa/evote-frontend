@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from "../../../reusable/paginate-table/paginate-table.component";
 import {Subject, takeUntil} from 'rxjs';
 import {PartyService} from '../../../../services/party.service';
+import {environment} from "../../../../../../environments/environment.development";
 
 @Component({
     selector: 'app-admin-parties-index',
@@ -18,7 +19,7 @@ export class AdminPartiesIndexComponent {
     this._unsubscribeAll = new Subject();
   }
   allDgeUsers:any
-  fetchTitle = "Liste des Lieux de votes"
+  fetchTitle = "Liste des partis et coalitions"
   isLoading = false;
   lastPage = 1
   currentPage = 1
@@ -63,4 +64,5 @@ export class AdminPartiesIndexComponent {
   }
 
 
+    protected readonly environment = environment;
 }

@@ -3,21 +3,38 @@ import {LoginHeaderComponent} from '../login-header/login-header.component';
 import {MenuComponent} from '../menu/menu.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from '../../../services/auth-service.service';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {AccountService} from '../../../../core/services/account.service';
+import {environment} from '../../../../../environments/environment.development';
+import {NgIf} from '@angular/common';
 
 @Component({
     selector: 'app-base-header',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    RouterLink,
+    NgIf
+  ],
     templateUrl: './base-header.component.html',
     styleUrl: './base-header.component.css'
 })
 export class BaseHeaderComponent {
-
-  constructor(private authService: AuthService, private router: Router) {
+  user!:any
+  elector!:any
+  storageUrl = environment.storageUrl;
+  constructor(private authService: AuthService,private accountService:AccountService ,private router: Router) {
   }
+
+  ngOnInit() {
+    this.accountService.getUserDatas().subscribe((res:any)=>{
+      this.user = res.data;
+    })
+    this.accountService.getElectorDatas().subscribe((res:any)=>{
+      this.elector = res.data;
+    })
+  }
+
   logout() {
     this.authService.logout().subscribe(
       (res: any)=>{
@@ -26,6 +43,15 @@ export class BaseHeaderComponent {
           localStorage.removeItem('user');
           localStorage.removeItem('admin');
           localStorage.removeItem('elector');
+          if (localStorage.getItem('collector')){
+            localStorage.removeItem('collector');
+          }
+          if (localStorage.getItem('candidate')){
+            localStorage.removeItem('candidate');
+          }
+          if (localStorage.getItem('polling_station')){
+            localStorage.removeItem('polling_station');
+          }
           window.location.reload();
         }
       }

@@ -1,1 +1,70 @@
-<p>admin-parties-edit works!</p>
+<div class="container-fluid m-2">
+  <div class="my-card">
+    <div class="my-card-header ">
+      <span class="float-start">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg>        Modification membre à la DGE
+        Modification parti ou coalition
+      </span>
+      <a routerLink="/admin/gestion-partis-coalitions" class="float-end btn btn-outline-success bg-light text-success">
+        &lAarr; Retour
+      </a>
+    </div>
+    <div class="my-card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-6 p-3">
+            <label for="name" class="form-label">Nom du parti </label>
+            <div class="text-danger" *ngIf="form.controls.name.invalid">Le nom est requis!</div>
+            <input type="text" formControlName="name" id="name" class="form-control" [ngClass]="form.controls.name.invalid?'is-invalid':'is-valid'">
+          </div>
+          <div class="form-group col-6 p-3">
+            <label  class="form-label">Si le parti fait parti d'une coalition choisissez la coalition</label>
+            <select formControlName="party_or_coalition_id"  class="form-select"  [ngClass]="form.controls.party_or_coalition_id.invalid?'is-invalid':'is-valid'">
+              <option disabled >Choisir une coalition</option>
+              <option [defaultSelected]="true" value="">N'appartient pas à une coalition</option>
+              @for (coalition of coalitions ; track coalition.id) {
+                <option value="{{coalition.id}}" class="form-control">{{coalition.name}}</option>
+              }
+            </select>
+          </div>
+        </div>
+        <div class="form-group p-3">
+          <label for="slogan" class="form-label">Slogan du parti</label>
+          <div class="text-danger" *ngIf="form.controls.slogan.invalid">Le slogan est requis!</div>
+          <textarea type="text" formControlName="slogan" id="slogan" class="form-control"  [ngClass]="form.controls.slogan.invalid?'is-invalid':'is-valid'"></textarea>
+        </div>
+        <div class="form-group p-3">
+          <label for="description" class="form-label">Description du parti</label>
+          <div class="text-danger" *ngIf="form.controls.description.invalid">La description est requis!</div>
+          <textarea type="text" formControlName="description" id="description" class="form-control" [ngClass]="form.controls.description.invalid?'is-invalid':'is-valid'"></textarea>
+        </div>
+        <div class="row p-3">
+          <div class="col-4">
+            <label  class="form-label">Logo</label>
+            <div class="text-danger" *ngIf="form.controls.logo.invalid">Le logo est requis et doit être de type JPG ou PNG!</div>
+            <input class="form-control" type="file"  (change)="onLogoChange($event)" [ngClass]="form.controls.logo.invalid?'is-invalid':'is-valid'">
+            <img src="{{storageUrl+old_logo}}" width="100px">
+          </div>
+          <div class="col-4">
+            <label  class="form-label">Bulletin</label>
+            <div class="text-danger" *ngIf="form.controls.ballot.invalid">Le bulletin est requis et doit être de type JPG ou PNG!</div>
+            <input class="form-control" type="file" (change)="onBallotChange($event)" [ngClass]="form.controls.ballot.invalid?'is-invalid':'is-valid'">
+            <img src="{{storageUrl+old_ballot}}" width="200px">
+          </div>
+          <div class="col-4">
+            <label  class="form-label">Programme de la campagne</label>
+            <div class="text-danger" *ngIf="form.controls.campaignProgram.invalid">Le programme de la campagne est requis et doit être un fichier PDF!</div>
+            <input class="form-control" type="file" (change)="onCampaignProgramChange($event)"  [ngClass]="form.controls.campaignProgram.invalid?'is-invalid':'is-valid'">
+            <iframe width="250px" height="400px" [src]="old_campaignP" frameborder="0"></iframe>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn-edit" [disabled]="form.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EAC452"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+            Valider
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

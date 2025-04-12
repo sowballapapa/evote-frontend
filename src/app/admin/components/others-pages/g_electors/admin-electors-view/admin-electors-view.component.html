@@ -1,1 +1,76 @@
-<p>admin-electors-view works!</p>
+<div class="myContainer">
+  <div class="my-card">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" (click)="goBack()">&#8617;</button>
+      <span>{{titleElement}}</span>
+    </div>
+    <div class="my-card-body">
+      <table class="table table-striped ">
+          <th>
+            <tr>#</tr>
+            <tr>N° CNI</tr>
+            <tr>Nom</tr>
+            <tr>Prénom</tr>
+            <tr>Sexe</tr>
+            <tr>Taille (cm)</tr>
+            <tr>Date de Naissance</tr>
+            <tr>Lieu de Naissance</tr>
+            <tr>Prénom du père</tr>
+            <tr>Nom de la mère</tr>
+            <tr>Prénom de la mère</tr>
+            <tr>Date de délivrance</tr>
+            <tr>Date d'expiration</tr>
+            <tr>Adresse</tr>
+            <tr>N° Electeur</tr>
+            <tr>Bureau de Vote</tr>
+            <tr>Lieu de Vote</tr>
+            <tr>Photo d'identité</tr>
+          </th>
+          <td>
+            <tr>{{elector.id}}</tr>
+            <tr>{{elector.cniNumber}}</tr>
+            <tr>{{elector.lastname}}</tr>
+            <tr>{{elector.firstname}}</tr>
+            <tr>
+              @if (elector.sex ==0) {
+                Féminin
+              } @else {
+                Masculin
+              }
+            </tr>
+            <tr>{{elector.height}}</tr>
+            <tr>{{elector.birthDate}}</tr>
+            <tr>{{elector.birthPlace}}</tr>
+            <tr>{{elector.dadFirstname}}</tr>
+            <tr>{{elector.mumLastname}}</tr>
+            <tr>{{elector.mumFirstname}}</tr>
+            <tr>{{elector.delivranceDate}}</tr>
+            <tr>{{elector.expirationDate}}</tr>
+            <tr>{{elector.address}}</tr>
+            <tr>{{elector.electorNumber}}</tr>
+            <tr>{{polling.stationNumber}}</tr>
+            <tr>{{votingPlace.name}}</tr>
+            <tr>
+              <img width="70px" src="{{environment.storageUrl+elector.image}}" alt="">
+            </tr>
+          </td>
+      </table>
+      <div class="text-center justify-content-center d-flex gap-3">
+        <div>
+          <img width="300px" src="{{environment.storageUrl+elector.cniFront}}" alt="">
+          <h6><u>Recto CNI</u></h6>
+        </div>
+        <div>
+          <img width="300px" src="{{environment.storageUrl+elector.cniBack}}" alt="">
+          <h6><u>Verso CNI</u></h6>
+        </div>
+      </div>
+
+    </div>
+    <div class="my-card-footer">
+      <button class="btn btn-outline-warning" (click)="onEdit(elector.id)">Modifier</button>
+      <button class="btn btn-outline-danger" (click)="onDelete(elector.id)">Supprimer</button>
+    </div>
+  </div>
+
+</div>

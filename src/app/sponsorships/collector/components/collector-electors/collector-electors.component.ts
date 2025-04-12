@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NgClass, NgForOf} from "@angular/common";
 import {BehaviorSubject, Subject, takeUntil} from 'rxjs';
 import {CollectorService} from '../../services/collector.service';
+import {environment} from '../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-collector-electors',
@@ -90,4 +91,5 @@ export class CollectorElectorsComponent {
   }
 
 
+  protected readonly environment = environment;
 }

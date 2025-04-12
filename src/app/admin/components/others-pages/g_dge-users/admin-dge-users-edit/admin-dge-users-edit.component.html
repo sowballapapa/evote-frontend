@@ -1,1 +1,86 @@
-<p>admin-dge-users-edit works!</p>
+<div class="container-fluid m-2">
+  <div class="my-card">
+    <div class="my-card-header ">
+      <span class="float-start">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg>        Modification membre à la DGE
+      </span>
+      <a routerLink="/admin/gestion-membres-dge" class="btn btn-outline-success bg-light-subtle text-success">
+        &lAarr; Retour
+      </a>
+    </div>
+    <div class="my-card-body">
+      <div class="bg-secondary-subtle p-3">
+
+        <div class="my-card">
+          <div class="my-card-header">
+            <h5>Données de la personne</h5>
+          </div>
+          <div class="my-card-body bg-light">
+
+            <h4 class="justify-content-center align-items-center m-auto text-center" *ngIf="!dgeUserDatas">
+              En attente de la recherche.
+            </h4>
+            <table *ngIf="dgeUserDatas" class="table table-striped">
+              <th class="text-end">
+                <tr>N° CNI</tr>
+                <tr>N° Electeur</tr>
+                <tr>Nom</tr>
+                <tr>Prénom</tr>
+                <tr>Sexe</tr>
+                <tr>Date de Naissance</tr>
+                <tr>Lieu de Naissance</tr>
+                <tr>Adresse</tr>
+              </th>
+              <td>
+                <tr>{{dgeUserDatas.cniNumber}}</tr>
+                <tr>{{dgeUserDatas.electorNumber}}</tr>
+                <tr>{{dgeUserDatas.lastname}}</tr>
+                <tr>{{dgeUserDatas.firstname}}</tr>
+                <tr>
+                  @if (dgeUserDatas.sex==0){
+                    Féminin
+                  } @else {
+                    Masculin
+                  }
+                </tr>
+                <tr>{{dgeUserDatas.birthDate}}</tr>
+                <tr>{{dgeUserDatas.birthPlace}}</tr>
+                <tr>{{dgeUserDatas.address}}</tr>
+
+              </td>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Matricule</label>
+            <input type="text" formControlName="registrationNumber"  class="form-control" [ngClass]="form.controls.registrationNumber.invalid?'is-invalid':'is-valid'">
+            <div *ngIf="form.controls.registrationNumber.invalid" class="text-danger fw-bold">
+              Le matricule est requis et doit comporter des caractères alpha-numèriques sans espace ni caractères spéciaux.
+            </div>
+          </div>
+          <div class="form-group col-6 p-3">
+            <label class="form-label">Fonction occupée</label>
+            <select class="form-select" formControlName="role_id" [ngClass]="form.controls.role_id.invalid?'is-invalid':'is-valid'">
+              <option value="null" disabled>Choisir une fonction</option>
+              <option class="form-select" *ngFor="let role of roles" value="{{role.id}}">{{role.title}}</option>
+            </select>
+            <div *ngIf="form.controls.role_id.invalid" class="text-danger fw-bold">
+              La fonction est requise. Merci de sélectionner une fonction!
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn-edit" [disabled]="form.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EAC452"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+            Valider
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

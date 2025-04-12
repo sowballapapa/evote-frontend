@@ -12,8 +12,8 @@ export class DgeInfosService {
   view(){
     return this.http.get(`${environment.apiUrl}/admin/dge-details`)
   }
-  //
-  // edit(id, data: object){
-  //   return this.http.put(`${environment.apiUrl}/admin/dge-details/${id}`, data)
-  // }
+
+  edit(id:any, data: any){
+    return this.http.post(`${environment.apiUrl}/admin/dge-details/${id}`, data)
+  }
 }

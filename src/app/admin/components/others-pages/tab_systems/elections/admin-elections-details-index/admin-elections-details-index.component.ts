@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {ElectionsService} from '../../../../../services/elections.service';
+import {environment} from '../../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-elections-details-index',
@@ -13,6 +14,7 @@ import {ElectionsService} from '../../../../../services/elections.service';
 export class AdminElectionsDetailsIndexComponent {
 
   electionsInfos:any
+  storageUrl = environment.storageUrl;
 
   constructor(private electionsService: ElectionsService) {}
 

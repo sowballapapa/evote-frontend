@@ -11,6 +11,9 @@
       <strong>Intitulé: </strong> <span>{{sponsorshipsInfos.title}}</span>
     </div>
     <div>
+      <strong>Bannière: </strong> <img class="w-50" src="{{storageUrl+sponsorshipsInfos.banner_spons}}">
+    </div>
+    <div>
       <strong>Date de démarrage: </strong> <span>{{sponsorshipsInfos.startingDate}}</span>
     </div>
     <div>
@@ -21,10 +24,10 @@
     </div>
     <div>
       <strong>Texte: </strong>
-      @if (sponsorshipsInfos.alternativeText == null) {
+      @if (sponsorshipsInfos.alernativeText == null) {
         <span class="fw-bold text-danger">Aucun Texte</span>
       } @else {
-        <p>{{sponsorshipsInfos.alternativeText}}</p>
+        <p>{{sponsorshipsInfos.alernativeText}}</p>
       }
     </div>
   </div>

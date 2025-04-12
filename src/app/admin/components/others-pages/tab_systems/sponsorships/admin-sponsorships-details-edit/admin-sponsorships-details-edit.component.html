@@ -5,17 +5,75 @@
       &lAarr; Retour
     </a>
   </div>
-  <div class="card-body">
-    <div class="row form-group">
-      <label for="" class="form-label"></label>
-      <input type="text" class="form-control">
+  <div class="card-body"><form [formGroup]="form" (ngSubmit)="onSubmit()" class="vstack row col-12 d-flex">
+
+    <div class="form-group p-3 col-12">
+      <label for="title" class="form-label">Titre des Parrainages</label>
+      <div class="ps-2" *ngIf="form.controls.title.invalid && (form.controls.title.dirty || form.controls.title.touched)">
+          <span *ngIf="form.controls.title.errors" class="text-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            Le titre est requis. Si non annulé pour ne pas prendre en compte les modifications.
+          </span>
+      </div>
+      <input type="text" formControlName="title" id="title" class="form-control" [ngClass]="form.controls.title.errors? 'form-control-errors':''">
     </div>
     <div class="row">
-      <div class="NgxEditor__Wrapper">
-        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar" [colorPresets]="colorPresets"> </ngx-editor-menu>
-        <ngx-editor [editor]="editor"  [placeholder]="'Type here...'"></ngx-editor>
+      <div class="form-group p-3 col-5">
+        <label for="banner_spons" class="form-label">Bannière des parrainages</label>
+        <input type="file" formControlName="banner_spons" id="banner_spons" class="form-control">
+      </div>
+      <div class="col-7">
+        <img class="w-100" src="{{environment.storageUrl+old_banner}}" alt="">
       </div>
     </div>
+    <div class="row">
+      <div class="form-group p-3 col-6">
+        <label for="startingDate" class="form-label">Date et heure de démarrage</label>
+        <div class="ps-2" *ngIf="form.controls.startingDate.invalid && (form.controls.startingDate.dirty || form.controls.startingDate.touched)">
+          <span *ngIf="form.controls.startingDate.errors" class="text-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            L'heure de démarrage est requis . Si non annulé pour ne pas prendre en compte les modifications.
+          </span>
+        </div>
+        <input type="datetime-local" formControlName="startingDate" id="startingDate" class="form-control"  [ngClass]="form.controls.startingDate.errors? 'form-control-errors':''">
+      </div>
+      <div class="form-group p-3 col-6">
+        <label for="endingDate" class="form-label">Date et heure de cloture</label>
+        <div class="ps-2" *ngIf="form.controls.endingDate.invalid && (form.controls.endingDate.dirty || form.controls.endingDate.touched)">
+            <span *ngIf="form.controls.endingDate.errors" class="text-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            L'heure de cloture est requis. Si non annulé pour ne pas prendre en compte les modifications.
+          </span>
+        </div>
+        <input type="datetime-local" formControlName="endingDate" id="endingDate" class="form-control"  [ngClass]="form.controls.endingDate.errors? 'form-control-errors':''">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6 p-3">
+        <label for="description" class="form-label">Description des parrainages</label>
+        <textarea formControlName="description" id="description" class="form-control">
+        </textarea>
+      </div>
+
+      <div class="form-group col-6 p-3">
+        <label for="alternativeText" class="form-label">Texte alternatif</label>
+        <div class="ps-2" *ngIf="form.controls.alernativeText.invalid && (form.controls.alernativeText.dirty || form.controls.alernativeText.touched)">
+          <span *ngIf="form.controls.alernativeText.errors" class="text-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            Le texte est requise. Si non annulé pour ne pas prendre en compte les modifications.
+          </span>
+        </div>
+        <textarea formControlName="alernativeText" id="alternativeText" class="form-control">
+        </textarea>
+      </div>
+    </div>
+    <div class="form-control text-center border-0">
+      <button type="submit" class="btn-edit" [disabled]="form.invalid">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f0ad4e"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+        Enregistrer
+      </button>
+    </div>
+  </form>
   </div>
   <div class="card-footer">
   </div>

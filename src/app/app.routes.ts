@@ -259,8 +259,16 @@ import {
 } from './sponsorships/candidate/components/candidate-collectors/candidate-collectors.component';
 import {CandidatureComponent} from './sponsorships/elector/components/candidature/candidature.component';
 import {ParrainerComponent} from './sponsorships/elector/components/parrainer/parrainer.component';
+import {Erreur403Component} from './core/components/errors/erreur403/erreur403.component';
+import {Erreur404Component} from './core/components/errors/erreur404/erreur404.component';
+import {AccountComponent} from './core/components/account/account.component';
+import {GetCniDatasComponent} from './core/components/get-cni-datas/get-cni-datas.component';
+import {AdminHelpComponent} from './admin/components/admin-help/admin-help.component';
+import {AboutEvoteComponent} from './core/components/about-evote/about-evote.component';
 
 export const routes: Routes = [
+  {path:'unauthorized', component:Erreur403Component},
+  {path:'notfound', component:Erreur404Component},
   //routes Guest
   {
     path:'',
@@ -284,6 +292,10 @@ export const routes: Routes = [
       path:'',
       canActivateChild:[adminAuthChildGuard],
       children:[
+        {path:'aide', component:AdminHelpComponent, title: 'Aide'},
+        {path:'a-propos', component:AboutEvoteComponent, title: 'A-propos d\'Evote'},
+        {path:'mon_compte', component:AccountComponent, title: 'Mon Compte'},
+        {path:'cni_infos', component:GetCniDatasComponent, title: 'Mes données CNI'},
         {path:'', component: DashboardComponent, title: 'E-vote | Dashboard Administrateur'},
         {path:'gestion-electeurs', component:AdminElectorsBaseComponent, children:[
           {path:'', component:AdminElectorsIndexComponent, },

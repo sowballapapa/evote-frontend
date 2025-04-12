@@ -3,6 +3,7 @@ import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-
 import {Subject, takeUntil} from 'rxjs';
 import {DgeUserService} from '../../../../services/dge-user.service';
 import {CandidateService} from '../../../../services/candidate.service';
+import {environment} from '../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-candidates-index',
@@ -18,7 +19,7 @@ export class AdminCandidatesIndexComponent {
   constructor(private candidateService: CandidateService) {
     this._unsubscribeAll = new Subject();
   }
-  allCandidates:any
+  allCandidates:any[] = []
   fetchTitle = "Liste des Candidats"
   isLoading = false;
   lastPage = 1
@@ -30,12 +31,18 @@ export class AdminCandidatesIndexComponent {
 
   fetch(page:number){
     this.isLoading = true;
+    this.allCandidates = []
     this.candidateService.getAllCandidates(page)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((res:any) =>{
-        console.log(res.data);
         this.isLoading = false;
-        this.allCandidates = res.data.data;
+        res.data.data.map((c:any)=>{
+            let tempId = c.id
+            c.id = c.elector_id
+            c.elector_id = tempId
+            this.allCandidates.push(c)
+        });
+        console.log(this.allCandidates);
         this.lastPage = res.data.last_page;
         this.itemsPerPage = res.data.per_page;
         this.total = res.data.total
@@ -64,4 +71,5 @@ export class AdminCandidatesIndexComponent {
   }
 
 
+  protected readonly environment = environment;
 }

@@ -1,11 +1,12 @@
 <app-paginate-table
   [isLoading]="isLoading"
   [tableTitle] = "fetchTitle"
-  [columns]="['#','Matricule', 'Nom', 'Prénom(s)', 'Email', 'Téléphone', 'Fonction']"
+  [columns]="['#','Matricule', 'Nom', 'Prénom(s)', 'Adresse', 'Date de naissance', 'Fonction']"
   [rows]="allDgeUsers"
-  [dataColumns]="['id', 'registrationNumber', 'lastname', 'firstname','email', 'phone', 'title' ]"
+  [dataColumns]="['id', 'registrationNumber', 'lastname', 'firstname','address', 'birthDate', 'title' ]"
   [lastPage]="lastPage"
   [pageSize]="pageSize"
   [pageItemsCount]="itemsPerPage"
   [total]="total"
+  [url]="environment.apiUrl+'/admin/dge-users/'"
 />

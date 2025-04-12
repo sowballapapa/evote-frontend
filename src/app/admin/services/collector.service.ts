@@ -9,12 +9,24 @@ export class CollectorService {
   constructor(private http: HttpClient) { }
 
 
-  getAllCandidates() {
-    return this.http.get(environment.apiUrl+environment.adminSegment+'collectors/get-all-candidates')
+  searchElector(elector:object){
+    return this.http.post(`${environment.apiUrl}/collector/search-elector`, elector )
   }
 
-  getAll(page: number, candidate:object) {
-    return this.http.post(environment.apiUrl+environment.adminSegment+'collectors/get-all-collectors?page='+page, candidate)
+
+  getAll(page: number) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'collectors?page='+page)
   }
 
+  getOne(id: any) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'collectors/'+id);
+  }
+
+  create(data:any) {
+    return this.http.post(environment.apiUrl + environment.adminSegment + 'collectors', data)
+  }
+
+  edit(id: any, data: any) {
+    return this.http.post(environment.apiUrl+environment.adminSegment+'collectors/'+id, data)
+  }
 }

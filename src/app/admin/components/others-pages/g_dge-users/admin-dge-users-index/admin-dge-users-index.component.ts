@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {DgeUserService} from '../../../../services/dge-user.service';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
+import {environment} from '../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-dge-users-index',
@@ -44,7 +45,7 @@ export class AdminDgeUsersIndexComponent {
         console.log(this.allDgeUsers)
           this.lastPage = res.data.last_page;
         this.currentPage = res.data.current_page;
-        this.itemsPerPage = res.data.per_page;
+        this.itemsPerPage = res.data.to - res.data.from + 1;
         this.total = res.data.total;
         this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {
           return i + 1;
@@ -68,4 +69,5 @@ export class AdminDgeUsersIndexComponent {
     this._unsubscribeAll.complete()
   }
 
+  protected readonly environment = environment;
 }

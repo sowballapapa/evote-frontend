@@ -1,0 +1,31 @@
+<h5 class="bg-light-subtle link-underline mb-3 shadow-sm">Mes données utilisateur</h5>
+<div class="card-body shadow border border-1">
+  <table *ngIf="user" class="table table-responsive bg-light-subtle border border-2 ">
+    <tr>
+      <th class="float-end pe-2">Image</th>
+      <td><img width="100px" src="{{environment.storageUrl+user.image}}"></td>
+    </tr>
+    <tr>
+      <th class="float-end pe-2">
+        Nom d'utilisateur
+      </th>
+      <td>{{user.username}}</td>
+    </tr>
+    <tr class="">
+      <th class="float-end pe-2">Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th class="float-end pe-2">Téléphone</th>
+      <td>{{user.phone}}</td>
+    </tr>
+    <tr>
+      <th class="float-end pe-2">Date d'inscription</th>
+      <td>{{user.created_at}}</td>
+    </tr>
+    <tr>
+      <th class="float-end pe-2">Dernière Modification</th>
+      <td>{{user.updated_at}}</td>
+    </tr>
+  </table>
+</div>

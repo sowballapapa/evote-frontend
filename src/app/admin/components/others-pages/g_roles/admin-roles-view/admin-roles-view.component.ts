@@ -3,6 +3,7 @@ import {Field, ViewElementComponent} from '../../../reusable/view-element/view-e
 import {ActivatedRoute} from '@angular/router';
 import {DgeUserService} from '../../../../services/dge-user.service';
 import {RoleService} from '../../../../services/role.service';
+import {environment} from '../../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-admin-roles-view',
@@ -38,4 +39,5 @@ export class AdminRolesViewComponent {
   }
 
 
+  protected readonly environment = environment;
 }

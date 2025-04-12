@@ -1,0 +1,63 @@
+<div class="container m-2 card shadow-sm border border-2" *ngIf="elector">
+  <div class="card-header">
+    <h4>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M560-440h200v-80H560v80Zm0-120h200v-80H560v80ZM200-320h320v-22q0-45-44-71.5T360-440q-72 0-116 26.5T200-342v22Zm160-160q33 0 56.5-23.5T440-560q0-33-23.5-56.5T360-640q-33 0-56.5 23.5T280-560q0 33 23.5 56.5T360-480ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z"/></svg>
+      Ma Carte Nationale d'identité
+    </h4>
+  </div>
+  <div class="card-body text-center">
+    <div>
+      <table class="table  table-striped table-responsive flex-wrap border-dark-subtle border-1 border">
+        <th class="float-end pe-2 ">
+          <tr>N° CNI</tr>
+          <tr>Nom</tr>
+          <tr>Prénoms</tr>
+          <tr>Date de Naissance</tr>
+          <tr>Lieu de Naissance</tr>
+          <tr>Sexe</tr>
+          <tr>Adresse</tr>
+          <tr>N° Electeur</tr>
+          <tr>Bureau de Vote</tr>
+          <tr>Lieu de Vote</tr>
+          <tr>Date de délivrance</tr>
+          <tr>Date d'expiration</tr>
+          <tr>Prénom du père</tr>
+          <tr>Nom de la mère</tr>
+          <tr>Prénom de la mère</tr>
+        </th>
+        <td>
+          <tr>{{elector.cniNumber}}</tr>
+          <tr>{{elector.lastname}}</tr>
+          <tr>{{elector.firstname}}</tr>
+          <tr>{{elector.birthDate}}</tr>
+          <tr>{{elector.birthPlace}}</tr>
+          <tr>@if (elector.sex === 0) {
+            {{ 'Féminin' }}
+          } @else {
+            {{'Masculin' }}
+          }
+          </tr>
+          <tr>{{elector.address}}</tr>
+          <tr>{{elector.electorNumber}}</tr>
+          <tr>{{elector.polling_station_id}}</tr>
+          <tr>{{elector.polling_station_id}}</tr>
+          <tr>{{elector.delivranceDate}}</tr>
+          <tr>{{elector.expirationDate}}</tr>
+          <tr>{{elector.dadFirstname}}</tr>
+          <tr>{{elector.mumFirstname}}</tr>
+          <tr>{{elector.mumLastname}}</tr>
+        </td>
+      </table>
+    </div>
+    <div class="d-flex gap-3 justify-content-center card-body border-2 border shadow w-auto">
+      <div>
+        <img width="300px" height="150px"  src="{{storageurl+elector.cniFront}}" alt="Recto CNI"><br>
+        <cite>Recto CNI</cite>
+      </div>
+      <div>
+        <img width="300px" height="150px" src="{{storageurl+elector.cniBack}}" alt="Verso CNI"><br>
+        <cite>Verso CNI</cite>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,4 +12,8 @@ export class SponsorshipsService {
   getSponsorshipsInfos() {
     return this.http.get(environment.apiUrl+environment.adminSegment+'sponsorships-details')
   }
+
+  edit( data:any){
+    return this.http.post(environment.apiUrl+environment.adminSegment+'sponsorships-details/1', data)
+  }
 }

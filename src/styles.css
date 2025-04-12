@@ -5,3 +5,179 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-save{
+  border: 1px solid rgba(108, 120, 108, 0.72);
+  background-color: transparent;
+  font-size:  1.5em;
+  font-weight: bold;
+  color: rgba(108, 120, 108, 0.72);
+  border-radius: 10px;
+  padding: 0.3em 0.6em;
+  padding: 0.3em 0.6em;
+}
+
+.btn-save:hover{
+  background-color: rgba(108, 120, 108, 0.44);
+  color: white;
+  cursor: pointer;
+  border-color: white;
+  box-shadow: 2px 2px 8px rgba(108, 120, 108);
+}
+
+.btn-save:disabled{
+  background-color: rgb(255, 255, 255);
+  color: rgba(108, 120, 108, 0.72);
+  cursor: not-allowed;
+  box-shadow: none;
+  border-color: rgba(108, 120, 108, 0.44);
+}
+
+
+
+.btn-edit{
+  border: 1px solid #EAC452;
+  background-color: transparent;
+  font-size:  1.5em;
+  font-weight: bold;
+  color:#EAC452;
+  border-radius: 10px;
+  padding: 0.3em 0.6em;
+  padding: 0.3em 0.6em;
+}
+
+.btn-edit:hover{
+  background-color: rgb(234, 196, 82);
+  color: white;
+  cursor: pointer;
+  border-color: #eac452;
+  box-shadow: 2px 2px 8px rgba(234, 196, 82);
+}
+
+
+.btn-delete{
+  border: 1px solid #ad0606;
+  background-color: transparent;
+  font-size:  1.5em;
+  font-weight: bold;
+  color:#ad0606;
+  border-radius: 10px;
+  padding: 0.3em 0.6em;
+  padding: 0.3em 0.6em;
+}
+
+.btn-delete:hover{
+  background-color: #ad0606;
+  color: white;
+  cursor: pointer;
+  border-color: #ad0606;
+  box-shadow: 2px 2px 8px #ad0606;
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+
+.btn-new{
+  background: whitesmoke;
+  color: darkcyan;
+
+  font-weight: bold;
+  border:2px solid darkcyan;
+  padding: 0.3em;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.btn-new:hover{
+  background: #d3f8cd;
+  box-shadow: 4px 4px 6px #010d01;
+  font-weight: bolder;
+}
+
+
+.toast-center-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+.custom-toast {
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+}
+
+
+.my-card{
+  width: 100%;
+  min-height: fit-content;
+
+}
+
+.my-card-header{
+  width: 100%;
+  height: fit-content;
+  min-height: fit-content;
+  background: #7eb575;
+  color: white;
+  display: flex;
+  padding: 0.25em;
+  a{
+    width: 7em;
+    text-decoration: none;
+    color: white;
+    padding: 0.3em 0.6em;
+    margin-right: 0;
+    margin-left: auto;
+    max-width: 150px;
+  }
+  a:hover{
+    background: linear-gradient(-90deg, whitesmoke, rgba(126, 181, 117, 0.54));
+    box-shadow: 1px 2px 6px #033403;
+    font-weight: bold;
+  }
+  span{
+    height: 100%;
+    width: 100%;
+    padding-left: 1em;
+    color: white;
+    font-size: 1.5em;
+  }
+
+}
+
+
+.my-card-body{
+  width: 100%;
+  height: fit-content;
+  border: #010d01 1px solid;
+  padding: 1em;
+
+  th{
+    float: right;
+    padding-right: 1em;
+  }
+}
+
+.my-card-footer{
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  padding: 1em;
+  button{
+    margin-left: 1em;
+    font-size: 1.3em;
+  }
+  .btn:hover{
+    color: white;
+    box-shadow: 2px 2px 4px #7eb575;
+  }
+}
+
