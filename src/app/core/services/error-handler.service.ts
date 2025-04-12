@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import {throwError} from 'rxjs';
 })
 export class ErrorHandlerService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   errorHandler(error: HttpErrorResponse) {
     let errorMessage = '<div class="alert alert-danger p-5 fs-3">Une erreur est survenue</div>';

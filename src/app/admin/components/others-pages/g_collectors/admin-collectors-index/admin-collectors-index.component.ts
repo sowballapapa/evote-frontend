@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BehaviorSubject, Subject, takeUntil} from 'rxjs';
+import { Subject, takeUntil} from 'rxjs';
 import {CollectorService} from '../../../../services/collector.service';
 import {CandidateService} from '../../../../services/candidate.service';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';

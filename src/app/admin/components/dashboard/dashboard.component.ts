@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-import {MenuComponent} from '../partials/menu/menu.component';
-import {FooterComponent} from '../partials/footer/footer.component';
 import {DashboardService} from '../../services/dashboard.service';
 import {NgIf} from '@angular/common';
 

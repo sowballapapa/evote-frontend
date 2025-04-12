@@ -2,7 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
 import {VotingPlaceService} from '../../../../services/voting-place.service';
-import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-admin-voting-places-index',

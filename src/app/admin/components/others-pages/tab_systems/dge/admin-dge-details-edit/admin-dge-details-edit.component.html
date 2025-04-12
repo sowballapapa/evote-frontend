@@ -12,7 +12,7 @@
     <form [formGroup]="form" (ngSubmit)="onSumbmit()" class="vstack row col-12 d-flex">
       <div class="form-group p-3 col-12">
         <label for="name" class="form-label">Nom de l'application</label>
-        <div class="ps-2" *ngIf="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)">
+        <div class="ps-2" *ngIf="form.controls.name.invalid && (form.controls.name.dirty)">
           <span *ngIf="form.controls.name.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le nom de l'application est requis et doit faire 7 caractères au moins et 255 caractères au plus. Si non annulé pour ne pas prendre en compte les modifications.
@@ -23,7 +23,7 @@
       <div class="row">
         <div class="form-group p-3 col-6">
           <label for="countryCode" class="form-label">Code Pays</label>
-          <div class="ps-2" *ngIf="form.controls.electorCountryCode.invalid && (form.controls.electorCountryCode.dirty || form.controls.electorCountryCode.touched)">
+          <div class="ps-2" *ngIf="form.controls.electorCountryCode.invalid && (form.controls.electorCountryCode.dirty)">
           <span *ngIf="form.controls.electorCountryCode.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le code pays est requis et doit faire 3 caractères. Si non annulé pour ne pas prendre en compte les modifications.
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group p-3 col-6">
           <label for="acronym" class="form-label">Sigle</label>
-          <div class="ps-2" *ngIf="form.controls.acronym.invalid && (form.controls.acronym.dirty || form.controls.acronym.touched)">
+          <div class="ps-2" *ngIf="form.controls.acronym.invalid && (form.controls.acronym.dirty)">
           <span *ngIf="form.controls.acronym.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le sigle est requis et doit faire 3 caractères au minimun et au maximum 10 caractères. Si non annulé pour ne pas prendre en compte les modifications.
@@ -48,12 +48,12 @@
           <input type="file" formControlName="logo"  id="logo" class="form-control">
         </div>
         <div class="col-4 border border-dark-subtle w-auto">
-          <img width="150px" src="{{environment.storageUrl+old_logo}}">
+          <img alt="" width="150px" src="{{environment.storageUrl+old_logo}}">
         </div>
       </div>
       <div class="row"><div class="form-group p-3 col-6">
         <label for="phone1" class="form-label">Téléphone 1</label>
-        <div class="ps-2" *ngIf="form.controls.phone1.invalid && (form.controls.phone1.dirty || form.controls.phone1.touched)">
+        <div class="ps-2" *ngIf="form.controls.phone1.invalid && (form.controls.phone1.dirty)">
           <span *ngIf="form.controls.phone1.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le numéro de téléphone 1 est requis. Si non annulé pour ne pas prendre en compte les modifications.
@@ -63,7 +63,7 @@
       </div>
         <div class="form-group p-3 col-6">
           <label for="phone2" class="form-label">Téléphone 2</label>
-          <div class="ps-2" *ngIf="form.controls.phone2.invalid && (form.controls.phone2.dirty || form.controls.phone2.touched)">
+          <div class="ps-2" *ngIf="form.controls.phone2.invalid && (form.controls.phone2.dirty)">
           <span *ngIf="form.controls.phone2.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le numéro de téléphone 2. Si non annulé pour ne pas prendre en compte les modifications.
@@ -75,7 +75,7 @@
       <div class="row">
         <div class="form-group p-3 col-6">
           <label for="email" class="form-label">Email</label>
-          <div class="ps-2" *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+          <div class="ps-2" *ngIf="form.controls.email.invalid && (form.controls.email.dirty )">
           <span *ngIf="form.controls.email.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             L'email est requis et doit être comme suit: <u><b>exemple&#64;email.sn</b></u>. Si non annulé pour ne pas prendre en compte les modifications.
@@ -85,7 +85,7 @@
         </div>
         <div class="form-group p-3 col-6">
           <label for="address" class="form-label">Adresse</label>
-          <div class="ps-2" *ngIf="form.controls.address.invalid && (form.controls.address.dirty || form.controls.address.touched)">
+          <div class="ps-2" *ngIf="form.controls.address.invalid && (form.controls.address.dirty )">
             <span *ngIf="form.controls.address.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             L'adresse est requise. Si non annulé pour ne pas prendre en compte les modifications.
@@ -96,7 +96,7 @@
       </div>
       <div class="form-group p-3">
         <label for="about" class="form-label">A propos</label>
-        <div class="ps-2" *ngIf="form.controls.about.invalid && (form.controls.about.dirty || form.controls.about.touched)">
+        <div class="ps-2" *ngIf="form.controls.about.invalid">
           <span *ngIf="form.controls.about.errors" class="text-danger">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             Le champ A-propos est requis. Si non annulé pour ne pas prendre en compte les modifications.

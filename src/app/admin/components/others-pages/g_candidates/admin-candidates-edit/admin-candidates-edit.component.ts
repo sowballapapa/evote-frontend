@@ -3,9 +3,7 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {CandidateService} from '../../../../services/candidate.service';
-import {CollectorService} from '../../../../../sponsorships/collector/services/collector.service';
 import {PartyService} from '../../../../services/party.service';
-import {ElectorService} from '../../../../services/elector.service';
 import {environment} from '../../../../../../environments/environment.development';
 import {ModalService} from '../../../../../core/services/modal.service';
 

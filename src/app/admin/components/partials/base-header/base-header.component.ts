@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {LoginHeaderComponent} from '../login-header/login-header.component';
-import {MenuComponent} from '../menu/menu.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from '../../../services/auth-service.service';
 import {Router, RouterLink} from '@angular/router';
@@ -23,7 +21,7 @@ export class BaseHeaderComponent {
   user!:any
   elector!:any
   storageUrl = environment.storageUrl;
-  constructor(private authService: AuthService,private accountService:AccountService ,private router: Router) {
+  constructor(private authService: AuthService,private accountService:AccountService ) {
   }
 
   ngOnInit() {

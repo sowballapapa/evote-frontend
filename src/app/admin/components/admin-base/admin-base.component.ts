@@ -5,7 +5,6 @@ import {FooterComponent} from '../partials/footer/footer.component';
 import {LoginHeaderComponent} from '../partials/login-header/login-header.component';
 import {AuthService} from '../../services/auth-service.service';
 import { BaseHeaderComponent } from '../partials/base-header/base-header.component';
-import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-admin-base',
@@ -24,10 +23,9 @@ export class AdminBaseComponent {
   year = new Date().getFullYear();
 
   isLogin = localStorage.getItem("admin")
-  constructor(private authService: AuthService) {}
+  constructor() {}
     ngOnInit(){
 
-     this.isLogin
     }
 
 }

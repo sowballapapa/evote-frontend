@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {ActivatedRoute, RouterOutlet} from '@angular/router';
+import { RouterOutlet} from '@angular/router';
 import {AlertModalComponent} from './core/components/modals/alert-modal/alert-modal.component';
 import {ConfirmModalComponent} from './core/components/modals/confirm-modal/confirm-modal.component';
 import {ModalService} from './core/services/modal.service';
@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'evote-front-end';
   modalService = inject(ModalService)
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
   saveSomething() {
     this.modalService.show('success', 'Données sauvegardées avec succès !');
   }

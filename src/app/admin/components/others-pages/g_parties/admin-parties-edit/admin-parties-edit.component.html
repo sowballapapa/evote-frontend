@@ -43,13 +43,13 @@
             <label  class="form-label">Logo</label>
             <div class="text-danger" *ngIf="form.controls.logo.invalid">Le logo est requis et doit être de type JPG ou PNG!</div>
             <input class="form-control" type="file"  (change)="onLogoChange($event)" [ngClass]="form.controls.logo.invalid?'is-invalid':'is-valid'">
-            <img src="{{storageUrl+old_logo}}" width="100px">
+            <img alt="" src="{{storageUrl+old_logo}}" width="100px">
           </div>
           <div class="col-4">
             <label  class="form-label">Bulletin</label>
             <div class="text-danger" *ngIf="form.controls.ballot.invalid">Le bulletin est requis et doit être de type JPG ou PNG!</div>
             <input class="form-control" type="file" (change)="onBallotChange($event)" [ngClass]="form.controls.ballot.invalid?'is-invalid':'is-valid'">
-            <img src="{{storageUrl+old_ballot}}" width="200px">
+            <img alt="" src="{{storageUrl+old_ballot}}" width="200px">
           </div>
           <div class="col-4">
             <label  class="form-label">Programme de la campagne</label>

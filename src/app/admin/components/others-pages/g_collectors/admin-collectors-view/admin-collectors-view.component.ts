@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Field, ViewElementComponent} from "../../../reusable/view-element/view-element.component";
 import {ActivatedRoute} from '@angular/router';
-import {RoleService} from '../../../../services/role.service';
 import {CollectorService} from '../../../../services/collector.service';
 import { environment } from '../../../../../../environments/environment.development';
 

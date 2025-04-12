@@ -6,6 +6,6 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FilteredLocationsService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
 }

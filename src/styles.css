@@ -14,7 +14,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: rgba(108, 120, 108, 0.72);
   border-radius: 10px;
   padding: 0.3em 0.6em;
-  padding: 0.3em 0.6em;
 }
 
 .btn-save:hover{
@@ -43,7 +42,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color:#EAC452;
   border-radius: 10px;
   padding: 0.3em 0.6em;
-  padding: 0.3em 0.6em;
 }
 
 .btn-edit:hover{
@@ -62,7 +60,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: bold;
   color:#ad0606;
   border-radius: 10px;
-  padding: 0.3em 0.6em;
   padding: 0.3em 0.6em;
 }
 

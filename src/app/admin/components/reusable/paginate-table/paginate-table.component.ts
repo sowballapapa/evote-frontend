@@ -5,8 +5,7 @@ import {RouterLink, RouterLinkWithHref, RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ModalService} from '../../../../core/services/modal.service';
-import {ConfirmModalComponent} from '../../../../core/components/modals/confirm-modal/confirm-modal.component';
-import {AlertModalComponent} from '../../../../core/components/modals/alert-modal/alert-modal.component';
+
 
 @Component({
     selector: 'app-paginate-table',

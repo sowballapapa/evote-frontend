@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ElectorService} from '../../../../services/elector.service';
 import {CandidateService} from '../../../../services/candidate.service';
 import { environment } from '../../../../../../environments/environment.development';
 

@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
-import {DgeUserService} from '../../../../services/dge-user.service';
 import {CandidateService} from '../../../../services/candidate.service';
 import {environment} from '../../../../../../environments/environment.development';
 

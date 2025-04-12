@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
-import {Editor, NgxEditorModule, Toolbar} from 'ngx-editor';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgClass, NgIf} from '@angular/common';
 import {environment} from '../../../../../../../environments/environment.development';
@@ -11,7 +10,6 @@ import {ModalService} from '../../../../../../core/services/modal.service';
     selector: 'app-admin-sponsorships-details-edit',
   imports: [
     RouterLink,
-    NgxEditorModule,
     FormsModule,
     NgIf,
     ReactiveFormsModule,

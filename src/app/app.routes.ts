@@ -18,7 +18,7 @@ import {
 } from './elections/components/polling-station-login/polling-station-login.component';
 import {PollingStationHomeComponent} from './elections/components/polling-station-home/polling-station-home.component';
 import {VoteComponent} from './elections/components/vote/vote.component';
-import { adminAuthChildGuard, adminAuthGuardGuard, adminLoginGuard } from './admin/guards/admin-auth-guard.guard';
+import { adminAuthChildGuard,  adminLoginGuard } from './admin/guards/admin-auth-guard.guard';
 import { BaseCandidateComponent } from './sponsorships/candidate/components/base-candidate/base-candidate.component';
 import { AdminElectorsIndexComponent } from './admin/components/others-pages/g_electors/admin-electors-index/admin-electors-index.component';
 import { AdminElectorsViewComponent } from './admin/components/others-pages/g_electors/admin-electors-view/admin-electors-view.component';
@@ -55,7 +55,7 @@ import {ElectorHomeComponent} from './sponsorships/elector/components/elector-ho
 import {ElectorInfosComponent} from './sponsorships/elector/components/elector-infos/elector-infos.component';
 import {
   ElectorCandidateInfosComponent
-} from './sponsorships/elector/components/elector-candidate-infos/elector-candidate-infos.component';;
+} from './sponsorships/elector/components/elector-candidate-infos/elector-candidate-infos.component';
 import {
   AdminUsersBaseComponent
 } from './admin/components/others-pages/g_users/admin-users-base/admin-users-base.component';
@@ -206,9 +206,7 @@ import {
 import {LoginCandidateComponent} from './sponsorships/candidate/components/login-candidate/login-candidate.component';
 import {CandidateHomeComponent} from './sponsorships/candidate/components/candidate-home/candidate-home.component';
 import {CandidateInfosComponent} from './sponsorships/candidate/components/candidate-infos/candidate-infos.component';
-import {
-  CandidateSponsorComponent
-} from './sponsorships/candidate/components/candidate-sponsor/candidate-sponsor.component';
+
 import {
   CandidateElectorsComponent
 } from './sponsorships/candidate/components/candidate-electors/candidate-electors.component';

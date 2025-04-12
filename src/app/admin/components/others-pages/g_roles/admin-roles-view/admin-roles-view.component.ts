@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Field, ViewElementComponent} from '../../../reusable/view-element/view-element.component';
 import {ActivatedRoute} from '@angular/router';
-import {DgeUserService} from '../../../../services/dge-user.service';
 import {RoleService} from '../../../../services/role.service';
 import {environment} from '../../../../../../environments/environment.development';
 

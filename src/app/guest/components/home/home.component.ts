@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { GuestDetailsService } from '../../services/guest-details.service';
-import { NgFor, NgForOf } from '@angular/common';
-import { Party } from '../../interfaces/party';
+import {  NgForOf } from '@angular/common';
 import {environment} from '../../../../environments/environment.development';
 
 @Component({

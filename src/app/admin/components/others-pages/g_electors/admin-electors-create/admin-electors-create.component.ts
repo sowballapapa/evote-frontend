@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { NgForOf} from '@angular/common';
 import {FilterLocationsService} from '../../../../services/filter-locations.service';
-import {Subject, switchMap, takeUntil} from 'rxjs';
+import {Subject,  takeUntil} from 'rxjs';
 
 @Component({
     selector: 'app-admin-electors-create',
