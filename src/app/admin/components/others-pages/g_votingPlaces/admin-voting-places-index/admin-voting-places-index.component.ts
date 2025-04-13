@@ -26,7 +26,6 @@ export class AdminVotingPlacesIndexComponent {
   pageSize = [1]
   total!: number;
   itemsPerPage!: number;
-  authorizedError!: string;
 
 
   fetch(page:number){
@@ -56,10 +55,7 @@ export class AdminVotingPlacesIndexComponent {
           });
         },
         error: err => {
-          if (err.status === 403) {
-            this.isLoading = false;
-            this.authorizedError = err.message;
-          }
+          console.log(err)
         }
       })
   }

@@ -263,6 +263,9 @@ import {AccountComponent} from './core/components/account/account.component';
 import {GetCniDatasComponent} from './core/components/get-cni-datas/get-cni-datas.component';
 import {AdminHelpComponent} from './admin/components/admin-help/admin-help.component';
 import {AboutEvoteComponent} from './core/components/about-evote/about-evote.component';
+import {
+  AdminVotingPlacesViewBaseComponent
+} from './admin/components/others-pages/g_votingPlaces/admin-voting-places-view-base/admin-voting-places-view-base.component';
 
 export const routes: Routes = [
   {path:'unauthorized', component:Erreur403Component},
@@ -384,16 +387,17 @@ export const routes: Routes = [
             {path:'modifier', component: AdminSponsorshipsDetailsEditComponent}
           ]}
         ]},
-        {path:'gestion-bureaux-de-votes', component:AdminPollingsBaseComponent, children:[
-            {path:'', component:AdminPollingsIndexComponent},
-            {path:'nouveau', component:AdminPollingsCreateComponent},
-            {path:'id/:id', component:AdminPollingsViewComponent},
-            {path:'modifier/:id', component:AdminPollingsEditComponent}
-          ]},
+
         {path:'gestion-lieux-de-votes', component:AdminVotingPlacesBaseComponent, children:[
             {path:'', component:AdminVotingPlacesIndexComponent},
             {path:'nouveau', component:AdminVotingPlacesCreateComponent},
-            {path:'id/:id', component:AdminVotingPlacesViewComponent},
+            {path:'id/:id', component:AdminVotingPlacesViewBaseComponent, children: [
+                {path:'', component:AdminVotingPlacesViewComponent},
+                {path:'gestion-bureaux-de-votes', component:AdminPollingsBaseComponent, children:[
+                    {path:'nouveau', component:AdminPollingsCreateComponent},
+                    {path:':id_bureau', component:AdminPollingsEditComponent}
+                  ]},
+              ]},
             {path:'modifier/:id', component:AdminVotingPlacesEditComponent}
           ]},
         {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [

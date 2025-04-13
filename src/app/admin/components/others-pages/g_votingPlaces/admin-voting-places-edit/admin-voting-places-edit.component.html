@@ -1,1 +1,92 @@
-<p>admin-voting-places-edit works!</p>
+<div class="container-fluid m-2">
+  <div class="my-card">
+    <div class="my-card-header flex-wrap">
+      <h4 class="float-start">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"/></svg>        Modification de Fonction
+      </h4>
+      <a routerLink="/admin/gestion-lieux-de-votes" class="btn btn-outline-success bg-light-subtle text-success">
+        &lAarr; Retour
+      </a>
+    </div>
+    <div class="my-card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group p-3">
+          <label for="name" class="form-label">Nom du lieu de Vote</label>
+          <div class="ps-2" *ngIf="form.controls.name.invalid && (form.controls.name.dirty)">
+            <span *ngIf="form.controls.name.errors" class="text-danger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            Le nom est requis et doit être d'au moins 2 caractères et d'au plus 255 caractères. Si non annulé pour ne pas prendre en compte les modifications.
+          </span>
+          </div>
+          <input type="text" formControlName="name" id="name" class="form-control" [ngClass]="form.controls.name.errors?'is-invalid':'is-valid'">
+        </div>
+
+
+        <div class="row">
+          <div class="col-3">
+            <div class="form-group">
+              <label class="form-label">
+                Région
+              </label>
+              <select #selectRegions (change)="getRegionId(selectRegions.value)" class="form-select" >
+                <option value="null" [disabled]="regionId!=0">Sélectionner une région</option>
+                <option *ngFor="let region of regions" value="{{region.id}}">
+                  {{region.name}}
+                </option>
+              </select>
+
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label class="form-label">
+                Département
+              </label>
+              <select #selectDeps class="form-select" (change)="getDepartmentId(selectDeps.value)">
+                <option value="null" [disabled]="departmentId!=0">Sélectionner un département</option>
+                <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label class="form-label">
+                Arrondissement
+              </label>
+              <select #selectMuns class="form-select" (change)="getMunicipalityId(selectMuns.value)">
+                <option value="null" [disabled]="municipalityId!=0">Sélectionner un arrondissement</option>
+                <option *ngFor="let municipality of municipalities" value="{{municipality.id}}">{{municipality.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row  p-3">
+
+          <div class="form-group col-8">
+            <label class="form-label">
+              Commune
+            </label>
+            <div *ngIf="form.controls.district_id.invalid" class="text-danger ">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+              La commune est requise. Si non annulé pour ne pas prendre en compte les modifications .
+            </div>
+            <select formControlName="district_id"  class="form-select" #selectDist (change)="getDistrictId(selectDist.value)"  [ngClass]="form.controls.district_id.errors?'is-invalid':'is-valid'">
+              <option value="null" [disabled]="districtId!=0">Choisir une commune</option>
+              <option *ngFor="let district of districts" value="{{district.id}}">{{district.name}}</option>
+            </select>
+
+          </div>
+          <div class="col-4 justify-content-center align-items-center m-auto">
+            <button type="button" (click)="resetFilteredlocation()" class="btn btn-outline-secondary ">Réinitialiser le filtre des localités</button>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn-edit" [disabled]="form.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EAC452"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+            Valider
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
