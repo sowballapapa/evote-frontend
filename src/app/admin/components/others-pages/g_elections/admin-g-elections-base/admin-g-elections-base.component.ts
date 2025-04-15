@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-admin-g-elections-base',
   standalone: true,
   imports: [
+    RouterLink,
     RouterOutlet
   ],
   templateUrl: './admin-g-elections-base.component.html',

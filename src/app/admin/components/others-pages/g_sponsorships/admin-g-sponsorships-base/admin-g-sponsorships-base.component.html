@@ -1,0 +1,32 @@
+<div class="container bg-secondary-subtle p-3 shadow-sm border-dark-subtle border-1 border">
+  <header class="header fs-4 text-success-emphasis border-success border-2 border shadow-lg  fw-bold text-center mb-2 text-decoration-underline">Gestions des parrainages</header>
+  <nav class="navbar navbar-expand-lg bg-success-subtle border-2 border border-success">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSP" aria-controls="navbarNavSP" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavSP">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-parrainages/">Les résultats aux parrainages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-parrainages/liste-des-parrainages-valides">Liste des parrainages validés</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-parrainages/liste-des-parrainages-non-valides">Liste des parrainages non validés</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-parrainages/liste-des-parrainages-participations">Gérer les participations aux élections</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/admin/gestion-parrainages/configurations">Gérer les parrainages</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="border border-1 border-success">
+    <router-outlet/>
+  </section>
+</div>

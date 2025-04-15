@@ -158,21 +158,19 @@ import {
 import {
   AdminGElectionsBaseComponent
 } from './admin/components/others-pages/g_elections/admin-g-elections-base/admin-g-elections-base.component';
-import {
-  AdminGElectionsHomeComponent
-} from './admin/components/others-pages/g_elections/admin-g-elections-home/admin-g-elections-home.component';
+
 import {
   AdminGElectionsConfigComponent
 } from './admin/components/others-pages/g_elections/admin-g-elections-config/admin-g-elections-config.component';
 import {
   AdminGSponsorshipsBaseComponent
-} from './admin/components/others-pages/g_elections/admin-g-sponsorships-base/admin-g-sponsorships-base.component';
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-base/admin-g-sponsorships-base.component';
 import {
   AdminGSponsorshipsHomeComponent
-} from './admin/components/others-pages/g_elections/admin-g-sponsorships-home/admin-g-sponsorships-home.component';
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-home/admin-g-sponsorships-home.component';
 import {
   AdminGSponsorshipsConfigComponent
-} from './admin/components/others-pages/g_elections/admin-g-sponsorships-config/admin-g-sponsorships-config.component';
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-config/admin-g-sponsorships-config.component';
 import {
   AdminElectionsDetailsBaseComponent
 } from './admin/components/others-pages/tab_systems/elections/admin-elections-details-base/admin-elections-details-base.component';
@@ -266,6 +264,28 @@ import {AboutEvoteComponent} from './core/components/about-evote/about-evote.com
 import {
   AdminVotingPlacesViewBaseComponent
 } from './admin/components/others-pages/g_votingPlaces/admin-voting-places-view-base/admin-voting-places-view-base.component';
+import {
+  AdminLocalitesBaseComponent
+} from './admin/components/others-pages/g_localites/admin-localites-base/admin-localites-base.component';
+import {
+  AdminGSponsorshipsValidatedComponent
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-validated/admin-g-sponsorships-validated.component';
+import {
+  AdminGSponsorshipsParticipationsComponent
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-participations/admin-g-sponsorships-participations.component';
+import {
+  AdminGElectionsResultsPollingResultsBaseComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-results-polling-results-base/admin-g-elections-results-polling-results-base.component';
+import {
+  AdminGElectionsResultsCandidatesComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-results-candidates/admin-g-elections-results-candidates.component';
+import {
+  AdminGElectionsResultsCandidateComponent
+} from './admin/components/others-pages/g_elections/admin-g-elections-results-candidate/admin-g-elections-results-candidate.component';
+import { AdminGElectionsHomeComponent } from './admin/components/others-pages/g_elections/admin-g-elections-home/admin-g-elections-home.component';
+import {
+  AdminGSponsorshipsResultsCandidatesComponent
+} from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-results-candidates/admin-g-sponsorships-results-candidates.component';
 
 export const routes: Routes = [
   {path:'unauthorized', component:Erreur403Component},
@@ -400,13 +420,26 @@ export const routes: Routes = [
               ]},
             {path:'modifier/:id', component:AdminVotingPlacesEditComponent}
           ]},
-        {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [
-            {path: '', component: AdminGElectionsHomeComponent},
-            {path: 'configuration', component: AdminGElectionsConfigComponent}
-          ]},
+        {path:'gestion-localites', component: AdminLocalitesBaseComponent, title:'Evote| Gestion des localités'},
+        // {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [
+        //     {path: '', component: AdminGElectionsHomeComponent},
+        //     {path: 'configuration', component: AdminGElectionsConfigComponent}
+        //   ]},
         {path:'gestion-parrainages', component: AdminGSponsorshipsBaseComponent, children: [
-            {path: '', component: AdminGSponsorshipsHomeComponent},
-            {path: 'configuration', component: AdminGSponsorshipsConfigComponent}
+            {path: 'configurations', component: AdminGSponsorshipsConfigComponent},
+            {path: 'liste-des-parrainages-valides', component: AdminGSponsorshipsValidatedComponent },
+            {path: 'liste-des-parrainages-non-valides', component: AdminGSponsorshipsHomeComponent },
+            {path: 'liste-des-parrainages-participations', component: AdminGSponsorshipsParticipationsComponent },
+            {path: '', component: AdminGSponsorshipsResultsCandidatesComponent },
+          ]},
+        {path:'gestion-elections', component: AdminGElectionsBaseComponent, children: [
+            {path: '', component: AdminGElectionsConfigComponent},
+            {path: 'liste-des-participants', component: AdminGElectionsHomeComponent },
+            {path: 'resultats', component: AdminGElectionsResultsPollingResultsBaseComponent, children: [
+                {path:'tous-les-candidats', component:AdminGElectionsResultsCandidatesComponent},
+                {path:'candidat/:id', component: AdminGElectionsResultsCandidateComponent}
+              ] },
+            // {path: 'liste-des-elections-participations', component: AdminGSponsorshipsParticipationsComponent },
           ]},
       ]
     }
@@ -483,6 +516,4 @@ export const routes: Routes = [
       {path: 'bureau:id/electeur:id', component: VoteComponent, title: 'E-vote | Elections | Vote'}
     ]
   }
-
-
 ];

@@ -1,0 +1,103 @@
+.myContainer{
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+}
+
+table {
+  caption-side: top;
+  width: 100%;
+
+  .captionTitle{
+
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: start;
+    background-color: darkseagreen;
+    color: #010d01;
+  }
+
+  .captionInfos{
+    font-size: 0.80em;
+    font-weight: normal;
+    background-color: #010d01;
+    color: #eceeeb;
+    text-align: right;
+    span{
+      margin-left: 2em ;
+      margin-right: 0.25em ;
+    }
+  }
+
+  tr{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: right;
+    th, td{
+
+      padding-right: 0.5em;
+      button{
+        border: none;
+        background: none;
+      }
+    }
+  }
+
+  tfoot{
+    width: 100%;
+  }
+}
+
+
+.pagination .page-item  .page-link{
+  max-width: inherit;
+  background-color: #428a42;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+.pagination .page-item  .disabled{
+  background-color: #6c786c;
+
+}
+
+.vertical-align{
+  height: 70vh;
+  line-height: 70vh;
+  div span{
+    line-height: initial;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.pagination .page-item a:hover{
+  cursor: pointer;
+}
+
+td a{
+  margin: 0 0.2em;
+}
+
+.btn-outline-primary{
+  background-color: whitesmoke;
+  color: darkcyan;
+  font-weight: bold;
+  border-color: darkcyan;
+}
+
+.btn-outline-primary:hover{
+  background-color: #d3f8cd;
+  box-shadow: 4px 4px 6px #010d01;
+  font-weight: bolder;
+}
+
+
+ .non-dec{
+  list-style: none;
+
+}
+ul{
+  font-size: 1.09em;
+}

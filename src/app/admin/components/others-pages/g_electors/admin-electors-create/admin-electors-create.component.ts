@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import { NgForOf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FilterLocationsService} from '../../../../services/filter-locations.service';
 import {Subject,  takeUntil} from 'rxjs';
+import {ElectorService} from '../../../../services/elector.service';
+import {ModalService} from '../../../../../core/services/modal.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-admin-electors-create',
@@ -10,6 +13,8 @@ import {Subject,  takeUntil} from 'rxjs';
     ReactiveFormsModule,
     NgForOf,
     FormsModule,
+    NgClass,
+    NgIf,
   ],
     templateUrl: './admin-electors-create.component.html',
     styleUrl: './admin-electors-create.component.css'
@@ -31,15 +36,15 @@ export class AdminElectorsCreateComponent {
   votingPlaceId = 0
   pollingStationId = 0
 
-  height!:number
+  height!:string
 
   form = new FormGroup({
-    cniNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-    electorNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
-    lastname: new FormControl('', [Validators.required, Validators.pattern('[a-z]*')]),
-    firstname: new FormControl('', [Validators.required, Validators.pattern('[a-z]*')]),
+    cniNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(13), Validators.maxLength(13)]),
+    electorNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(9), Validators.maxLength(9)]),
+    lastname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+    firstname: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
     birthDate: new FormControl('', [Validators.required]),
-    birthPlace: new FormControl('', [Validators.required, Validators.pattern('[a-z]*')]),
+    birthPlace: new FormControl('', [Validators.required, ]),
     sex: new FormControl('', [Validators.required]),
     height: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
@@ -55,8 +60,33 @@ export class AdminElectorsCreateComponent {
 
   })
 
-  constructor(private locationService:FilterLocationsService) {}
+  constructor(private locationService:FilterLocationsService, private electorService:ElectorService, private modalService:ModalService, private router:Router) {}
 
+  imageChange(event:any ) {
+    const image = event.target.files[0];
+    if (image) {
+      this.form.patchValue({
+        image: image
+      });
+    }
+  }
+
+  cniFrontChange(event:any ) {
+    const image = event.target.files[0];
+    if (image) {
+      this.form.patchValue({
+        cniFront: image
+      });
+    }
+  }
+    cniBackChange(event:any ){
+      const image = event.target.files[0];
+      if (image) {
+        this.form.patchValue({
+          cniBack: image
+        });
+      }
+    }
   fetchAllLocations() {
     this.locationService.getLocations().pipe(
       takeUntil(this.destroy$),
@@ -105,11 +135,30 @@ export class AdminElectorsCreateComponent {
   }
 
   onSubmit() {
+    let formData = new FormData
+    let formValue:any = this.form.value;
+    for ( const key of Object.keys(formValue) ) {
+      const value = formValue[key];
+      formData.append(key, value);
+    }
+    this.electorService.createElector(formData).subscribe({
+      next:(res:any)=>{
+        this.modalService.show('success', 'Electeur sauvegardé avec succès !')
+        this.router.navigateByUrl('/admin/gestion-electeurs');
+      },
+      error:(res:any)=>{
+        console.log(res)
+      }
+
+    })
 
   }
 
   heightValue(event:any) {
-      this.height = event.target.value
+    this.height=event.target.value;
+    this.form.patchValue({
+      height: this.height,
+    })
   }
 
   getRegionId(id:any){

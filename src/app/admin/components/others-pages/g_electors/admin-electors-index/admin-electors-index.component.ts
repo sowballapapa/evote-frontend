@@ -3,6 +3,7 @@ import {ElectorService} from '../../../../services/elector.service';
 import {PaginateTableComponent} from '../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
 import {formatDate} from '@angular/common';
+import {environment} from '../../../../../../environments/environment.development';
 
 @Component({
     selector: 'app-admin-electors-index',
@@ -78,4 +79,6 @@ export class AdminElectorsIndexComponent {
     this._unsubscribeAll.next(undefined)
     this._unsubscribeAll.complete()
   }
+
+  protected readonly environment = environment;
 }

@@ -1,0 +1,60 @@
+<div class="myContainer flex-wrap ">
+  <table class="table table-striped table-responsive table-bordered">
+    <caption class="captionTitle">
+      <span class="ms-2 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M360-240h440v-107H360v107ZM160-613h120v-107H160v107Zm0 187h120v-107H160v107Zm0 186h120v-107H160v107Zm200-186h440v-107H360v107Zm0-187h440v-107H360v107ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Z"/></svg>
+          Les localités: les régions, les départements, les arrondissements et les communes
+      </span>
+      <a class="btn-new float-end me-2" routerLink="nouveau">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#008B8BFF"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+        Nouveau Région
+      </a>
+    </caption>
+    <caption class="captionInfos mb-0">
+      <span class="b1"><u>Nombre de Régions</u>:  <strong>{{regions.length}}</strong></span>
+      <span class="b2"><u>Nombre de Départements</u>:<strong>{{departments.length}}</strong></span>
+      <span class="b2"><u>Nombre d' Arrondissements</u>:<strong>{{municipalities.length}}</strong></span>
+      <span class="b2"><u>Nombre de Communes</u>:<strong>{{districts.length}}</strong></span>
+    </caption>
+    <div>
+    <ul class="border-dark-subtle border-2 border ">
+      @for (region of regions; track region.id) {
+        <li class="fw-bold fs-4">
+          <b><u>Région</u>:</b> {{region.name}}
+          <span class="float-end">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="true" aria-controls="collapseWidthExample">
+              Toggle width collapse
+            </button>
+          </span>
+        </li>
+        <li class="non-dec" id="collapseWidthExample"><strong>Liste des département de la région {{region.name}}</strong>
+          <ul>
+            @for (departement of departments; track departement.id) {
+              @if (departement.region_id === region.id) {
+                <li><b><u>Département</u>:</b> {{departement.name}}</li>
+                <li class="non-dec"><strong>Liste des arrondissements du département {{departement.name}}</strong>
+                  <ul>
+                    @for (municipality of municipalities; track municipality.id) {
+                      @if (municipality.department_id === departement.id) {
+                        <li><b><u>Arrondissement</u>:</b> {{municipality.name}}</li>
+                        <li class="non-dec"><strong>Listes des commune de l'arrondissement: {{municipality.name}}</strong>
+                          <ul>
+                            @for (district of districts; track district.id) {
+                              @if (district.municipality_id === municipality.id) {
+                                <li><b><u>Commune</u>:</b> {{municipality.name}}</li>
+                              }
+                            }
+                          </ul>
+                        </li>
+                      }
+                    }
+                  </ul>
+                </li>
+              }
+            }
+          </ul>
+        </li>
+      }
+    </ul></div>
+  </table>
+</div>

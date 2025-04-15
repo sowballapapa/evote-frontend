@@ -9,17 +9,25 @@
           <div class="col-6">
             <div class="form-group">
               <label class="form-label">
-                Numéro CNI
+                Numéro de CNI
               </label>
-              <input type="number" class="form-control" formControlName="cniNumber">
+              <span class="ps-2 text-danger" *ngIf="form.controls.cniNumber.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le numéro de CNI est requis et doit être de 13 chiffres.
+              </span>
+              <input type="number" class="form-control" formControlName="cniNumber" [ngClass]="form.controls.cniNumber.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-6">
             <div class="form-group">
               <label class="form-label">
-                Numéro Electeur
+                Numéro d'électeur
               </label>
-              <input type="text" class="form-control" formControlName="electorNumber">
+              <span class="ps-2 text-danger" *ngIf="form.controls.electorNumber.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le numéro d'électeur est requis et doit être de 9 chiffres.
+              </span>
+              <input type="number" class="form-control" formControlName="electorNumber" [ngClass]="form.controls.electorNumber.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -30,7 +38,11 @@
               <label class="form-label">
                 Nom
               </label>
-              <input type="text" class="form-control" formControlName="lastname">
+              <span class="ps-2 text-danger" *ngIf="form.controls.lastname.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le nom de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="lastname" [ngClass]="form.controls.lastname.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-6">
@@ -38,7 +50,11 @@
               <label class="form-label">
                 Prénom
               </label>
-              <input type="text" class="form-control" formControlName="firstname">
+              <span class="ps-2 text-danger" *ngIf="form.controls.firstname.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le prénom de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="firstname" [ngClass]="form.controls.firstname.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -49,13 +65,17 @@
             <label class="form-label">
               Sexe
             </label>
+            <span class="ps-2 text-danger" *ngIf="form.controls.sex.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le sexe de l'électeur est requis.
+              </span>
             <div class="d-flex">
               <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" formControlName="sex" value="1" id="masculin">
+                <input type="radio" class="form-check-input" formControlName="sex" value="1" id="masculin"  [ngClass]="form.controls.sex.invalid?'is-invalid':'is-valid'">
                 <label class="form-check-label" for="masculin">Masculin</label>
               </div>
               <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" formControlName="sex" value="0" id="feminin" >
+                <input type="radio" class="form-check-input" formControlName="sex" value="0" id="feminin" [ngClass]="form.controls.sex.invalid?'is-invalid':'is-valid'" >
                 <label class="form-check-label" for="feminin">Féminin</label>
               </div>
             </div>
@@ -66,7 +86,11 @@
             <label class="form-label">
               Taille - {{height}}cm
             </label>
-            <input type="range" class="form-range" min="120" max="260" step="1" (change)="heightValue($event)">
+            <span class="ps-2 text-danger" *ngIf="form.controls.height.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                La taille de l'électeur est requise.
+              </span>
+            <input type="range" class="form-range" min="120" max="260" step="1" formControlName="height" (change)="heightValue($event)" [ngClass]="form.controls.height.invalid?'is-invalid':'is-valid'">
           </div>
         </div>
         <div class="col-6">
@@ -74,7 +98,11 @@
             <label class="form-label">
               Adresse
             </label>
-            <input type="text" class="form-control" formControlName="address">
+            <span class="ps-2 text-danger" *ngIf="form.controls.address.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                L'adresse de l'électeur est requise.
+              </span>
+            <input type="text" class="form-control" formControlName="address" [ngClass]="form.controls.address.invalid?'is-invalid':'is-valid'">
           </div>
         </div>
       </div>
@@ -85,7 +113,11 @@
               <label class="form-label">
                 Date de Naissance
               </label>
-              <input type="date" class="form-control" formControlName="birthDate">
+              <span class="ps-2 text-danger" *ngIf="form.controls.birthDate.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                La date de naissance de l'électeur est requise.
+              </span>
+              <input type="date" class="form-control" formControlName="birthDate" [ngClass]="form.controls.birthDate.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-6">
@@ -93,7 +125,11 @@
               <label class="form-label">
                 Lieu de Naissance
               </label>
-              <input type="text" class="form-control" formControlName="birthPlace">
+              <span class="ps-2 text-danger" *ngIf="form.controls.birthPlace.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le lieu de naissance de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="birthPlace" [ngClass]="form.controls.birthPlace.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -104,7 +140,11 @@
               <label class="form-label">
                 Date de Délivrance
               </label>
-              <input type="date" class="form-control" formControlName="delivranceDate">
+              <span class="ps-2 text-danger" *ngIf="form.controls.delivranceDate.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                La date de délivrance de la carte d'électeur est requise.
+              </span>
+              <input type="date" class="form-control" formControlName="delivranceDate" [ngClass]="form.controls.delivranceDate.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-6">
@@ -112,7 +152,11 @@
               <label class="form-label">
                 Date d'expiration
               </label>
-              <input type="date" class="form-control" formControlName="expirationDate">
+              <span class="ps-2 text-danger" *ngIf="form.controls.expirationDate.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                La date d'expiration de la carte d'électeur est requise.
+              </span>
+              <input type="date" class="form-control" formControlName="expirationDate" [ngClass]="form.controls.expirationDate.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -124,7 +168,11 @@
               <label class="form-label">
                 Prénom du Père
               </label>
-              <input type="text" class="form-control" formControlName="dadFirstname">
+              <span class="ps-2 text-danger" *ngIf="form.controls.dadFirstname.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le prénom du père de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="dadFirstname" [ngClass]="form.controls.dadFirstname.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-4">
@@ -132,7 +180,11 @@
               <label class="form-label">
                 Prénom de la mère de Naissance
               </label>
-              <input type="text" class="form-control" formControlName="mumFirstname">
+              <span class="ps-2 text-danger" *ngIf="form.controls.mumFirstname.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le prénom de la mère de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="mumFirstname" [ngClass]="form.controls.mumFirstname.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-4">
@@ -140,7 +192,11 @@
               <label class="form-label">
                 Nom de jeune fille de la mère
               </label>
-              <input type="text" class="form-control" formControlName="mumLastname">
+              <span class="ps-2 text-danger" *ngIf="form.controls.mumLastname.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le nom de jeune fille de la mère de l'électeur est requis.
+              </span>
+              <input type="text" class="form-control" formControlName="mumLastname" [ngClass]="form.controls.mumLastname.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -152,7 +208,11 @@
               <label class="form-label">
                 Photo d'identité
               </label>
-              <input type="file" class="form-control" formControlName="image">
+              <span class="ps-2 text-danger" *ngIf="form.controls.image.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                La photo d'identité de l'électeur est requise.
+              </span>
+              <input type="file" class="form-control" formControlName="image" (change)="imageChange($event)" [ngClass]="form.controls.image.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-4">
@@ -160,7 +220,11 @@
               <label class="form-label">
                 Recto CNI
               </label>
-              <input type="file" class="form-control" formControlName="cniFront">
+              <span class="ps-2 text-danger" *ngIf="form.controls.cniFront.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le recto de la carte d'électeur est requis.
+              </span>
+              <input type="file" class="form-control" formControlName="cniFront" (change)="cniFrontChange($event)" [ngClass]="form.controls.cniFront.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
           <div class="col-4">
@@ -168,7 +232,11 @@
               <label class="form-label">
                 Verso CNI
               </label>
-              <input type="file" class="form-control" formControlName="cniBack">
+              <span class="ps-2 text-danger" *ngIf="form.controls.cniBack.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le verso de la carte d'électeur est requis.
+              </span>
+              <input type="file" class="form-control" formControlName="cniBack" (change)="cniBackChange($event)" [ngClass]="form.controls.cniBack.invalid?'is-invalid':'is-valid'">
             </div>
           </div>
         </div>
@@ -244,14 +312,18 @@
               <label class="form-label">
                 Bureau de Vote
               </label>
-              <select class="form-select" formControlName="polling_station_id">
+              <span class="ps-2 text-danger" *ngIf="form.controls.polling_station_id.invalid">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e31b23"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                Le bureau de vote de l'électeur est requis. Merci de sélectionner le bureau avec le filtre en partant des régions jusqu'aux lieux de votes pour avoir le bureau!
+              </span>
+              <select class="form-select" formControlName="polling_station_id" [ngClass]="form.controls.polling_station_id.invalid?'is-invalid':'is-valid'">
                 <option value="null" [selected]="true">Sélectionner un bureau de vote</option>
                 <option *ngFor="let pollingSt of pollingStations" value="{{pollingSt.id}}">{{pollingSt.stationNumber}}</option>
               </select>
             </div>
           </div>
           <div class="col-4">
-            <button (click)="resetFilteredlocation()" class="btn btn-outline-secondary ">Réinitialiser le filtre des localités</button>
+            <button type="button" (click)="resetFilteredlocation()" class="btn btn-outline-secondary ">Réinitialiser le filtre des localités</button>
           </div>
         </div>
 

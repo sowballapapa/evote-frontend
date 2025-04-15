@@ -22,6 +22,9 @@ export class AdminSponsorshipsDetailsEditComponent {
 
   protected readonly environment = environment;
   old_banner!:any
+  max_electors_sign!:any
+  min_electors_sign!:any
+  district_min_electors_sign!:any
   form = new FormGroup({
     title: new FormControl("", [Validators.required]),
     description: new FormControl("", [Validators.required]),
@@ -46,6 +49,10 @@ export class AdminSponsorshipsDetailsEditComponent {
   ngOnInit() {
     this.sponsorshipsSys.getSponsorshipsInfos().subscribe((res:any)=>{
       this.old_banner= res.data.banner_spons;
+      this.min_electors_sign=res.data.min_electors_sign;
+      this.district_min_electors_sign=res.data.district_min_electors_sign;
+      this.max_electors_sign=res.data.max_electors_sign;
+
       this.form.patchValue({
         title:res.data.title,
         description:res.data.description,
@@ -66,6 +73,9 @@ export class AdminSponsorshipsDetailsEditComponent {
       const value = formValue[key];
       formData.append(key, value);
     }
+    formData.append('max_electors_sign',  this.max_electors_sign)
+    formData.append('min_electors_sign',  this.min_electors_sign)
+    formData.append('district_min_electors_sign',  this.district_min_electors_sign)
     this.sponsorshipsSys.edit(formData).subscribe({
       next:(res:any)=>{
         this.modalService.show('success', 'Données des Parrainages modifiées avec succès')

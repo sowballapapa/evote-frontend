@@ -1,1 +1,29 @@
-<router-outlet/>
+<div class="container bg-secondary-subtle p-3 shadow-sm border-dark-subtle border-1 border">
+  <header class="header fs-4 text-info-emphasis border-info border-2 border shadow-lg  fw-bold text-center mb-2 text-decoration-underline">Gestions des elections</header>
+  <nav class="navbar navbar-expand-lg bg-info-subtle border-2 border border-info">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSP" aria-controls="navbarNavSP" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavSP">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-elections/resultats/tous-les-candidats">Liste des résultats par candidats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/gestion-elections/liste-des-participants">Liste des participants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/admin/gestion-elections/">Gérer les elections</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" routerLink="/admin/gestion-elections/resultats">Liste des résultats par bureaux</a>-->
+<!--          </li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="border border-1 border-info">
+    <router-outlet/>
+  </section>
+</div>
