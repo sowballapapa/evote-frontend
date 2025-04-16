@@ -11,6 +11,18 @@ export class UserAdminService {
 
 
   getAll(page:number){
-    return this.http.get(environment.apiUrl+environment.adminSegment+'users/admins?page='+page)
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/acc-admins?page='+page)
+  }
+
+  getOne(id: any) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/acc-admins/'+id)
+  }
+
+  getNoAccountsUser() {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/no-admins-acc')
+  }
+
+  create(data: any) {
+    return this.http.post(environment.apiUrl+environment.adminSegment+'users/acc-admins', data)
   }
 }

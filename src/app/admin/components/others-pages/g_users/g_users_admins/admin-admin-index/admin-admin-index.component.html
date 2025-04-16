@@ -1,12 +1,14 @@
 
-<app-paginate-table
+<app-acc-paginate-table
   [isLoading]="isLoading"
   [tableTitle] = "fetchTitle"
-  [columns]="['ID', 'Matricule', 'Nom', 'Prénom(s)', 'Nom d\'utilisateur', 'Email', 'Téléphone', 'Fonction']"
+  [columns]="['ID', 'Image','Matricule', 'Nom', 'Prénom(s)', 'Nom d\'utilisateur', 'Email', 'Téléphone', 'Fonction']"
   [rows]="allUsers"
-  [dataColumns]="['elector_id', 'registrationNumber', 'lastname','firstname','username', 'email', 'phone', 'title']"
+  [dataColumns]="['userId', 'image','registrationNumber', 'lastname','firstname','username', 'email', 'phone', 'title']"
   [lastPage]="lastPage"
   [pageSize]="pageSize"
   [total]="total"
   [pageItemsCount]="itemsPerPage"
+  [privilege]="true"
+  [url]="'/admin/users/'"
 />

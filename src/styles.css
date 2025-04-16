@@ -53,6 +53,43 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+.btn-password{
+  border: 1px solid #0d5a0d;
+  background-color: transparent;
+  font-size:  1.5em;
+  font-weight: bold;
+  color:#0d5a0d;
+  border-radius: 10px;
+  padding: 0.3em 0.6em;
+}
+
+.btn-password:hover{
+  background-color: #0d5a0d;
+  color: white;
+  cursor: pointer;
+  border-color: #0d5a0d;
+  box-shadow: 2px 2px 8px #0d5a0d;
+}
+
+.btn-privilege{
+  border: 1px solid #0101ad;
+  background-color: transparent;
+  font-size:  1.5em;
+  font-weight: bold;
+  color:#0101ad;
+  border-radius: 10px;
+  padding: 0.3em 0.6em;
+}
+
+.btn-privilege:hover{
+  background-color: #0101ad;
+  color: white;
+  cursor: pointer;
+  border-color: #0101ad;
+  box-shadow: 2px 2px 8px #0101ad;
+}
+
+
 .btn-delete{
   border: 1px solid #ad0606;
   background-color: transparent;

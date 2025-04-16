@@ -16,4 +16,12 @@ export class AccountService {
   getElectorDatas(){
     return this.http.get<any>(`${environment.apiUrl}/get-elector-datas`);
   }
+
+  checkPassword(user:any){
+    return this.http.post(`${environment.apiUrl}/check-password`, user)
+  }
+
+  resetPassword(user:any){
+    return this.http.post(`${environment.apiUrl}/set-user-password`, user)
+  }
 }

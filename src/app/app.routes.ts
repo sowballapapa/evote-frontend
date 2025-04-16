@@ -141,20 +141,8 @@ import {
   AdminAccPollingsEditComponent
 } from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-edit/admin-acc-pollings-edit.component';
 import {
-  AdminAccPrivilegesBaseComponent
-} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-base/admin-acc-privileges-base.component';
-import {
-  AdminAccPrivilegesIndexComponent
-} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-index/admin-acc-privileges-index.component';
-import {
   AdminAccPrivilegesViewComponent
-} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-view/admin-acc-privileges-view.component';
-import {
-  AdminAccPrivilegesCreateComponent
-} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-create/admin-acc-privileges-create.component';
-import {
-  AdminAccPrivilegesEditComponent
-} from './admin/components/others-pages/g_users/g_users_privileges/admin-acc-privileges-edit/admin-acc-privileges-edit.component';
+} from './admin/components/others-pages/g_users/g_users_admins/admin-acc-privileges-view/admin-acc-privileges-view.component';
 import {
   AdminGElectionsBaseComponent
 } from './admin/components/others-pages/g_elections/admin-g-elections-base/admin-g-elections-base.component';
@@ -286,6 +274,12 @@ import { AdminGElectionsHomeComponent } from './admin/components/others-pages/g_
 import {
   AdminGSponsorshipsResultsCandidatesComponent
 } from './admin/components/others-pages/g_sponsorships/admin-g-sponsorships-results-candidates/admin-g-sponsorships-results-candidates.component';
+import {
+  AdminUserPasswordResetComponent
+} from './admin/components/others-pages/g_users/admin-user-password-reset/admin-user-password-reset.component';
+import {
+  AdminNewUserAdminComponent
+} from './admin/components/others-pages/g_users/g_users_admins/admin-new-user-admin/admin-new-user-admin.component';
 
 export const routes: Routes = [
   {path:'unauthorized', component:Erreur403Component},
@@ -328,15 +322,17 @@ export const routes: Routes = [
             {path: 'admins', component: AdminAdminBaseComponent, children: [
                 {path:'', component:AdminAdminIndexComponent},
                 {path:'id/:id', component:AdminAdminViewComponent},
+                {path:'privileges/:id', component:AdminAccPrivilegesViewComponent},
                 {path:'nouveau', component:AdminAdminCreateComponent},
+                {path:'nouveau/id/:id', component: AdminNewUserAdminComponent},
                 {path:'modifier/:id', component:AdminAdminEditComponent},
+                {path:'reinitialisation-de-mot-de-passe/:id', component:AdminUserPasswordResetComponent},
               ]},
-            {path: 'privileges', component: AdminAccPrivilegesBaseComponent, children: [
-                {path:'', component:AdminAccPrivilegesIndexComponent},
-                {path:'id/:id', component:AdminAccPrivilegesViewComponent},
-                {path:'nouveau', component:AdminAccPrivilegesCreateComponent},
-                {path:'modifier/:id', component:AdminAccPrivilegesEditComponent},
-              ]},
+            // {path: 'privileges', component: AdminAccPrivilegesBaseComponent, children: [
+            //     {path:'', component:AdminAccPrivilegesIndexComponent},
+            //     {path:'nouveau', component:AdminAccPrivilegesCreateComponent},
+            //     {path:'modifier/:id', component:AdminAccPrivilegesEditComponent},
+            //   ]},
             {path: 'candidats', component: AdminAccCandidatesBaseComponent, children: [
                 {path: '', component: AdminAccCandidatesIndexComponent},
                 {path: 'id/:id', component: AdminAccCandidatesViewComponent},

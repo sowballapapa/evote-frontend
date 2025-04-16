@@ -1,0 +1,67 @@
+<div class="myContainer">
+  <div class="my-card">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" >&#8617;</button>
+      <span></span>
+    </div>
+    <div class="my-card-body">
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <td>{{dgeUser.elector_id}}</td>
+        </tr>
+        <tr>
+          <th>Matricule</th>
+          <td>{{dgeUser.registrationNumber}}</td>
+        </tr>
+        <tr>
+          <th>Nom</th>
+          <td>{{dgeUser.lastname}}</td>
+        </tr>
+        <tr>
+          <th>Prénom</th>
+          <td>{{dgeUser.firstname}}</td>
+        </tr>
+        <tr>
+          <th>Fonction</th>
+          <td>{{dgeUser.title}}</td>
+        </tr>
+      </table>
+      <div class="my-card-body bg-secondary-subtle shadow-sm">
+        <form [formGroup]="form" (ngSubmit)="onSumbit()" class="vstack gap-3">
+          <div class="row">
+            <input type="hidden" formControlName="dge_user_id" id="">
+            <div class="form-group col-6">
+              <label class="form-label">Email</label><span *ngIf="form.controls.email.invalid" class="ps-2 fw-bold text-danger">L'email est requis.</span>
+              <input type="email" class="form-control" formControlName="email" [ngClass]="form.controls.email.invalid?'is-invalid':'is-valid'">
+            </div>
+            <div class="form-group col-6">
+              <label class="form-label">Téléphone</label>
+              <input type="number" class="form-control" formControlName="phone" [ngClass]="form.controls.phone.invalid?'is-invalid':'is-valid'">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" formControlName="username" [ngClass]="form.controls.username.invalid?'is-invalid':'is-valid'">
+            </div>
+            <div class="form-group col-6">
+              <label class="form-label">Photo de profile</label>
+              <input type="file" class="form-control" formControlName="image" [ngClass]="form.controls.image.invalid?'is-invalid':'is-valid'">
+            </div>
+          </div>
+          <div class="form-group row m-auto align-items-center justify-content-center ">
+            <button type="submit" class="btn-save" [disabled]="form.invalid">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+              Créer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="my-card-footer">
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,81 @@
+@if (isLoading) {
+
+  <div class="text-success text-center vertical-align" >
+    <div class="spinner-grow" role="status"></div>
+    <span class="status ps-3">Chargement...</span>
+  </div>
+}@else{
+  <div class="myContainer flex-wrap ">
+    <div class="alert alert-danger" *ngIf="error">{{error}}</div>
+    <table class="table table-striped table-responsive table-bordered">
+      <caption class="captionTitle">
+      <span class="ms-2 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M360-240h440v-107H360v107ZM160-613h120v-107H160v107Zm0 187h120v-107H160v107Zm0 186h120v-107H160v107Zm200-186h440v-107H360v107Zm0-187h440v-107H360v107ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Z"/></svg>
+        {{tableTitle}}
+      </span>
+        <a class="btn-new float-end me-2" routerLink="../">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M640-200 200-480l440-280v560Zm-80-280Zm0 134v-268L350-480l210 134Z"/></svg>          Retour
+        </a>
+      </caption>
+      <caption class="captionInfos">
+        <span class="b1"><u>Page</u>:  <strong> {{pageIndex}}/{{lastPage}}</strong></span>
+        <span class="b2"><u>Nombre D'enregistrements</u>:
+        <strong>
+          @if (pageItemsCount >= total) {
+            {{total}}
+          } @else {
+            {{pageItemsCount}}/{{total}}
+          }
+        </strong>
+      </span>
+      </caption>
+      <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{column}}</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of rows;trackBy: rowTrackBy">
+        <td title="{{row[dataColumn]}}" *ngFor="let dataColumn of dataColumns">
+          @if (row[dataColumn]===null) {
+            <span class="text-danger fw-bold">Non défini(e)</span>
+          }
+          @if (row[dataColumn] && dataColumn==='image') {
+            <img width="50px" src="{{environment.storageUrl+row[dataColumn]}}" alt="">
+          }@else{
+            {{row[dataColumn]}}
+          }
+        </td>
+        <td class="d-flex justify-content-end">
+          <a class="btn-outline-light btn border  border-2 border-secondary-subtle" title="Créer un compte" [routerLink]="'id/'+row.createId">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#131513"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>          </a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item " >
+            <a class="page-link" [ngClass]="pageIndex<=1?'disabled':''"  (click)="prevPage()">&laquo;</a>
+          </li>
+          @for (page of pageSize; track $index){
+            @if (page<=5 || page>=lastPage-5 ) {
+              <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+            } @else {
+              @if (page>=pageIndex-3 && page<=pageIndex+3){
+                <li class="page-item"><a class="page-link" [ngClass]="pageIndex===page?'disabled':''"   (click)="selectPage(page)">{{page}}</a></li>
+              }
+            }
+          }
+          <li class="page-item">
+            <a class="page-link" [ngClass]="pageIndex===lastPage?'disabled':''" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+
+      </tfoot>
+    </table>
+  </div>
+}
+

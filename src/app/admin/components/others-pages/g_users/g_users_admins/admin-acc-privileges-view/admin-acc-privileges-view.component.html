@@ -1,0 +1,60 @@
+<div class="myContainer">
+  <div class="my-card" *ngIf="dgeUser">
+    <div class="my-card-header">
+      <button title="Reourner à la liste" class="backarr" (click)="goBack()">&#8617;</button>
+      <span>{{titleElement}}</span>
+    </div>
+    <div class="my-card-body">
+      <div class="row">
+        <div class="col-6">
+          <table class="table">
+            <tr>
+              <th>#</th>
+              <td>{{dgeUser.userId}}</td>
+            </tr>
+            <tr>
+              <th>Matricule</th>
+              <td>{{dgeUser.registrationNumber}}</td>
+            </tr>
+            <tr>
+              <th>Photo de profil</th>
+              <td>
+                <img width="70px" src="{{environment.storageUrl+dgeUser.image}}" alt="">
+              </td>
+            </tr>
+            <tr>
+              <th>Nom</th>
+              <td>{{dgeUser.lastname}}</td>
+            </tr>
+            <tr>
+              <th>Prénom</th>
+              <td>{{dgeUser.firstname}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{dgeUser.email}}</td>
+            </tr>
+            <tr>
+              <th>Nom d'utilisateur</th>
+              <td>{{dgeUser.userId}}</td>
+            </tr>
+            <tr>
+              <th>Téléphone</th>
+              <td>{{dgeUser.phone}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-6  card-body card shadow">
+          <div class="form-check" *ngFor="let p of privileges">
+            <input type="checkbox"   class="form-check-input" id="" (change)="togglePrivilege(p.id, $event)" [checked]="hasPrivilege(p.id)">
+            <label class="form-check-label" title="{{p.description}}">{{ p.title }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-card-footer">
+    </div>
+  </div>
+
+</div>

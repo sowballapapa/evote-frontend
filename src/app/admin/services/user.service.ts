@@ -16,6 +16,7 @@ export class UserService {
 
 
   getUser(user:any){
-    return this.http.get(environment.apiUrl+environment.adminSegment+'users/'+user)
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/users/'+user)
   }
+
 }

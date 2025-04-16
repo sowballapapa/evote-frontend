@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {PaginateTableComponent} from "../../../../reusable/paginate-table/paginate-table.component";
+import {AccPaginateTableComponent} from "../../../../reusable/acc-paginate-table/acc-paginate-table.component";
 import {Subject, takeUntil} from 'rxjs';
 import {UserAdminService} from '../../../../../services/comptes/user-admin.service';
 
@@ -7,13 +7,13 @@ import {UserAdminService} from '../../../../../services/comptes/user-admin.servi
   selector: 'app-admin-admin-index',
   standalone: true,
     imports: [
-        PaginateTableComponent
+        AccPaginateTableComponent
     ],
   templateUrl: './admin-admin-index.component.html',
   styleUrl: './admin-admin-index.component.css'
 })
 export class AdminAdminIndexComponent {
-  @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;
+  @ViewChild(AccPaginateTableComponent, {static: true}) paginator!: AccPaginateTableComponent;
   private _unsubscribeAll: Subject<any>;
 
   constructor(private adminService: UserAdminService) {
