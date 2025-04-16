@@ -1,28 +1,28 @@
 import {Component, ViewChild} from '@angular/core';
-import {PaginateTableComponent} from "../../../../reusable/paginate-table/paginate-table.component";
 import {Subject, takeUntil} from 'rxjs';
 import {UserCandidateService} from '../../../../../services/comptes/user-candidate.service';
 import {UserPollingService} from '../../../../../services/comptes/user-polling.service';
+import {AccPaginateTableComponent} from '../../../../reusable/acc-paginate-table/acc-paginate-table.component';
 
 @Component({
   selector: 'app-admin-acc-pollings-index',
   standalone: true,
-    imports: [
-        PaginateTableComponent
-    ],
+  imports: [
+    AccPaginateTableComponent
+  ],
   templateUrl: './admin-acc-pollings-index.component.html',
   styleUrl: './admin-acc-pollings-index.component.css'
 })
 export class AdminAccPollingsIndexComponent {
 
-  @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;
+  @ViewChild(AccPaginateTableComponent, {static: true}) paginator!: AccPaginateTableComponent;
   private _unsubscribeAll: Subject<any>;
 
   constructor(private service: UserPollingService) {
     this._unsubscribeAll = new Subject();
   }
   allUsers:any
-  fetchTitle = "Liste des comptes utilisateurs des candidats"
+  fetchTitle = "Liste des comptes utilisateurs des bureaux de votes"
   isLoading = false;
   lastPage = 1
   currentPage = 1

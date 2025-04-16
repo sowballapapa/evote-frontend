@@ -1,12 +1,86 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {NgIf} from "@angular/common";
+import {
+    NoAccUsersPaginateTableComponent
+} from "../../../../reusable/no-acc-users-paginate-table/no-acc-users-paginate-table.component";
+import {Subject, takeUntil} from 'rxjs';
+import {UserAdminService} from '../../../../../services/comptes/user-admin.service';
+import {UserPollingService} from '../../../../../services/comptes/user-polling.service';
 
 @Component({
   selector: 'app-admin-acc-pollings-create',
   standalone: true,
-  imports: [],
+    imports: [
+        NgIf,
+        NoAccUsersPaginateTableComponent
+    ],
   templateUrl: './admin-acc-pollings-create.component.html',
   styleUrl: './admin-acc-pollings-create.component.css'
 })
 export class AdminAccPollingsCreateComponent {
+
+
+  @ViewChild(NoAccUsersPaginateTableComponent, {static: true}) paginator!: NoAccUsersPaginateTableComponent;
+  private _unsubscribeAll: Subject<any>;
+
+  constructor(private pollingUserService: UserPollingService) {
+    this._unsubscribeAll = new Subject();
+  }
+
+  allUsers:any =[]
+  fetchTitle = "Liste des bureaux de votes sans compte"
+  isLoading = false;
+  lastPage = 1
+  currentPage = 1
+  pageSize = [1]
+  total = 1
+  itemsPerPage = 1
+
+
+  fetch(page:number){
+    this.isLoading = true;
+
+    this.pollingUserService.getNoAccountsUser()
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((res:any) =>{
+        console.log(res);
+        this.allUsers = []
+        this.isLoading = false;
+        this.allUsers = res.data.data;
+        /*this.allUsers.map((user:any)=>{
+          if (user.user_type == "App\\Models\\PollingStation"){
+            user.user_type = "Bureau de Vote";
+          }else{
+            user.user_type = "Electeur";
+          }
+        })*/
+
+        console.log(this.allUsers);
+        this.lastPage = res.data.last_page;
+        this.currentPage = res.data.current_page;
+        this.itemsPerPage = res.data.per_page;
+        this.total = res.data.total;
+        this.pageSize = Array(this.lastPage).fill(1).map((_, i) => {
+          return i + 1;
+        });
+      })
+  }
+  ngOnInit() {
+    // this.fetch(this.page)
+    this.isLoading = true;
+    this.currentPage = 1
+  }
+
+  ngAfterViewInit(){
+    this.paginator.paginate.pipe(takeUntil(this._unsubscribeAll)).subscribe((paginator)=>{
+      this.currentPage = paginator.page;
+      this.fetch(paginator.page);
+    })
+  }
+
+  ngOnDestroy() {
+    this._unsubscribeAll.next(undefined)
+    this._unsubscribeAll.complete()
+  }
 
 }

@@ -1,3 +1,6 @@
 .color-header {
-  color: #dea848;
+  color: rgb(122, 94, 21);
+}
+header{
+  background: linear-gradient(rgb(255, 255, 255), rgb(183, 174, 143));
 }

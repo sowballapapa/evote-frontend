@@ -1,10 +1,10 @@
 
-<app-paginate-table
+<app-acc-paginate-table
   [isLoading]="isLoading"
   [tableTitle] = "fetchTitle"
-  [columns]="['ID','Commune', 'Lieux de votes', 'Nom d\'utilisateur', 'Email', 'Téléphone']"
+  [columns]="['ID','Commune', 'Lieux de votes', 'N° Bureau', 'Nom d\'utilisateur', 'Email', 'Téléphone']"
   [rows]="allUsers"
-  [dataColumns]="['id', 'districtName', 'vplaceName','username', 'email', 'phone']"
+  [dataColumns]="['userId', 'district_name', 'voting_place_name', 'stationNumber', 'username', 'email', 'phone']"
   [lastPage]="lastPage"
   [pageSize]="pageSize"
   [total]="total"

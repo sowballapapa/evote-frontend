@@ -1,1 +1,14 @@
-<p>admin-acc-collectors-index works!</p>
+
+<app-acc-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID', 'Photo de profile','N° CNI', 'Nom', 'Prénom(s)', 'Nom d\'utilisateur', 'Email', 'Téléphone', 'Parti', 'Commune']"
+  [rows]="allUsers"
+  [dataColumns]="['userId', 'user_image', 'cniNumber', 'lastname','firstname','username', 'email', 'phone', 'party_name', 'district_name']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+  [url]="'/admin/users/'"
+/>
+

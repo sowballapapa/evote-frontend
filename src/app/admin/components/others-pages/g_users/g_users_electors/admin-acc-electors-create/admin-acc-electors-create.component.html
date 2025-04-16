@@ -1,1 +1,15 @@
-<p>admin-acc-electors-create works!</p>
+
+<app-no-acc-users-paginate-table
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['ID', 'N° CNI', 'Nom', 'Prénom(s)',  'Date de naissance',  'Lieu de naissance']"
+  [rows]="allUsers"
+  [dataColumns]="['createId', 'cniNumber', 'lastname','firstname', 'birthDate', 'birthPlace']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+/>
+<h3 class="w-100 bg-danger-subtle text-danger-emphasis shadow p-3 text-center border border-secondary-subtle border-3" *ngIf="!allUsers[0]">
+  Aucun électeur sans compte!
+</h3>

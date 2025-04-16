@@ -22,8 +22,8 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, n
     //Erreur Serveur
     message = `Erreur ${err.status} : ${err.message}`
   if (err.status === 401) {
-    message = 'Erreur 401 - Session expirée. Vueillez vous reconnecter.'
-    router.navigateByUrl('/')
+    message = 'Erreur 401 - Session expirée. Veuillez vous reconnecter!'
+    router.navigateByUrl('/session-expiree')
   }
 
   if (err.status === 403) {

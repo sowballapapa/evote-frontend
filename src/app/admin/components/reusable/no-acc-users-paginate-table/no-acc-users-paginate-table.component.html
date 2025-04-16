@@ -1,6 +1,6 @@
 @if (isLoading) {
 
-  <div class="text-success text-center vertical-align" >
+  <div class="text-secondary text-center vertical-align" >
     <div class="spinner-grow" role="status"></div>
     <span class="status ps-3">Chargement...</span>
   </div>
@@ -14,7 +14,8 @@
         {{tableTitle}}
       </span>
         <a class="btn-new float-end me-2" routerLink="../">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M640-200 200-480l440-280v560Zm-80-280Zm0 134v-268L350-480l210 134Z"/></svg>          Retour
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M640-200 200-480l440-280v560Zm-80-280Zm0 134v-268L350-480l210 134Z"/></svg>
+          Retour
         </a>
       </caption>
       <caption class="captionInfos">
@@ -41,7 +42,7 @@
           @if (row[dataColumn]===null) {
             <span class="text-danger fw-bold">Non défini(e)</span>
           }
-          @if (row[dataColumn] && dataColumn==='image') {
+          @if (row[dataColumn] && dataColumn==='image' || dataColumn==='logo') {
             <img width="50px" src="{{environment.storageUrl+row[dataColumn]}}" alt="">
           }@else{
             {{row[dataColumn]}}

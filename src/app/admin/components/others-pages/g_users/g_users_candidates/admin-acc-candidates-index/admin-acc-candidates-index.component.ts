@@ -2,25 +2,27 @@ import {Component, ViewChild} from '@angular/core';
 import {PaginateTableComponent} from '../../../../reusable/paginate-table/paginate-table.component';
 import {Subject, takeUntil} from 'rxjs';
 import {UserCandidateService} from '../../../../../services/comptes/user-candidate.service';
+import {AccPaginateTableComponent} from "../../../../reusable/acc-paginate-table/acc-paginate-table.component";
 
 @Component({
   selector: 'app-admin-acc-candidates-index',
   standalone: true,
-  imports: [
-    PaginateTableComponent
-  ],
+    imports: [
+        AccPaginateTableComponent
+    ],
   templateUrl: './admin-acc-candidates-index.component.html',
   styleUrl: './admin-acc-candidates-index.component.css'
 })
 export class AdminAccCandidatesIndexComponent {
-  @ViewChild(PaginateTableComponent, {static: true}) paginator!: PaginateTableComponent;
+
+  @ViewChild(AccPaginateTableComponent, {static: true}) paginator!: AccPaginateTableComponent;
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private service: UserCandidateService) {
+  constructor(private candidateService: UserCandidateService) {
     this._unsubscribeAll = new Subject();
   }
   allUsers:any
-  fetchTitle = "Liste des comptes utilisateurs des candidats"
+  fetchTitle = "Liste des comptes Candidats"
   isLoading = false;
   lastPage = 1
   currentPage = 1
@@ -31,7 +33,7 @@ export class AdminAccCandidatesIndexComponent {
 
   fetch(page:number){
     this.isLoading = true;
-    this.service.getAll(page)
+    this.candidateService.getAll(page)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((res:any) =>{
         this.isLoading = false;

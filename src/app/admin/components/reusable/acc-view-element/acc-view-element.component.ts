@@ -11,6 +11,7 @@ import {environment} from '../../../../../environments/environment.development';
   standalone: true,
   imports: [
     NgForOf,
+    NgIf,
   ],
   templateUrl: './acc-view-element.component.html',
   styleUrl: './acc-view-element.component.css'

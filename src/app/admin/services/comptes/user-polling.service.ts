@@ -11,6 +11,15 @@ export class UserPollingService {
 
 
   getAll(page:number){
-    return this.http.get(environment.apiUrl+environment.adminSegment+'users/polling-stations?page='+page)
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/acc-polling-stations?page='+page)
+  }
+
+  getNoAccountsUser() {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/no-polling-acc');
+  }
+
+  getOne(id: any) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/acc-polling-stations/'+id);
+
   }
 }

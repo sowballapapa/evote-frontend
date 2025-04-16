@@ -11,6 +11,10 @@ export class UserCandidateService {
 
 
   getAll(page:number){
-    return this.http.get(environment.apiUrl+environment.adminSegment+'users/candidates?page='+page)
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/acc-candidates?page='+page)
+  }
+
+  getNoAccountsUser(page: number) {
+    return this.http.get(environment.apiUrl+environment.adminSegment+'users/no-candidates-acc?page='+page)
   }
 }

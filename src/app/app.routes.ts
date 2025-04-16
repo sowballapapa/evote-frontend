@@ -280,8 +280,16 @@ import {
 import {
   AdminNewUserAdminComponent
 } from './admin/components/others-pages/g_users/g_users_admins/admin-new-user-admin/admin-new-user-admin.component';
+import {Error401Component} from './core/components/errors/error401/error401.component';
+import {
+  AdminAccPollingsViewComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-acc-pollings-view/admin-acc-pollings-view.component';
+import {
+  AdminAccElectorsViewComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-view/admin-acc-electors-view.component';
 
 export const routes: Routes = [
+  {path:'session-expiree', component:Error401Component},
   {path:'unauthorized', component:Erreur403Component},
   {path:'notfound', component:Erreur404Component},
   //routes Guest
@@ -347,13 +355,13 @@ export const routes: Routes = [
               ]},
             {path: 'electeurs', component: AdminAccElectorsBaseComponent, children: [
                 {path: '', component: AdminAccElectorsIndexComponent},
-                {path: 'id/:id', component: AdminAccCandidatesViewComponent},
+                {path: 'id/:id', component: AdminAccElectorsViewComponent},
                 {path: 'nouveau', component: AdminAccElectorsCreateComponent},
                 {path: 'modifier/:id', component: AdminAccElectorsEditComponent}
               ]},
             {path: 'bureaux-de-vote', component: AdminAccPollingsBaseComponent, children: [
                 {path: '', component: AdminAccPollingsIndexComponent},
-                {path: 'id/:id', component: AdminAccPollingsIndexComponent},
+                {path: 'id/:id', component: AdminAccPollingsViewComponent},
                 {path: 'nouveau', component: AdminAccPollingsCreateComponent},
                 {path: 'modifier/:id', component: AdminAccPollingsEditComponent}
               ]},

@@ -1,5 +1,22 @@
-.bg-body-secondary{
-  background-color: rgba(215, 221, 214);
+.my-nav-bg{
+  background-color: rgb(122, 21, 21);
+}
+
+.btn-dropdown{
+  margin-right: 3em;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.nav-link:hover{
+  color: white;
+  text-decoration: underline;
+  background-color: #8a2c2c;
+}
+
+ul li .nav-link{
+  color: white;
 }
 
 

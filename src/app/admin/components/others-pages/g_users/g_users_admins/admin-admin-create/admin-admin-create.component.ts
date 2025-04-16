@@ -39,7 +39,7 @@ export class AdminAdminCreateComponent {
   fetch(page:number){
     this.isLoading = true;
 
-    this.adminUserService.getNoAccountsUser()
+    this.adminUserService.getNoAccountsUser(page)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((res:any) =>{
         this.isLoading = false;
@@ -64,6 +64,7 @@ export class AdminAdminCreateComponent {
   }
   ngOnInit() {
     // this.fetch(this.page)
+    this.allUsers=[]
     this.isLoading = true;
     this.currentPage = 1
 
