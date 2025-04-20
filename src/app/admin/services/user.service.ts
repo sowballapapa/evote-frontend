@@ -9,6 +9,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  resetUserPassword(data:any){
+    return this.http.post(environment.apiUrl+environment.adminSegment+'users/reset-acc-password',data)
+  }
+
 
   getAllUsers(page:number){
     return this.http.get(environment.apiUrl+environment.adminSegment+'users?page='+page)

@@ -287,11 +287,38 @@ import {
 import {
   AdminAccElectorsViewComponent
 } from './admin/components/others-pages/g_users/g_users_electors/admin-acc-electors-view/admin-acc-electors-view.component';
+import {
+  AdminNewUserElectorComponent
+} from './admin/components/others-pages/g_users/g_users_electors/admin-new-user-elector/admin-new-user-elector.component';
+import {
+  AdminNewUserCollectorComponent
+} from './admin/components/others-pages/g_users/g_users_collectors/admin-new-user-collector/admin-new-user-collector.component';
+import {
+  AdminNewUserCandidateComponent
+} from './admin/components/others-pages/g_users/g_users_candidates/admin-new-user-candidate/admin-new-user-candidate.component';
+import {
+  AdminNewUserPollingComponent
+} from './admin/components/others-pages/g_users/g_users_pollings/admin-new-user-polling/admin-new-user-polling.component';
+import {ForgotPasswordComponent} from './core/components/forgot-password/forgot-password.component';
+import {ResetPasswordComponent} from './core/components/reset-password/reset-password.component';
+import {authElectionsGuard} from './elections/guards/auth-elections.guard';
+import {electionsGuard} from './elections/guards/elections.guard';
+import {ListElectorsComponent} from './elections/components/list-electors/list-electors.component';
+import {
+  ListElectorsUnvotedComponent
+} from './elections/components/list-electors-unvoted/list-electors-unvoted.component';
+import {ListElectorsVotedComponent} from './elections/components/list-electors-voted/list-electors-voted.component';
+import {ResultsComponent} from './elections/components/results/results.component';
+import {PollingElectorComponent} from './elections/components/polling-elector/polling-elector.component';
+import {CandidateHelpComponent} from './sponsorships/candidate/components/candidate-help/candidate-help.component';
+import {CollectorhelpComponent} from './sponsorships/collector/components/collectorhelp/collectorhelp.component';
+import {ElectorHelpComponent} from './sponsorships/elector/components/elector-help/elector-help.component';
 
 export const routes: Routes = [
   {path:'session-expiree', component:Error401Component},
   {path:'unauthorized', component:Erreur403Component},
   {path:'notfound', component:Erreur404Component},
+  {path:'reset-password', component:ResetPasswordComponent},
   //routes Guest
   {
     path:'',
@@ -311,6 +338,9 @@ export const routes: Routes = [
     component:AdminBaseComponent,
     children:[
       {path:'login', component: AdminLoginComponent, title: 'E-vote | Connexion Administrateur',  canActivate:[adminLoginGuard]},
+      //forgot password
+      {path:'mot-de-passe-oublie', component: ForgotPasswordComponent, title: 'E-vote | Administratreur | Mot de passe oublié'},
+      {path:'mot-de-passe-oublie', component: ForgotPasswordComponent, title: 'E-vote | Administratreur | Mot de passe oublié'},
       {
       path:'',
       canActivateChild:[adminAuthChildGuard],
@@ -345,24 +375,28 @@ export const routes: Routes = [
                 {path: '', component: AdminAccCandidatesIndexComponent},
                 {path: 'id/:id', component: AdminAccCandidatesViewComponent},
                 {path: 'nouveau', component:AdminAccCandidatesCreateComponent},
+                {path:'nouveau/id/:id', component: AdminNewUserCandidateComponent},
                 {path: 'modifier/:id', component: AdminAccCandidatesEditComponent}
               ]},
             {path: 'collecteurs', component: AdminAccCollectorsBaseComponent, children: [
                 {path: '', component: AdminAccCollectorsIndexComponent},
                 {path: 'id/:id', component: AdminAccCollectorsViewComponent},
                 {path: 'nouveau', component:AdminAccCollectorsCreateComponent},
+                {path:'nouveau/id/:id', component: AdminNewUserCollectorComponent},
                 {path: 'modifier/:id', component: AdminAccCollectorsEditComponent}
               ]},
             {path: 'electeurs', component: AdminAccElectorsBaseComponent, children: [
                 {path: '', component: AdminAccElectorsIndexComponent},
                 {path: 'id/:id', component: AdminAccElectorsViewComponent},
                 {path: 'nouveau', component: AdminAccElectorsCreateComponent},
+                {path:'nouveau/id/:id', component: AdminNewUserElectorComponent},
                 {path: 'modifier/:id', component: AdminAccElectorsEditComponent}
               ]},
             {path: 'bureaux-de-vote', component: AdminAccPollingsBaseComponent, children: [
                 {path: '', component: AdminAccPollingsIndexComponent},
                 {path: 'id/:id', component: AdminAccPollingsViewComponent},
                 {path: 'nouveau', component: AdminAccPollingsCreateComponent},
+                {path:'nouveau/id/:id', component: AdminNewUserPollingComponent},
                 {path: 'modifier/:id', component: AdminAccPollingsEditComponent}
               ]},
         ]},
@@ -460,6 +494,7 @@ export const routes: Routes = [
         component: BaseCandidateComponent,
         children: [
           {path: 'connection', component: LoginCandidateComponent, canActivate: [candidateLoginGuard]},
+          {path:'mot-de-passe-oublie', component: ForgotPasswordComponent, title: 'E-vote | Candidat | Mot de passe oublié'},
           {
             path: '',
             canActivateChild: [candidateAuthChildGuard],
@@ -468,6 +503,10 @@ export const routes: Routes = [
               {path: 'mes_infos', component: CandidateInfosComponent, title: 'Mes Infos'},
               {path: 'mes_parrains', component: CandidateElectorsComponent, title: 'Mes Parrains'},
               {path: 'mes_collecteurs', component: CandidateCollectorsComponent, title: 'Mes Collecteurs'},
+              {path:'a-propos', component:AboutEvoteComponent, title: 'A-propos d\'Evote'},
+              {path:'mon_compte', component:AccountComponent, title: 'Mon Compte'},
+              {path:'cni_infos', component:GetCniDatasComponent, title: 'Mes données CNI'},
+              {path:'aide', component:CandidateHelpComponent, title: 'Aide'},
             ]
           }
         ]
@@ -476,6 +515,7 @@ export const routes: Routes = [
         component: CollectorBaseComponent,
         children: [
           {path: 'connection', component: CollectorLoginComponent, canActivate: [collectorLoginGuard]},
+          {path:'mot-de-passe-oublie', component: ForgotPasswordComponent, title: 'E-vote | Collecteur | Mot de passe oublié'},
           {
             path: '',
             canActivateChild: [collectorAuthChildGuard],
@@ -484,6 +524,10 @@ export const routes: Routes = [
               {path: 'mes_infos', component: CollectorInfosComponent, title: 'Mes Infos'},
               {path: 'nos_parrains', component: CollectorElectorsComponent, title: 'Nos Parrains'},
               {path: 'mon_candidat', component: CollectorCandidateComponent, title: 'Mon Candidat'},
+              {path:'a-propos', component:AboutEvoteComponent, title: 'A-propos d\'Evote'},
+              {path:'mon_compte', component:AccountComponent, title: 'Mon Compte'},
+              {path:'cni_infos', component:GetCniDatasComponent, title: 'Mes données CNI'},
+              {path:'aide', component:CollectorhelpComponent, title: 'Aide'},
             ]
           }
         ]
@@ -494,6 +538,7 @@ export const routes: Routes = [
         children:[
           {path: 'connection', component: ElectorLoginComponent, canActivate: [electorLoginGuard]},
           {path: 'inscription', component: ElectorRegisterComponent, canActivate: [electorLoginGuard]},
+          {path:'mot-de-passe-oublie', component: ForgotPasswordComponent, title: 'E-vote | Electeur | Mot de passe oublié'},
           {
             path: '',
             canActivateChild: [electorAuthChildGuard],
@@ -503,6 +548,10 @@ export const routes: Routes = [
               {path: 'mon_candidat', component: ElectorCandidateInfosComponent, title: 'Mon Candidat'},
               {path: 'candidature/:id', component: CandidatureComponent, title: 'Candidature'},
               {path: 'parrainer/:id', component: ParrainerComponent, title: 'Parrainer'},
+              {path:'a-propos', component:AboutEvoteComponent, title: 'A-propos d\'Evote'},
+              {path:'mon_compte', component:AccountComponent, title: 'Mon Compte'},
+              {path:'cni_infos', component:GetCniDatasComponent, title: 'Mes données CNI'},
+              {path:'aide', component:ElectorHelpComponent, title: 'Aide'},
             ]
           }
         ]
@@ -515,9 +564,21 @@ export const routes: Routes = [
     path:'elections-interface',
     component:ElectionsBaseComponent,
     children:[
-      {path:'login', component: PollingStationLoginComponent, title: 'E-vote | Bureaux de Votes| Connexion '},
-      {path: ':id', component: PollingStationHomeComponent, title: 'E-vote | Bureaux de Votes| Accueil'},
-      {path: 'bureau:id/electeur:id', component: VoteComponent, title: 'E-vote | Elections | Vote'}
+      {path:'login', component: PollingStationLoginComponent, title: 'E-vote | Bureaux de Votes| Connexion ', canActivate: [authElectionsGuard]},
+      {path: 'mot-de-passe-oublie', component: ForgotPasswordComponent},
+      {path: '', canActivateChild: [electionsGuard], children: [
+          {path: '', component: PollingStationHomeComponent, title: 'E-vote | Bureaux de Votes| Accueil'},
+          {path:'a-propos', component:AboutEvoteComponent, title: 'A-propos d\'Evote'},
+          {path:'mon_compte', component:AccountComponent, title: 'Mon Compte'},
+          {path: 'liste-electeurs', component: ListElectorsComponent},
+          {path: 'liste-electeurs-ayant-vote', component: ListElectorsVotedComponent},
+          {path: 'liste-electeurs-n-ayant-pas-vote', component: ListElectorsUnvotedComponent},
+          {path: 'id:id', component: PollingElectorComponent},
+          {path: 'urne/:id', component: VoteComponent},
+          {path: 'resultats', component: ResultsComponent},
+          {path: 'electeur/:id', component: VoteComponent, title: 'E-vote | Elections | Vote'},
+        ]},
+
     ]
   }
 ];

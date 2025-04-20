@@ -1,0 +1,37 @@
+.myContainer{
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(360deg, rgba(205, 248, 244, 0.56) 0%, rgba(255, 255, 255, 0.53) 100%);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+}
+.myHeader{
+  grid-area: header;
+  border-bottom: 1px solid #919192;
+  background-color: #787a78;
+}
+.myMain{
+  grid-area: main;
+  background-color: rgba(255, 255, 255, 0.53);
+  width: 90%;
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 15px;
+}
+
+
+.myFooter{
+  grid-area: footer;
+  background-color: rgb(208, 209, 208);
+  padding: 2em;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-top: 1px solid #919192;
+}
+
+@media screen and (max-width: 800px) {
+  .myMain{
+    width: 98%;
+  }
+}
+

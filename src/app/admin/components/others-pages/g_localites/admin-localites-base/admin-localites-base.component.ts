@@ -3,6 +3,7 @@ import {Subject, takeUntil} from 'rxjs';
 import {FilterLocationsService} from '../../../../services/filter-locations.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterLink} from '@angular/router';
+import {NgFor, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-admin-localites-base',
@@ -25,14 +26,10 @@ export class AdminLocalitesBaseComponent {
   votingPlaces!:any
   pollingStations!:any
 
-  regionId =0
-  departmentId = 0
-  districtId = 0
-  municipalityId = 0
-  votingPlaceId = 0
-  pollingStationId = 0
-
   constructor(private locationService:FilterLocationsService) {}
+  trackById(index: number, item: any): number {
+    return item.id;
+  }
 
   fetchAllLocations() {
     this.locationService.getLocations().pipe(

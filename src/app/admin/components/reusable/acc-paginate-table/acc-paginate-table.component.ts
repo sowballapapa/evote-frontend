@@ -6,6 +6,7 @@ import {BehaviorSubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ModalService} from '../../../../core/services/modal.service';
 import {environment} from '../../../../../environments/environment.development';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-acc-paginate-table',
@@ -101,4 +102,14 @@ export class AccPaginateTableComponent {
   }
 
   protected readonly environment = environment;
+
+  userService = inject(UserService)
+  resetPasswordFiled(id:any) {
+    let idRequest= {
+      id: id
+    }
+    this.userService.resetUserPassword(idRequest).subscribe((res:any)=>{
+      this.modalService.show("success", "Mail de réinitialisation envoyé avec succès!")
+    })
+  }
 }

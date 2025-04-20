@@ -1,0 +1,15 @@
+h4{
+  padding: 0.25em;
+  border: #01040d 1px solid;
+  background: #75a6b5;
+  color: #01060d;
+  box-shadow: 1px 1px 1px #01060d;
+  border-radius: 5px;
+}
+
+
+
+
+table td, table th{
+  border: 1px solid #01050d;
+}

@@ -7,29 +7,29 @@
       <div class="card-body">
         <img width="70px" height="70px" src="{{storageUrl+candidate.image}}" alt="Image Candidat">
           <table>
-            <th>
-              <tr>Biography: </tr>
-              <tr>Mot de la campagne: </tr>
-            </th>
-            <td>
-              <tr>{{candidate.biography}}</tr>
-              <tr>{{candidate.campaignWord}}</tr>
-            </td>
+            <tr>
+              <th>Biography: </th>
+              <td>{{candidate.biography}}</td>
+            </tr>
+            <tr>
+              <th>Mot de la campagne: </th>
+              <td>{{candidate.campaignWord}}</td>
+            </tr>
           </table>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
-        <h4><u>Parti</u>: {{party.name}}</h4>
+        <h4><u>Parti</u>: {{candidate.name}}</h4>
       </div>
       <div class="card-body">
-        <img width="100px" height="100px" src="{{storageUrl+party.logo}}" alt="Logo_parti">
-        <b><u>Slogan</u>: </b>{{party.slogan}}
-        <img width="200px" height="350px" src="{{storageUrl+party.ballot}}" alt="Bulletin_parti">
+        <img width="100px" height="100px" src="{{storageUrl+candidate.logo}}" alt="Logo_parti">
+        <b><u>Slogan</u>: </b>{{candidate.slogan}}
+        <img width="200px" height="350px" src="{{storageUrl+candidate.ballot}}" alt="Bulletin_parti">
         <div>
-          <p><b><u>A propos</u>: </b>{{party.description}}</p>
-          <b><u>Programme de campagne</u>: </b> <a href="{{storageUrl+party.campaignProgram}}">Télécharger le fichier ici!</a>
-<!--          <embed src="{{party.campaignProgram}}" type="application/pdf"/>-->
+          <p><b><u>A propos</u>: </b>{{candidate.description}}</p>
+          <b><u>Programme de campagne</u>: </b> <a href="{{storageUrl+candidate.campaignProgram}}">Télécharger le fichier ici!</a>
+<!--          <embed src="{{candidate.campaignProgram}}" type="application/pdf"/>-->
         </div>
       </div>
     </div>

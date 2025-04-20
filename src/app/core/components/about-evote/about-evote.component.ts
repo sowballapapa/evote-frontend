@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './about-evote.component.css'
 })
 export class AboutEvoteComponent {
+  currentYear = new Date().getFullYear();
 
 }

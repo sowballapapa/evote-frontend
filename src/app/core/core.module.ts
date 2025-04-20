@@ -4,6 +4,7 @@ import {UserService} from './services/user.service';
 import {PaginateTableComponent} from './components/paginate-table/paginate-table.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 
 
 
@@ -25,6 +26,7 @@ import {ToastrModule} from 'ngx-toastr';
   exports: [
     UserService,
     PaginateTableComponent,
+    ForgotPasswordComponent
   ],/*
   providers: [
     {

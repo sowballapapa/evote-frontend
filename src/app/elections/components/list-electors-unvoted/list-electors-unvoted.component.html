@@ -1,0 +1,13 @@
+<app-paginate-table
+
+  [isLoading]="isLoading"
+  [tableTitle] = "fetchTitle"
+  [columns]="['N° CNI', 'N° Electeur', 'Nom', 'Prénom(s)','Date de naissance', 'Lieu de naissance']"
+  [rows]="allElectors"
+  [dataColumns]="[ 'cniNumber', 'electorNumber', 'lastname', 'firstname' , 'birthDate', 'birthPlace']"
+  [lastPage]="lastPage"
+  [pageSize]="pageSize"
+  [total]="total"
+  [pageItemsCount]="itemsPerPage"
+  [options] = true
+/>

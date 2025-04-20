@@ -1,0 +1,12 @@
+<header class="navbar container-fluid p-2 mb-0  border-bottom border-3 border-primary">
+  <img src="/assets/LogoDge.jpg" class="float-start img-fluid" width="7%" height="auto">
+  <span class="text-success text-wrap fs-2 fw-bolder text-center ">
+      <h1>Plateforme E-Vote</h1>
+      <h4 *ngIf="!isLoggin" class="text-danger text-decoration-underline">Connexion des bureaux de votes | Elections présidentielles</h4>
+      <h4 *ngIf="isLoggin" class="text-danger text-decoration-underline">Elections présidentielles</h4>
+    </span>
+  <img src="/assets/FlagMapOfSenegal.svg" class="float-end img-fluid" width="7%" height="auto">
+</header>
+<div class="mt-0 w-100" *ngIf="isLoggin">
+  <app-poll-navbar />
+</div>

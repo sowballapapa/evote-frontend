@@ -16,4 +16,8 @@ export class UserElectorService {
   getNoAccountsUser(page:any) {
     return this.http.get(environment.apiUrl+environment.adminSegment+'users/no-electors-acc?page='+page);
   }
+
+  create(data:any) {
+    return this.http.post(environment.apiUrl+environment.adminSegment+'users/acc-electors', data)
+  }
 }

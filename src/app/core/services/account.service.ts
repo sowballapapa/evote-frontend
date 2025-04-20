@@ -24,4 +24,12 @@ export class AccountService {
   resetPassword(user:any){
     return this.http.post(`${environment.apiUrl}/set-user-password`, user)
   }
+
+  forgotPassword(user:any){
+    return this.http.post(`${environment.apiUrl}/forgot-password`, user)
+  }
+
+  resetPasswordToken(user:any){
+    return this.http.post(`${environment.apiUrl}/reset-password`, user)
+  }
 }

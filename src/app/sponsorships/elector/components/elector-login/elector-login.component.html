@@ -14,14 +14,14 @@
           <!--        <span *ngIf="errors.password" class="text-danger">{{errors.password}}</span>-->
         </div>
         <span class="input-group-text">
-                    <i class="bi " [ngClass]="eyeType?'bi-eye':'bi-eye-slash'" (click)="passwordView()" id="togglePassword"></i>
+                    <i class="bi " [ngClass]="!eyeType?'bi-eye':'bi-eye-slash'" (click)="passwordView()" id="togglePassword"></i>
         </span>
       </div>
       <div class="form-floating">
         <button type="submit" class="btn btn-success fs-4 float-start">Se Connecter</button>
         <div class="float-end">
-          <a routerLink="#">Mot de passe oublié?</a><br>
-          <a routerLink="#">S'inscrire</a>
+          <a routerLink="/parrainages-interface/electeur/mot-de-passe-oublie">Mot de passe oublié?</a><br>
+          <a routerLink="/parrainages-interface/electeur/inscription">S'inscrire</a>
         </div>
       </div>
     </form>

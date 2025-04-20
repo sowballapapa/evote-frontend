@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './admin-help.component.css'
 })
 export class AdminHelpComponent {
+    currentYear = new Date().getFullYear();
 
 }

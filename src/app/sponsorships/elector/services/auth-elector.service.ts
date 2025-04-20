@@ -18,6 +18,10 @@ export class AuthElectorService {
     return this.http.post(`${environment.apiUrl}/elector/register`,registerData)
   }
 
+  registerSearchElector(cniNumber:any){
+    return this.http.post(`${environment.apiUrl}/elector/register-search-elector`,cniNumber)
+  }
+
   logout(){
     return this.http.post(`${environment.apiUrl}/elector/logout`, {})
   }

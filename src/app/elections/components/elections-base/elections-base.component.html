@@ -1,1 +1,13 @@
-<p>elections-base works!</p>
+
+<div class="myContainer">
+  <div class="myHeader">
+    <app-poll-header/>
+  </div>
+  <div class="myMain  border-2 border-primary border-top  border-bottom shadow">
+    <router-outlet/>
+  </div>
+  <div class="myFooter">
+    <app-poll-footer *ngIf="isLoggedIn"/>
+  </div>
+
+</div>

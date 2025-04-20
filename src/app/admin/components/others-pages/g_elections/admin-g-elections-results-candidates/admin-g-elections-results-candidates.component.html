@@ -1,1 +1,47 @@
-<p>admin-g-elections-results-candidates works!</p>
+@if (isLoading) {
+
+  <div class="text-info text-center vertical-align" >
+    <div class="spinner-grow" role="status"></div>
+    <span class="status ps-3">Chargement de la liste des candidats et leur statut de participation...</span>
+  </div>
+}@else{
+  <div class="myContainer flex-wrap ">
+    <table class="table-bordered table-responsive">
+      <caption class="captionTitle">
+      <span class="ms-2 text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M360-240h440v-107H360v107ZM160-613h120v-107H160v107Zm0 187h120v-107H160v107Zm0 186h120v-107H160v107Zm200-186h440v-107H360v107Zm0-187h440v-107H360v107ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Z"/></svg>
+        Les réultats des élections présidentielles
+      </span>
+      </caption>
+      <caption class="captionInfos fs-5">
+        <span class="b1"><u>Taux de participation</u>:  <strong>{{participationRate|percent:'1.2-2'}} </strong></span>
+        <span class="b2"><u>Nombre de voix répertoriées</u>:
+        <strong>{{participations}}</strong>
+      </span>
+      </caption>
+      <thead class="bg-light">
+      <tr>
+        <th>Rang</th>
+        <th>Bulletin</th>
+        <th>Parti ou Coalition</th>
+        <th>Nombre de voix</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let result of results" >
+        <td>{{result.rank}}</td>
+        <td>
+          <img width="70px" src="{{environment.storageUrl+result.ballot}}" alt="">
+        </td>
+        <td>{{result.name}}</td>
+        <td class="text-primary fw-bold">
+            {{result.overall}}
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+  </div>
+}
+

@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {ModalService} from '../../../../core/services/modal.service';
 import {Field} from '../view-element/view-element.component';
 import {environment} from '../../../../../environments/environment.development';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-acc-view-element',
@@ -42,6 +43,17 @@ export class AccViewElementComponent {
 
   }
 
+  userService = inject(UserService)
+
+
+  resetPassword(id:any) {
+    let idRequest= {
+      id: id
+    }
+    this.userService.resetUserPassword(idRequest).subscribe((res:any)=>{
+        this.modalService.show("success", "Mail de réinitialisation envoyé avec succès!")
+   })
+  }
   onDelete(id: any) {
     // if (confirm('Voulez vous vraiment supprimer?')){
     //   this.http.delete(this.url+id,{}).subscribe({
@@ -59,11 +71,6 @@ export class AccViewElementComponent {
   }
 
   protected readonly environment = environment;
-
-  resetPassword(id: any) {
-    return this.router.navigate(['../../reinitialisation-de-mot-de-passe/' + id], {relativeTo: this.route});
-
-  }
 
   privileges(id: any) {
     return this.router.navigate(['../../privileges/' + id], {relativeTo: this.route});

@@ -22,7 +22,7 @@ export class ElectorService {
   }
 
   editElector(id:number, elector:any) {
-    return this.http.put(environment.apiUrl+environment.adminSegment+'electors/'+id, elector);
+    return this.http.post(environment.apiUrl+environment.adminSegment+'electors/'+id, elector);
   }
 
   destroy(id: any) {

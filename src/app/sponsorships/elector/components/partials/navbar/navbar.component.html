@@ -28,10 +28,10 @@
           <ul class="dropdown-menu">
             <li class="disabled text-center bg-light-subtle" *ngIf="elector">{{elector.firstname+' '+ elector.lastname}}</li>
             <hr>
-            <li><a routerLink="/parrainages-interface/candidat/cni_infos" class="dropdown-item" type="button">Mes données CNI</a></li>
-            <li><a routerLink="/parrainages-interface/candidat/mon_compte" class="dropdown-item" type="button">Mon Compte</a></li>
-            <li><a routerLink="/parrainages-interface/candidat/a-propos" class="dropdown-item" disabled>A Propos</a></li>
-            <li><a routerLink="/parrainages-interface/candidat/aide" class="dropdown-item" disabled>Aide?</a></li>
+            <li><a routerLink="/parrainages-interface/electeur/cni_infos" class="dropdown-item" type="button">Mes données CNI</a></li>
+            <li><a routerLink="/parrainages-interface/electeur/mon_compte" class="dropdown-item" type="button">Mon Compte</a></li>
+            <li><a routerLink="/parrainages-interface/electeur/a-propos" class="dropdown-item" disabled>A Propos</a></li>
+            <li><a routerLink="/parrainages-interface/electeur/aide" class="dropdown-item" disabled>Aide?</a></li>
             <hr>
             <li>
               <form (ngSubmit)="logout()">
